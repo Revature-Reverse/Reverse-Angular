@@ -7,12 +7,22 @@ import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { LoginRegisterComponent } from './components/login-register/login-register.component';
+import { UserComponent } from './components/user/user.component';
+import { PostComponent } from './components/post/post.component';
+import { AddPostComponent } from './components/add-post/add-post.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginRegisterComponent,
+    UserComponent,
+    PostComponent,
+    AddPostComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
