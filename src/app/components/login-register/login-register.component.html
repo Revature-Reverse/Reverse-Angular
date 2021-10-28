@@ -1,5 +1,84 @@
 <app-header></app-header>
-
+<img id="background-img" src= "src/assets/rev-logo-part2.jpg"/>
 <mat-card>
     <h1>Thrive in the Re-Verse</h1>
 </mat-card>
+<mat-tab-group id="mat-tab-group">
+    <mat-tab label ="Register">
+      <mat-card style="padding: 40px 70px 50px; width: 600px">
+         
+          <div class="row">
+            <mat-form-field appearance="fill">
+              <mat-label>First Name</mat-label>
+              <input matInput [formControl]="firstName"/>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Last Name</mat-label>
+              <input matInput [formControl]="lastName"/>
+            </mat-form-field>
+          </div>
+
+         
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput [formControl]="email">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Username</mat-label>
+                <input matInput [formControl]="register_userName">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Temporary Password</mat-label>
+              <input type="password" matInput [formControl]="register_password">
+            </mat-form-field>
+    
+          <button (click)="mismatchedPasswords = mismatched_passwords(); register();" mat-raised-button color="primary">Create Profile</button>
+  
+        </mat-card>
+        <div id="mismatched-passwords" *ngIf="mismatchedPasswords">
+          <h3>Passwords do not match.</h3>
+        </div>
+        <div id="successful-registration" *ngIf="response == 'successful-registration'">
+          <h3>You successfully Registered! You can log in now!</h3>
+        </div>
+        <div id="already-registered" *ngIf="response == 'registration-error'">
+          <h3>You are already registered. Please log in.</h3>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Login">
+      <mat-card style="padding: 40px 70px 50px; width: 600px">
+
+        <div class="row">
+          <mat-icon>
+            <span class="material-icons-outlined">
+              badge
+            </span>
+          </mat-icon>
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput [formControl]="login_userName">
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-icon>
+            <span class="material-icons-outlined">
+              vpn_key
+            </span>
+          </mat-icon>
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput [formControl]="login_password">
+          </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" (click)="login()">Log In</button>
+
+        </mat-card>
+        <div id="wrong-creds" *ngIf="response == 'error'">
+          <h3>Oops! Wrong username or password!</h3>
+        </div>
+    </mat-tab>
+
+  </mat-tab-group>
