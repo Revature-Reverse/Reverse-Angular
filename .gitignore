@@ -17,6 +17,7 @@ chrome-profiler-events*.json
 /.idea
 .project
 .rar
+.zip
 .classpath
 .c9/
 *.launch
