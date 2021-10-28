@@ -29,4 +29,19 @@ export class PostService {
 
     return of(this.posts);
   }
+
+  /***
+   *
+   * Function: PostService.deletePost(id : number).
+   * Purpose: Deletes a post with a given id from data storage.
+   * Precondition: A valid data storage is set up.
+   * Postcondition: The post is deleted to data storage.
+   *
+   * @param id The id of the post object that is being deleted.
+   */
+  deletePost(id : number) : Observable<any> {
+    this.posts = this.posts.filter((post) => post.id !== id);
+
+    return of(this.posts);
+  }
 }

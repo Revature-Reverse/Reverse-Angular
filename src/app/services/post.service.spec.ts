@@ -40,5 +40,21 @@ describe('PostService', () => {
     service.savePost(post).subscribe(dbPosts => posts = dbPosts);
 
     expect(posts.length).toEqual(oldPostsLength+1);
-  })
+  });
+
+  /**
+   *
+   * Test: (PostService) #deletePost should delete a post.
+   * Purpose: Tests to see if a post can be deleted through the service.
+   *
+   */
+  it("#deletePost should delete a post", () => {
+    let deletedPostId = 4;
+    let posts = [];
+    let oldPostsLength = service.posts.length;
+
+    service.deletePost(deletedPostId).subscribe(dbPosts => posts = dbPosts);
+
+    expect(posts.length).toEqual(oldPostsLength-1);
+  });
 });
