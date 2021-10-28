@@ -1,0 +1,71 @@
+h1 
+{
+    text-align: center; 
+}
+
+span
+{
+    color: white; 
+    font-weight: bold; 
+}
+
+mat-form-field
+{
+    width: 100%; 
+    background: white;
+    margin: 13px;  
+    border-radius: 7px; 
+}
+
+mat-card
+{
+    background-color: #474C55; 
+}
+
+#register-login
+{
+    display: flex; 
+    justify-content: center; 
+    margin-top: 100px; 
+    background-color: #F26925; 
+    width: 1000px; 
+    border-radius: 10px; 
+    padding: 100px; 
+}
+
+button
+{
+    margin-top: 20px; 
+    background: #474C55; 
+    color: white; 
+    margin-left: 45%; 
+}
+
+.row
+{
+    display: flex; 
+}
+
+#header-container
+{
+    display: flex; 
+    justify-content: center; 
+    width: 1000px; 
+    border-radius: 10px; 
+}
+#center-register-login
+{
+    display: flex; 
+    justify-content: center; 
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: #F26925 !important;
+   }
+
+#center-header
+{
+    display: flex; 
+    justify-content: center; 
+}
