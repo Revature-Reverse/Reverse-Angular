@@ -38,10 +38,25 @@ export class PostService {
    * Postcondition: The post is deleted to data storage.
    *
    * @param id The id of the post object that is being deleted.
+   *
    */
   deletePost(id : number) : Observable<any> {
     this.posts = this.posts.filter((post) => post.id !== id);
 
     return of(this.posts);
+  }
+
+  /***
+   *
+   * Function: PostService.getPost(id : number).
+   * Purpose: Retrieves a post with a given id from data storage.
+   * Precondition: A valid data storage is set up.
+   * Postcondition: The post is retrieved from data storage.
+   *
+   * @param id The id of the post object that is being retrieved.
+   *
+   */
+  getPost(id : number) : Observable<any> {
+    return of(this.posts.find((post) => post.id === id));
   }
 }

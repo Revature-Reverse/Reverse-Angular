@@ -57,4 +57,19 @@ describe('PostService', () => {
 
     expect(posts.length).toEqual(oldPostsLength-1);
   });
+
+  /**
+   *
+   * Test: (PostService) #getPost should retrieve a post.
+   * Purpose: Tests to see if a post can be retrieved through the service.
+   *
+   */
+  it("#getPost should retrieve a post", () => {
+    let retrievedPostId = 1;
+    let post : any;
+
+    service.getPost(retrievedPostId).subscribe(dbPost => post = dbPost);
+
+    expect(post.id).toEqual(retrievedPostId);
+  });
 });
