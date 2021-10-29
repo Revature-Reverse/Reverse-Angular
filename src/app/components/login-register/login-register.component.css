@@ -1,0 +1,80 @@
+h1
+{
+  text-align: center;
+  color: #F26925;
+  -webkit-text-stroke: .2px white;
+}
+
+span
+{
+  color: white;
+  font-weight: bold;
+}
+
+mat-form-field
+{
+  width: 100%;
+  background: white;
+  margin: 13px;
+  border-radius: 7px;
+}
+
+mat-card
+{
+  background-color: #474C55;
+}
+
+#register-login
+{
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  background-color: #F26925;
+  width: 1000px;
+  border-radius: 10px;
+  padding: 150px 100px 50px 100px;
+ /* background-image: url("src/assets/rev-logo-part2.jpg");*/
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1149.48px 400px;
+  background-position-y: 50px;
+  background-position-x: -100px;
+
+}
+
+button
+{
+  margin-top: 20px;
+  background: #474C55;
+  color: white;
+  margin-left: 45%;
+}
+
+.row
+{
+  display: flex;
+}
+
+#header-container
+{
+  display: flex;
+  justify-content: center;
+  width: 1000px;
+  border-radius: 10px;
+}
+#center-register-login
+{
+  display: flex;
+  justify-content: center;
+}
+
+::ng-deep .mat-form-field-label {
+  /*change color of label*/
+  color: #F26925 !important;
+}
+
+#center-header
+{
+  display: flex;
+  justify-content: center;
+}

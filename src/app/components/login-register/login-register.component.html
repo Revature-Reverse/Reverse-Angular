@@ -1,1 +1,48 @@
-<p>login-register works!</p>
+
+
+<mat-tab-group>
+  <form [formGroup]="registrationForm">
+    <mat-tab label="Registration">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput [formControl]="firstName">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput [formControl]="lastName">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>email</mat-label>
+      <input matInput [formControl]="email">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput [formControl]="username">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [formControl]="password">
+    </mat-form-field>
+    <button mat-raised-button (click)="onSubmit()">Register</button>
+    </mat-tab>
+  </form>
+
+  <form [formGroup]="loginForm">
+    <mat-tab label="Login">
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput [formControl]="username">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [formControl]="password">
+      </mat-form-field>
+      <button mat-raised-button (click)="onSave()">Login</button>
+    </mat-tab>
+  </form>
+
+
+
+</mat-tab-group>
+
+
