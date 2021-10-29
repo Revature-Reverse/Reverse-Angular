@@ -16,6 +16,7 @@ export class LoginRegisterComponent implements OnInit {
   password = new FormControl("", [Validators.required]);
   login_username = new FormControl("", [Validators.required]);
   login_password = new FormControl("", [Validators.required]);
+  confirm_password = new FormControl("", [Validators.required]);
 
 
   constructor() { }

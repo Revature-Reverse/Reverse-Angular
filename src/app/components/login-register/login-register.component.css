@@ -16,11 +16,16 @@ span
     font-weight: bold; 
 }
 
+mat-card
+{
+    display: flex; 
+    flex-direction: column; 
+}
+
 mat-form-field
 {
     width: 100%; 
-    background: white;
-    margin: 13px;  
+    background: white; 
     border-radius: 7px; 
 }
 
@@ -55,6 +60,8 @@ button
 .row
 {
     display: flex; 
+    align-items: center; 
+    gap: 1em; 
 }
 
 #header-container
@@ -86,6 +93,7 @@ button
     display: flex; 
     justify-content: center; 
 }
+
 #login-button
 {
     width: 200px; 
