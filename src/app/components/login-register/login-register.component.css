@@ -1,80 +1,88 @@
-h1 
+:host::ng-deep .mat-tab-body-content{
+  overflow: hidden;
+
+}
+h1
 {
-    text-align: center; 
+    text-align: center;
     color: #F26925;
-    font-weight: bold; 
+    font-weight: bold;
 }
 
 #re-verse
 {
-    color: #474C55; 
+    color: #474C55;
 }
 
 span
 {
-    color: white; 
-    font-weight: bold; 
+    color: white;
+    font-weight: bold;
 }
 
+mat-tab-body{
+}
 mat-card
 {
-    display: flex; 
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+    overflow: hidden;
 }
 
 mat-form-field
 {
-    width: 100%; 
-    background: white; 
-    border-radius: 7px; 
+    width: 100%;
+    background: white;
+    border-radius: 7px;
 }
 
 #register-login
 {
-    display: flex; 
-    justify-content: center; 
-    margin-top: 100px; 
-    background-color: #F26925; 
-    width: 1000px; 
-    border-radius: 10px; 
-    padding: 150px 100px 50px 100px; 
-    background-image: url("src/assets/rev-logo-part3.jpg"); 
-    background-repeat: no-repeat; 
-    background-position: center;  
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    background-color: #F26925;
+    width: 1000px;
+    border-radius: 10px;
+    padding: 150px 100px 50px 100px;
+    background-image: url("src/assets/rev-logo-part3.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: 900px 300px;
     background-position-y: 90px;
-    background-position-x: 50px;  
+    background-position-x: 50px;
 
 }
 
 button
 {
-    margin-top: 20px; 
-    background: #474C55; 
-    color: white; 
-    margin-left: 45%; 
-    padding: 10px; 
-    border-radius: 10px; 
+    margin-top: 20px;
+    background: #474C55;
+    color: white;
+    margin-left: 45%;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .row
 {
-    display: flex; 
-    align-items: center; 
-    gap: 1em; 
+    display: flex;
+    align-items: center;
+    gap: 1em;
 }
 
 #header-container
 {
-    display: flex; 
-    justify-content: center; 
-    width: 1000px; 
-    border-radius: 10px; 
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+    border-radius: 10px;
 }
 #center-register-login
 {
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
 }
 
 ::ng-deep .mat-form-field-label {
@@ -84,42 +92,42 @@ button
 
 #center-header
 {
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
 }
 
 .button-flex-container
 {
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
 }
 
 #login-button
 {
-    width: 200px; 
-    height: 100px; 
-    background-image: url("src/assets/login.jpg"); 
-    background-position: center; 
-    background-size: 100px; 
-    background-repeat: no-repeat; 
-    border-radius: 20px; 
-    margin-top: 20px; 
+    width: 200px;
+    height: 100px;
+    background-image: url("src/assets/login.jpg");
+    background-position: center;
+    background-size: 100px;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    margin-top: 20px;
 }
 
 #login-tab-header, #register-tab-header
 {
-    width: 90px; 
-    border-radius: 10px; 
+    width: 90px;
+    border-radius: 10px;
 }
 
 .submit-button
 {
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 
 #register-button
 {
-    width: 100px; 
-    border-radius: 10px; 
-    margin-top: 20px; 
+    width: 100px;
+    border-radius: 10px;
+    margin-top: 20px;
 }
