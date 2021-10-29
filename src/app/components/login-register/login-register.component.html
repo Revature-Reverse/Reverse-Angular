@@ -7,7 +7,10 @@
 <div id="center-register-login">
 <div id="register-login" fxLayout="row" fxLayoutAlign="center center">
   <mat-tab-group id="mat-tab-group">
-      <mat-tab label ="Register" class="mat-tab-label">
+      <mat-tab label ="Register">
+        <ng-template mat-tab-label>
+          <img id="register-tab-header" src="../assets/register-tab.JPG">
+        </ng-template>
         <mat-card style="padding: 40px 70px 50px; width: 600px">
     
           <div class="row">
@@ -38,11 +41,17 @@
     
           </mat-card>
 
-          <button mat-raised-button>Register</button>
+          <!-- <button mat-raised-button>Register</button> -->
+          <div class="button-flex-container">
+            <img id="register-button" src="../assets/register-tab.JPG">
+          </div>
 
       </mat-tab>
 
       <mat-tab label="Login">
+        <ng-template mat-tab-label>
+          <img id="login-tab-header" src="../assets/logIn.JPG">
+        </ng-template>
         <mat-card style="padding: 40px 70px 50px; width: 600px">
 
           <div class="row">
@@ -60,11 +69,10 @@
           </div>
 
           </mat-card>
-          <div id="login-button-flex-container">
-            <div id="login-button"></div>
+          <div class="button-flex-container">
+            <img id="login-tab-header" class="submit-button" src="../assets/logIn.JPG">
           </div>
-          
-          
+         
       </mat-tab>
 
   </mat-tab-group>

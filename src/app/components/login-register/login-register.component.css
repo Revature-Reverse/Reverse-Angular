@@ -81,7 +81,7 @@ button
     justify-content: center; 
 }
 
-#login-button-flex-container
+.button-flex-container
 {
     display: flex; 
     justify-content: center; 
@@ -95,5 +95,23 @@ button
     background-size: 100px; 
     background-repeat: no-repeat; 
     border-radius: 20px; 
+    margin-top: 20px; 
+}
+
+#login-tab-header, #register-tab-header
+{
+    width: 90px; 
+    border-radius: 10px; 
+}
+
+.submit-button
+{
+    margin-top: 20px; 
+}
+
+#register-button
+{
+    width: 100px; 
+    border-radius: 10px; 
     margin-top: 20px; 
 }
