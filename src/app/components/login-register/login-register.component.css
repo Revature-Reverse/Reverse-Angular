@@ -33,12 +33,12 @@ mat-card
     width: 1000px; 
     border-radius: 10px; 
     padding: 150px 100px 50px 100px; 
-    background-image: url("src/assets/rev-logo-part2.jpg"); 
+    background-image: url("src/assets/rev-logo-part3.jpg"); 
     background-repeat: no-repeat; 
     background-position: center;  
-    background-size: 1149.48px 400px;
-    background-position-y: 50px;
-    background-position-x: -100px;  
+    background-size: 900px 300px;
+    background-position-y: 90px;
+    background-position-x: 50px;  
 
 }
 
@@ -48,6 +48,8 @@ button
     background: #474C55; 
     color: white; 
     margin-left: 45%; 
+    padding: 10px; 
+    border-radius: 10px; 
 }
 
 .row
@@ -77,4 +79,20 @@ button
 {
     display: flex; 
     justify-content: center; 
+}
+
+#login-button-flex-container
+{
+    display: flex; 
+    justify-content: center; 
+}
+#login-button
+{
+    width: 200px; 
+    height: 100px; 
+    background-image: url("src/assets/login.jpg"); 
+    background-size: 80px; 
+    background-repeat: no-repeat; 
+    border-radius: 20px; 
+    margin-top: 20px; 
 }
