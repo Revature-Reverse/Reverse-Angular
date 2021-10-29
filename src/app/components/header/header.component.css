@@ -21,10 +21,10 @@
   cursor: pointer;
 }
 .brandname span:first-child{
-  color: #474C55;
+  color: var(--darkgray);
 }
 .brandname span:nth-child(2){
-  color: #F26925;
+  color: var(--orange);
 }
 mat-toolbar{
   background-color: #F7F7F7;

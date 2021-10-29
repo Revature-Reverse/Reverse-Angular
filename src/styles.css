@@ -2,6 +2,14 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+  --orange: #f26925;
+  --white: #ffffff;
+  --darkgray: #474C55;
+  --blue:#72a4c2;
+  --yellow: #FCB414;
+  --lightgray: #b9b9ba;
+}
 
 @font-face {
   font-family: Futura;
