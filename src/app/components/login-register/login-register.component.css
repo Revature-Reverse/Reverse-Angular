@@ -91,7 +91,8 @@ button
     width: 200px; 
     height: 100px; 
     background-image: url("src/assets/login.jpg"); 
-    background-size: 80px; 
+    background-position: center; 
+    background-size: 100px; 
     background-repeat: no-repeat; 
     border-radius: 20px; 
     margin-top: 20px; 
