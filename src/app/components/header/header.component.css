@@ -1,3 +1,43 @@
 .example-spacer {
-  flex: 1 1 auto;
+  flex: .05 .05 auto;
+}
+
+.logo{
+  border-right: 1px solid black;
+  padding: 0px 7px 0px 7px;
+
+}
+.brandname{
+  font-family: Futura;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 15px;
+  letter-spacing: 1px;
+}
+.brandname:hover{
+  cursor: pointer;
+}
+.logo:hover{
+  cursor: pointer;
+}
+.brandname span:first-child{
+  color: #474C55;
+}
+.brandname span:nth-child(2){
+  color: #F26925;
+}
+mat-toolbar{
+  background-color: #F7F7F7;
+}
+input{
+  font-family: "Futura Book";
+  font-weight: normal;
+  flex: .4 .4 auto;
+  padding: 0px 0px 0px 10px;
+  border-radius: 5px;
+  border: 1.5px solid #C9C9C9;
+  height: 25px;
+}
+input:focus{
+  outline: none;
 }
