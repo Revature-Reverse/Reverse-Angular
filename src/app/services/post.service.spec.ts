@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { PostService } from './post.service';
 import {Post} from "../classes/Post";
 
-fdescribe('PostService', () => {
+describe('PostService', () => {
   let service: PostService;
 
   beforeEach(() => {
