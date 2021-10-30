@@ -60,6 +60,29 @@ export class PostService {
     return of(this.posts.find((post) => post.id === id));
   }
 
+
+  /***
+   *
+   * Function: PostService.updatePost(updatedPost : any).
+   * Purpose: Updates a post that is stored in data storage.
+   * Precondition: A valid data storage is set up.
+   * Postcondition: The post object in data storage is updated.
+   *
+   * @param updatedPost The post object being updated.
+   *
+   */
+  updatePost(updatedPost : any) : Observable<any> {
+    this.posts = this.posts.map(post => {
+      if (post.id === updatedPost.id) {
+        return updatedPost;
+      } else {
+        return post;
+      }
+    });
+
+    return of(this.posts.find(post => post.id === updatedPost.id));
+  }
+
   /***
    *
    * Function: PostService.getPostsByUser(userId : number).

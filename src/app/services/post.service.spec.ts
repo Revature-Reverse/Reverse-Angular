@@ -51,11 +51,10 @@ fdescribe('PostService', () => {
   it("#deletePost should delete a post", () => {
     let deletedPostId = 4;
     let posts = [];
-    let oldPostsLength = service.posts.length;
 
     service.deletePost(deletedPostId).subscribe(dbPosts => posts = dbPosts);
 
-    expect(posts.length).toEqual(oldPostsLength-1);
+    expect(posts.length).toEqual(service.posts.length);
   });
 
   /**
@@ -71,6 +70,29 @@ fdescribe('PostService', () => {
     service.getPost(retrievedPostId).subscribe(dbPost => post = dbPost);
 
     expect(post.id).toEqual(retrievedPostId);
+  });
+
+  /**
+   *
+   * Test: (PostService) #updatePost should update a post in data storage.
+   * Purpose: Tests to see if a post can be updated through the service.
+   *
+   **/
+  it("#updatePost should update a post in data storage", () => {
+    let post : any = {
+      id: 2,
+      content: "<h3>I'm not sure I see the advantage of Angular over AngularJS</h3><p>Is there any advantage? Angular" +
+        " seems like AngularJS with extra steps</p><p>EDIT: Sorry, my mistake. I confused AngularJS with JQuery. </p>",
+      user_id: 4,
+    };
+
+    let updatedPost : any;
+
+    service.updatePost(post).subscribe(dbPost => updatedPost = dbPost);
+
+    console.log(updatedPost);
+
+    expect(post).toEqual(updatedPost);
   });
 
   /**
