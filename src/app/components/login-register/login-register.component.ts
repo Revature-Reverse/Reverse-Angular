@@ -11,42 +11,40 @@ import {DummyUsers} from "../../dummy-users";
 })
 export class LoginRegisterComponent implements OnInit {
 
-  // firstName= new FormControl('', [Validators.required]);
-  // lastName= new FormControl("", [Validators.required]);
-  // email= new FormControl("", [Validators.required]);
-  // username= new FormControl("", Validators.required);
-  // password=new FormControl("", [Validators.required]);
+  firstName = new FormControl("", [Validators.required]);
+  lastName = new FormControl("", [Validators.required]);
+  email = new FormControl("", [Validators.required, Validators.email]);
+  userName = new FormControl("", [Validators.required]);
+  password = new FormControl("", [Validators.required, Validators.minLength(6)]);
+  confirm_password = new FormControl("", [Validators.required]);
+
+  registrationForm = new FormGroup({
+    firstName: this.firstName,
+    lastName: this.lastName,
+    email: this.email,
+    userName: this.userName,
+    password: this.password,
+    confirm_password: this.confirm_password,
+  })
+  loginForm = new FormGroup({
+    firstName: this.firstName,
+    lastName: this.lastName,
+  })
+
+  // loginForm = this.fb.group({
+  //   userName = ["", [Validators.required]],
+  //   password = ["", Validators.minLength(8)],
+  // })
   //
-  // registrationForm = new FormGroup({
-  //   firstName: this.firstName,
-  //   lastName: this.lastName,
-  //   email: this.email,
-  //   userName: this.username,
-  //   password: this.password
-  // })
-  // loginForm = new FormGroup({
-  //   username: this.firstName,
-  //   password: this.password
-  // })
-
-
-
-
-
-  registrationForm = this.fb.group({
-    id: [],
-    userName: [null, [Validators.required]],
-    firstName: [null, [Validators.required]],
-    lastName: [null, [Validators.required]],
-    password: [null, Validators.minLength(8), Validators.maxLength(15)],
-    email: ['', [Validators.minLength(5), Validators.maxLength(30), Validators.email]],
-  });
-
-  loginForm = this.fb.group({
-    userName: [null, [Validators.required]],
-    password: [null, [Validators.required]],
-  });
-
+  // registrationForm = this.fb.group({
+  //   //id = [],
+  //   firstName = [null, [Validators.required]],
+  //   lastName = [null, [Validators.required]],
+  //   email = ['', [Validators.minLength(5), Validators.maxLength(30), Validators.email]],
+  //   userName = [null, [Validators.required]],
+  //   password = [null, Validators.minLength(8)],
+  //   confirm_password = [null, Validators.minLength(8)],
+  // });
 
   user: DummyUsers= new class implements DummyUsers {
     email: string | undefined;
@@ -57,15 +55,13 @@ export class LoginRegisterComponent implements OnInit {
   }();
 
   constructor(private userService: UserService,
-              private fb: FormBuilder,
-              private router: Router) { }
+              private router: Router,
+              private fb: FormBuilder){}
 
   ngOnInit(): void {}
 
-
-
   public userLogin(){
-    //this.userService.userLogin(this.user);
+    this.userService.userLogin(this.user);
   }
   public userRegistration(){
     this.userService.userRegistration(this.user)
