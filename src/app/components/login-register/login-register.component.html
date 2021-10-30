@@ -1,43 +1,44 @@
 
 
 <mat-tab-group>
-  <form [formGroup]="registrationForm">
+
+  <form name="registrationForm" role="form" (ngSubmit)="userRegistration()" [formGroup]="registrationForm" >
     <mat-tab label="Registration">
     <mat-form-field appearance="fill">
       <mat-label>First Name</mat-label>
-      <input matInput [formControl]="firstName">
+      <input matInput formControlName="firstName">
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Last Name</mat-label>
-      <input matInput [formControl]="lastName">
+      <input matInput formControlName="lastName">
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>email</mat-label>
-      <input matInput [formControl]="email">
+      <input matInput formControlName="email">
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Username</mat-label>
-      <input matInput [formControl]="username">
+      <input matInput formControlName="userName">
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Password</mat-label>
-      <input matInput [formControl]="password">
+      <input matInput formControlName="password">
     </mat-form-field>
-    <button mat-raised-button (click)="onSubmit()">Register</button>
+    <button mat-raised-button type="submit">Register</button>
     </mat-tab>
   </form>
 
-  <form [formGroup]="loginForm">
+  <form name="loginForm" role="form" (ngSubmit)="userLogin()" [formGroup]="loginForm">
     <mat-tab label="Login">
       <mat-form-field appearance="fill">
         <mat-label>Username</mat-label>
-        <input matInput [formControl]="username">
+        <input matInput formControlName="userName">
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput [formControl]="password">
+        <input matInput formControlName="password">
       </mat-form-field>
-      <button mat-raised-button (click)="onSave()">Login</button>
+      <button mat-raised-button type="submit">Login</button>
     </mat-tab>
   </form>
 
