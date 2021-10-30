@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import POSTS from '../POSTS';
 import { Observable } from "rxjs";
 import { of } from "rxjs"
+import {Post} from "../classes/Post";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
-  posts : any[] = POSTS;
+  posts : Post[] = POSTS;
 
   constructor() {
 
@@ -24,7 +25,7 @@ export class PostService {
    * @param post The post object that is being saved.
    *
    */
-  savePost(post : any) : Observable<any> {
+  savePost(post : Post) : Observable<Post[]> {
     this.posts.push(post);
 
     return of(this.posts);
@@ -40,7 +41,7 @@ export class PostService {
    * @param id The id of the post object that is being deleted.
    *
    */
-  deletePost(id : number) : Observable<any> {
+  deletePost(id : number) : Observable<Post[]> {
     this.posts = this.posts.filter((post) => post.id !== id);
 
     return of(this.posts);
@@ -56,8 +57,8 @@ export class PostService {
    * @param id The id of the post object that is being retrieved.
    *
    */
-  getPost(id : number) : Observable<any> {
-    return of(this.posts.find((post) => post.id === id));
+  getPost(id : number) : Observable<Post | undefined> {
+    return of(this.posts.find((post : Post) => post.id === id));
   }
 
 
@@ -71,7 +72,7 @@ export class PostService {
    * @param updatedPost The post object being updated.
    *
    */
-  updatePost(updatedPost : any) : Observable<any> {
+  updatePost(updatedPost : any) : Observable<Post | undefined> {
     this.posts = this.posts.map(post => {
       if (post.id === updatedPost.id) {
         return updatedPost;
@@ -80,7 +81,7 @@ export class PostService {
       }
     });
 
-    return of(this.posts.find(post => post.id === updatedPost.id));
+    return of(this.posts.find((post : Post) => post.id === updatedPost.id));
   }
 
   /***
@@ -93,7 +94,7 @@ export class PostService {
    * @param userId The ID of the user who's posts are being retrieved.
    *
    */
-  getPostsByUser(userId : number) : Observable<any> {
+  getPostsByUser(userId : number) : Observable<Post[]> {
     this.posts = this.posts.filter(post => post.user_id === userId);
 
     return of(this.posts);
