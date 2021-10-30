@@ -3,7 +3,7 @@ import { of } from 'rxjs';
 
 import { PostService } from './post.service';
 
-describe('PostService', () => {
+fdescribe('PostService', () => {
   let service: PostService;
 
   beforeEach(() => {
@@ -31,7 +31,7 @@ describe('PostService', () => {
     let post : any = {
       id: 4,
       content: "<h3>I got it working!</h3><p>But now there are more issues.</p>",
-      user_id: 3,
+      user_id: 1,
     }
     let posts : any[] = [];
 
@@ -71,5 +71,20 @@ describe('PostService', () => {
     service.getPost(retrievedPostId).subscribe(dbPost => post = dbPost);
 
     expect(post.id).toEqual(retrievedPostId);
+  });
+
+  /**
+   *
+   * Test: (PostService) #getPostsByUser should retrieve a collection of posts.
+   * Purpose: Tests to see if the posts of a user can be retrieved through the service.
+   *
+   **/
+  it("#getPostsByUser should retrieve a collection of posts", () => {
+    let userId = 3;
+    let posts : any[] = [];
+
+    service.getPostsByUser(userId).subscribe(dbPosts => posts = dbPosts);
+
+    expect(posts.length).toEqual(2);
   });
 });

@@ -51,12 +51,28 @@ export class PostService {
    * Function: PostService.getPost(id : number).
    * Purpose: Retrieves a post with a given id from data storage.
    * Precondition: A valid data storage is set up.
-   * Postcondition: The post is retrieved from data storage.
+   * Postcondition: N/A.
    *
    * @param id The id of the post object that is being retrieved.
    *
    */
   getPost(id : number) : Observable<any> {
     return of(this.posts.find((post) => post.id === id));
+  }
+
+  /***
+   *
+   * Function: PostService.getPostsByUser(userId : number).
+   * Purpose: Retrieves an array of posts made by the user with the associated ID.
+   * Precondition: A valid data storage is set up.
+   * Postcondition: N/A.
+   *
+   * @param userId The ID of the user who's posts are being retrieved.
+   *
+   */
+  getPostsByUser(userId : number) : Observable<any> {
+    this.posts = this.posts.filter(post => post.user_id === userId);
+
+    return of(this.posts);
   }
 }
