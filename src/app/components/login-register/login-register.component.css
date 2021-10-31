@@ -11,7 +11,6 @@ h1
 #re-verse
 {
     color: white;
-    /* color: white;  */
     font-family: Arial;
     font-weight: bold;
 }
@@ -28,7 +27,6 @@ h1
 {
     width: 100%;
     height: 150%;
-    /* background: #F26925 ;  */
     background: black;
     opacity: 0.8;
     position: absolute;
@@ -70,12 +68,6 @@ mat-card
     flex-direction: column;
 }
 
-mat-tab
-{
-  /*background-color: #F26925;*/
-
-}
-
 mat-form-field
 {
     width: 100%;
@@ -88,17 +80,9 @@ mat-form-field
 {
     display: flex;
     justify-content: center;
-    /*background-color: #F26925;  */
     width: 1000px;
     border-radius: 10px;
     padding: 90px 100px 50px 100px;
-    /* background-image: url("src/assets/rev-logo-part3.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 900px 300px;
-    background-position-y: 90px;
-    background-position-x: 50px;   */
-
 }
 
 mat-tab-group {
