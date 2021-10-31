@@ -5,7 +5,7 @@ h1
     font-weight: bold;
     z-index: 2;
     font-size: 50px;
-    margin-top: 70px;
+    margin-top: 50px;
 }
 
 #re-verse
@@ -28,7 +28,7 @@ h1
     width: 100%;
     height: 150%;
     background: black;
-    opacity: 0.8;
+    opacity: 0.75;
     position: absolute;
     min-height: 100vh;
     z-index: 1;
@@ -82,7 +82,7 @@ mat-form-field
     justify-content: center;
     width: 1000px;
     border-radius: 10px;
-    padding: 90px 100px 50px 100px;
+    margin-top: 30px; 
 }
 
 mat-tab-group {
@@ -94,7 +94,7 @@ mat-tab-group {
 button
 {
     margin-top: 20px;
-    background: #474C55;
+    background: #F26925;
     color: white;
     margin-left: 45%;
     padding: 10px;
@@ -116,7 +116,7 @@ button
     width: 1000px;
     border-radius: 10px;
 }
-#center-register-login, #center-header
+.button-flex-container, #center-register-login, #center-header
 {
     display: flex;
     justify-content: center;
@@ -132,32 +132,6 @@ button
   overflow: hidden; /* Hide scrollbars */
 }
 
-.button-flex-container
-{
-    display: flex;
-    justify-content: center;
-}
-
-#login-button
-{
-    width: 200px;
-    height: 100px;
-    background-image: url("src/assets/login.jpg");
-    background-position: center;
-    background-size: 100px;
-    background-repeat: no-repeat;
-    border-radius: 20px;
-    margin-top: 20px;
-}
-
-#login-tab-header, #register-tab-header
-{
-    width: 90px;
-    padding-left: 4px;
-    padding-right: 4px;
-    border-radius: 10px;
-}
-
 .submit-button
 {
     margin-top: 20px;
@@ -170,4 +144,31 @@ button
     border-radius: 10px;
     margin-top: 20px;
     margin-bottom: 15px;
+}
+
+
+/* tab styling */
+
+#register-tab-header, #login-tab-header, #reset-tab-header
+{
+    border-radius: 10px 10px 0 0; 
+    margin: 0; 
+}
+
+#register-tab-header, #login-tab-header
+{
+    width: 90px; 
+}
+
+#login-tab-header
+{
+    height: 50px; 
+}
+
+#reset-tab-header
+{
+    width: 121px; 
+    height: 60px; 
+    padding: 5px;  
+
 }

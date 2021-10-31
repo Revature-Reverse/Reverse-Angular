@@ -1,9 +1,6 @@
 <!--<img id="background-img" src= "src/assets/rev-logo-part2.jpg"/>-->
 <div id="container">
   <div class="color-overlay"></div>
-  <!-- <video muted loop id="universe-video" autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
-    <source src="../assets/spinning-galaxy.mp4" type="video/mp4">
-  </video> -->
   <div class="image-positioner">
     <img id="spinning-galaxy-image" src="../assets/galaxy-image.jpg">
   </div>
@@ -51,9 +48,9 @@
             <input type="password" matInput formControlName="confirm_password">
           </mat-form-field>
         </mat-card>
-        <div class="button-flex-container">
+        <!-- <div class="button-flex-container">
           <img id="register-button" src="../assets/register-tab.JPG">
-        </div>
+        </div> -->
 
         <button mat-raised-button (click)="userRegistration()">Register</button>
         </form>
@@ -80,9 +77,9 @@
             </mat-form-field>
           </div>
         </mat-card>
-        <div class="button-flex-container">
+        <!-- <div class="button-flex-container">
           <img id="login-tab-header" class="submit-button" src="../assets/logIn.JPG">
-        </div>
+        </div> -->
 
         <button mat-raised-button (click)="userLogin()">Login</button>
       </form>
@@ -92,7 +89,7 @@
       <mat-tab label="Reset Password">
       <form [formGroup]="resetPasswordForm">
         <ng-template mat-tab-label>
-          <img id="login-tab-header" src="../assets/logIn.JPG">
+          <img id="reset-tab-header" src="../assets/reset.JPG">
         </ng-template>
         <mat-card style="padding: 40px 70px 50px; width: 600px">
           <div class="row">
@@ -103,9 +100,9 @@
           </div>
 
         </mat-card>
-        <div class="button-flex-container">
+        <!-- <div class="button-flex-container">
           <img id="login-tab-header" class="submit-button" src="../assets/logIn.JPG">
-        </div>
+        </div> -->
 
         <button mat-raised-button (click)="resetPassword()">Reset Password</button>
       </form>
