@@ -1,129 +1,139 @@
-h1 
+h1
 {
-    text-align: center; 
+    text-align: center;
     color: #F26925;
     font-weight: bold;
-    z-index: 2; 
-    font-size: 50px; 
-    margin-top: 70px; 
+    z-index: 2;
+    font-size: 50px;
+    margin-top: 70px;
 }
 
 #re-verse
 {
-    color: white; 
+    color: white;
     /* color: white;  */
-    font-family: Arial; 
-    font-weight: bold; 
+    font-family: Arial;
+    font-weight: bold;
 }
 
 #container
 {
-    position: relative; 
-    min-height: 100vh; 
-    width: 100%; 
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
 
 }
 
  .color-overlay
 {
-    width: 100%; 
-    height: 150%; 
+    width: 100%;
+    height: 150%;
     /* background: #F26925 ;  */
-    background: black; 
-    opacity: 0.8;  
-    position: absolute; 
-    min-height: 100vh; 
-    z-index: 1; 
-}   
+    background: black;
+    opacity: 0.8;
+    position: absolute;
+    min-height: 100vh;
+    z-index: 1;
+}
 
 #universe-video
 {
-    position: absolute;  
-    min-width: 280%; 
-    z-index: -1; 
+    position: absolute;
+    min-width: 280%;
+    z-index: -1;
     animation:spin 300s linear infinite;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .image-positioner
 {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @keyframes spin
 {
 	from{transform:rotate(0deg)}
-	to{transform:rotate(360deg)}	
+	to{transform:rotate(360deg)}
 }
 
 span
 {
-    color: white; 
-    font-weight: bold; 
+    color: white;
+    font-weight: bold;
 }
 
 mat-card
 {
-    display: flex; 
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
+}
+
+mat-tab
+{
+  /*background-color: #F26925;*/
+
 }
 
 mat-form-field
 {
-    width: 100%; 
-    background: white; 
-    border-radius: 7px; 
+    width: 100%;
+    background: white;
+    border-radius: 7px;
 }
+
 
 #register-login
 {
-    display: flex; 
-    justify-content: center; 
-    /* background-color: #F26925;  */
-    width: 1000px; 
-    border-radius: 10px; 
-    padding: 150px 100px 50px 100px; 
-    /* background-image: url("src/assets/rev-logo-part3.jpg"); 
-    background-repeat: no-repeat; 
-    background-position: center;  
+    display: flex;
+    justify-content: center;
+    /*background-color: #F26925;  */
+    width: 1000px;
+    border-radius: 10px;
+    padding: 150px 100px 50px 100px;
+    /* background-image: url("src/assets/rev-logo-part3.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: 900px 300px;
     background-position-y: 90px;
     background-position-x: 50px;   */
 
 }
 
-
+mat-tab-group {
+  background-color: white;
+  border-radius: 10px;
+}
 
 button
 {
-    margin-top: 20px; 
-    background: #474C55; 
-    color: white; 
-    margin-left: 45%; 
-    padding: 10px; 
-    border-radius: 10px; 
+    margin-top: 20px;
+    background: #474C55;
+    color: white;
+    margin-left: 45%;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .row
 {
-    display: flex; 
-    align-items: center; 
-    gap: 1em; 
+    display: flex;
+    align-items: center;
+    gap: 1em;
 }
 
 #header-container
 {
-    display: flex; 
-    justify-content: center; 
-    width: 1000px; 
-    border-radius: 10px; 
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+    border-radius: 10px;
 }
 #center-register-login
 {
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
 }
 
 ::ng-deep .mat-form-field-label {
@@ -131,44 +141,53 @@ button
     color: #F26925 !important;
    }
 
+
+#container {
+  overflow: hidden; /* Hide scrollbars */
+}
+
 #center-header
 {
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
 }
 
 .button-flex-container
 {
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
 }
 
 #login-button
 {
-    width: 200px; 
-    height: 100px; 
-    background-image: url("src/assets/login.jpg"); 
-    background-position: center; 
-    background-size: 100px; 
-    background-repeat: no-repeat; 
-    border-radius: 20px; 
-    margin-top: 20px; 
+    width: 200px;
+    height: 100px;
+    background-image: url("src/assets/login.jpg");
+    background-position: center;
+    background-size: 100px;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    margin-top: 20px;
 }
 
 #login-tab-header, #register-tab-header
 {
-    width: 90px; 
-    border-radius: 10px; 
+    width: 90px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 10px;
 }
+
+
 
 .submit-button
 {
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 
 #register-button
 {
-    width: 100px; 
-    border-radius: 10px; 
-    margin-top: 20px; 
+    width: 100px;
+    border-radius: 10px;
+    margin-top: 20px;
 }
