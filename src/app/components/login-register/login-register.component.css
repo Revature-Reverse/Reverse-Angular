@@ -36,7 +36,7 @@ h1
     z-index: 1;
 }
 
-#universe-video
+#spinning-galaxy-image
 {
     position: absolute;
     min-width: 280%;
@@ -173,8 +173,6 @@ button
     padding-right: 4px;
     border-radius: 10px;
 }
-
-
 
 .submit-button
 {
