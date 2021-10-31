@@ -1,11 +1,93 @@
-<mat-tab-group>
-  <mat-tab label="First"> Content 1 </mat-tab>
-  <mat-tab>
-    <ng-template mat-tab-label>
-      <!--<mat-icon svgIcon="revLogo"></mat-icon>-->
-      <img src="assets/icons/REVLOGO.png">
-    </ng-template>
+<!--<img id="background-img" src= "src/assets/rev-logo-part2.jpg"/>-->
+<div id="container">
+  <div class="color-overlay"></div>
+  <!-- <video muted loop id="universe-video" autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
+    <source src="../assets/spinning-galaxy.mp4" type="video/mp4">
+  </video> -->
+  <div class="image-positioner">
+    <img id="universe-video" src="../assets/galaxy-image.jpg">
+  </div>
+  <div id="center-header">
 
-    Content 2 </mat-tab>
-  <mat-tab label="Third"> Content 3 </mat-tab>
-</mat-tab-group>
+  <h1>Thrive in the <span id="re-verse">Re-Verse</span></h1>
+
+  </div>
+  <div id="center-register-login">
+  <div id="register-login" fxLayout="row" fxLayoutAlign="center center">
+    <mat-tab-group id="mat-tab-group">
+        <mat-tab label ="Register">
+          <ng-template mat-tab-label>
+            <img id="register-tab-header" src="../assets/register-tab.JPG">
+          </ng-template>
+          <mat-card style="padding: 40px 70px 50px; width: 600px">
+
+              <div class="row">
+                <mat-form-field appearance="fill">
+                  <mat-label>First Name</mat-label>
+                  <input matInput [formControl]="firstName">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Last Name</mat-label>
+                  <input matInput [formControl]="lastName">
+                </mat-form-field>
+              </div>
+
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Email</mat-label>
+                  <input matInput [formControl]="email">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Username</mat-label>
+                    <input matInput [formControl]="userName">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Password</mat-label>
+                  <input type="password" matInput [formControl]="password">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Confirm Password</mat-label>
+                  <input type="password" matInput [formControl]="confirm_password">
+                </mat-form-field>
+
+            </mat-card>
+
+            <!-- <button mat-raised-button>Register</button> -->
+            <div class="button-flex-container">
+              <img id="register-button" src="../assets/register-tab.JPG">
+            </div>
+
+        </mat-tab>
+
+        <mat-tab label="Login">
+          <ng-template mat-tab-label>
+            <img id="login-tab-header" src="../assets/logIn.JPG">
+          </ng-template>
+          <mat-card style="padding: 40px 70px 50px; width: 600px">
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Username</mat-label>
+                <input matInput [formControl]="login_username">
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput [formControl]="login_password">
+              </mat-form-field>
+            </div>
+
+            </mat-card>
+            <div class="button-flex-container">
+              <img id="login-tab-header" class="submit-button" src="../assets/logIn.JPG">
+            </div>
+
+        </mat-tab>
+
+    </mat-tab-group>
+  </div>
+  </div>
+</div>
