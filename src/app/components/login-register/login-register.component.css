@@ -82,11 +82,10 @@ mat-form-field
     justify-content: center;
     width: 1000px;
     border-radius: 10px;
-    margin-top: 30px; 
+    margin-top: 40px; 
 }
 
 mat-tab-group {
-  background-color: white;
   border-radius: 10px;
   padding-top: 15px;
 }
