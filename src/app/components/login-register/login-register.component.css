@@ -115,12 +115,15 @@ button
     margin-left: 45%;
     padding: 10px;
     border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 #register-button {
   /*padding-bottom: 20px;*/
   margin-bottom: 15px;
 }
+
+
 
 .row
 {
@@ -189,6 +192,7 @@ button
 .submit-button
 {
     margin-top: 20px;
+    margin-bottom: 15px;
 }
 
 #register-button
