@@ -1,17 +1,24 @@
 h1
 {
+  text-align: center;
+  color: #F26925;
+  -webkit-text-stroke: .2px white;
+}
+
+
+mat-form-field
+{
     text-align: center;
     color: #F26925;
     font-weight: bold;
     z-index: 2;
     font-size: 50px;
-    margin-top: 70px;
+    margin-top: 50px;
 }
 
 #re-verse
 {
     color: white;
-    /* color: white;  */
     font-family: Arial;
     font-weight: bold;
 }
@@ -28,15 +35,14 @@ h1
 {
     width: 100%;
     height: 150%;
-    /* background: #F26925 ;  */
     background: black;
-    opacity: 0.8;
+    opacity: 0.75;
     position: absolute;
     min-height: 100vh;
     z-index: 1;
 }
 
-#universe-video
+#spinning-galaxy-image
 {
     position: absolute;
     min-width: 280%;
@@ -70,12 +76,6 @@ mat-card
     flex-direction: column;
 }
 
-mat-tab
-{
-  /*background-color: #F26925;*/
-
-}
-
 mat-form-field
 {
     width: 100%;
@@ -88,21 +88,12 @@ mat-form-field
 {
     display: flex;
     justify-content: center;
-    /*background-color: #F26925;  */
     width: 1000px;
     border-radius: 10px;
-    padding: 90px 100px 50px 100px;
-    /* background-image: url("src/assets/rev-logo-part3.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 900px 300px;
-    background-position-y: 90px;
-    background-position-x: 50px;   */
-
+    margin-top: 40px; 
 }
 
 mat-tab-group {
-  background-color: white;
   border-radius: 10px;
   padding-top: 15px;
 }
@@ -110,7 +101,7 @@ mat-tab-group {
 button
 {
     margin-top: 20px;
-    background: #474C55;
+    background: #F26925;
     color: white;
     margin-left: 45%;
     padding: 10px;
@@ -127,6 +118,7 @@ button
 
 .row
 {
+
     display: flex;
     align-items: center;
     gap: 1em;
@@ -134,12 +126,13 @@ button
 
 #header-container
 {
+
     display: flex;
     justify-content: center;
     width: 1000px;
     border-radius: 10px;
 }
-#center-register-login
+.button-flex-container, #center-register-login, #center-header
 {
     display: flex;
     justify-content: center;
@@ -155,40 +148,6 @@ button
   overflow: hidden; /* Hide scrollbars */
 }
 
-#center-header
-{
-    display: flex;
-    justify-content: center;
-}
-
-.button-flex-container
-{
-    display: flex;
-    justify-content: center;
-}
-
-#login-button
-{
-    width: 200px;
-    height: 100px;
-    background-image: url("src/assets/login.jpg");
-    background-position: center;
-    background-size: 100px;
-    background-repeat: no-repeat;
-    border-radius: 20px;
-    margin-top: 20px;
-}
-
-#login-tab-header, #register-tab-header
-{
-    width: 90px;
-    padding-left: 4px;
-    padding-right: 4px;
-    border-radius: 10px;
-}
-
-
-
 .submit-button
 {
     margin-top: 20px;
@@ -200,4 +159,32 @@ button
     width: 100px;
     border-radius: 10px;
     margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+
+/* tab styling */
+
+#register-tab-header, #login-tab-header, #reset-tab-header
+{
+    border-radius: 10px 10px 0 0; 
+    margin: 0; 
+}
+
+#register-tab-header, #login-tab-header
+{
+    width: 90px; 
+}
+
+#login-tab-header
+{
+    height: 50px; 
+}
+
+#reset-tab-header
+{
+    width: 121px; 
+    height: 60px; 
+    padding: 5px;  
+
 }

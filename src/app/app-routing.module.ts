@@ -7,6 +7,7 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 
 const routes: Routes = [
+
   { path: '', component: HomepageComponent },
   { path: 'login', component: LoginRegisterComponent },
   { path: 'register', component: LoginRegisterComponent },

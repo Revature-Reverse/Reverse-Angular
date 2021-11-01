@@ -11,6 +11,10 @@ import { PostComponent } from './components/post/post.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { AngularMaterialModule } from "./modules/angular-material/angular-material.module";
+import {MatCardModule} from "@angular/material/card";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
@@ -28,10 +32,15 @@ import { AngularMaterialModule } from "./modules/angular-material/angular-materi
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    ReactiveFormsModule, 
-    FormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    HttpClientModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
