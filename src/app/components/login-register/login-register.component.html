@@ -1,1 +1,115 @@
-<p>login-register works!</p>
+<!--<img id="background-img" src= "src/assets/rev-logo-part2.jpg"/>-->
+<div id="container">
+  <div class="color-overlay"></div>
+  <div class="image-positioner">
+    <img id="spinning-galaxy-image" src="../assets/galaxy-image.jpg">
+  </div>
+  <div id="center-header">
+
+  <h1>Thrive in the <span id="re-verse">Re-Verse</span></h1>
+
+  </div>
+  <div id="center-register-login">
+  <div id="register-login" fxLayout="row" fxLayoutAlign="center center">
+    <mat-tab-group id="mat-tab-group">
+<!-- tab group contains two forms, registration and login-->
+<!-- Registration Form begins-->
+
+      <mat-tab label="Register">
+        <form [formGroup]="registrationForm">
+        <ng-template mat-tab-label>
+          <img id="register-tab-header" src="../assets/register-tab.JPG">
+        </ng-template>
+        <mat-card style="padding: 40px 70px 50px; width: 600px">
+          <div class="row">
+            <mat-form-field appearance="fill">
+              <mat-label>First Name</mat-label>
+              <input matInput formControlName ="firstName">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Last Name</mat-label>
+              <input matInput formControlName="lastName">
+            </mat-form-field>
+          </div>
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="userName">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Confirm Password</mat-label>
+            <input type="password" matInput formControlName="confirm_password">
+          </mat-form-field>
+        </mat-card>
+        <!-- <div class="button-flex-container">
+          <img id="register-button" src="../assets/register-tab.JPG">
+        </div> -->
+
+        <button mat-raised-button (click)="userRegistration()">Register</button>
+        </form>
+      </mat-tab>
+
+      <!-- Login Form begins  -->
+
+      <mat-tab label="Login">
+        <form [formGroup]="loginForm">
+        <ng-template mat-tab-label>
+          <img id="login-tab-header" src="../assets/logIn.JPG">
+        </ng-template>
+        <mat-card style="padding: 40px 70px 50px; width: 600px">
+          <div class="row">
+            <mat-form-field appearance="fill">
+              <mat-label>Username</mat-label>
+              <input matInput formControlName="userName">
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field appearance="fill">
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password">
+            </mat-form-field>
+          </div>
+        </mat-card>
+        <!-- <div class="button-flex-container">
+          <img id="login-tab-header" class="submit-button" src="../assets/logIn.JPG">
+        </div> -->
+
+        <button mat-raised-button (click)="userLogin()">Login</button>
+      </form>
+      </mat-tab>
+
+      <!--      reset password  -->
+      <mat-tab label="Reset Password">
+      <form [formGroup]="resetPasswordForm">
+        <ng-template mat-tab-label>
+          <img id="reset-tab-header" src="../assets/reset.JPG">
+        </ng-template>
+        <mat-card style="padding: 40px 70px 50px; width: 600px">
+          <div class="row">
+            <mat-form-field appearance="fill">
+              <mat-label>Username</mat-label>
+              <input matInput formControlName="userName">
+            </mat-form-field>
+          </div>
+
+        </mat-card>
+        <!-- <div class="button-flex-container">
+          <img id="login-tab-header" class="submit-button" src="../assets/logIn.JPG">
+        </div> -->
+
+        <button mat-raised-button (click)="resetPassword()">Reset Password</button>
+      </form>
+      </mat-tab>
+
+
+    </mat-tab-group>
+  </div>
+  </div>
+</div>
