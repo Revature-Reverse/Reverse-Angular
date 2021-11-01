@@ -12,21 +12,20 @@ const routes: Routes = [
   { path: 'login', component: LoginRegisterComponent },
   { path: 'register', component: LoginRegisterComponent },
   {
-    path: 'post/:id',
+    path: 'posts/add',
+    component: AddPostComponent,
+  },
+  {
+    path: 'posts/:id',
     component: PostComponent,
   },
   {
-    path: 'user/:id',
+    path: 'users/:id',
     component: UserComponent,
   },
-  {
-    path: 'post/add',
-    component: AddPostComponent,
-  }
-
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
