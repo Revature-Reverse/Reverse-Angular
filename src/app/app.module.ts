@@ -32,8 +32,8 @@ import {MatInputModule} from "@angular/material/input";
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    ReactiveFormsModule, 
-    FormsModule, 
+    ReactiveFormsModule,
+    FormsModule,
     MatCardModule,
     MatFormFieldModule,
     HttpClientModule,
@@ -42,4 +42,5 @@ import {MatInputModule} from "@angular/material/input";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
