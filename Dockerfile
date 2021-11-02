@@ -4,6 +4,7 @@ WORKDIR /build
 COPY ./ /build
 
 RUN npm install
+RUN npm install -g @angular/cli
 RUN npm run build
 
 FROM nginx:latest

@@ -1,38 +1,52 @@
-h1
-{
-  text-align: center;
-  color: #F26925;
-  -webkit-text-stroke: .2px white;
-}
 
-
-mat-form-field
-{
+:host::ng-deep .mat-tab-body-content{
+    overflow: hidden;
+  
+  }
+  :host::ng-deep .mat-tab-list{
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-grow: 0;
+  
+  }
+  
+  :host::ng-deep .mat-tab-label-container{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  h1
+  {
+    font-family: Futura;
     text-align: center;
     color: #F26925;
     font-weight: bold;
     z-index: 2;
     font-size: 50px;
-    margin-top: 50px;
-}
-
-#re-verse
-{
+    margin-top: 200px;
+  }
+  
+  #re-verse
+  {
     color: white;
-    font-family: Arial;
+    font-family: Futura;
     font-weight: bold;
-}
-
-#container
-{
+  }
+  
+  #container
+  {
     position: relative;
-    min-height: 100vh;
+    height: 100%;
     width: 100%;
-
-}
-
- .color-overlay
-{
+  
+  }
+  
+  .color-overlay
+  {
     width: 100%;
     height: 150%;
     background: black;
@@ -40,66 +54,70 @@ mat-form-field
     position: absolute;
     min-height: 100vh;
     z-index: 1;
-}
-
-#spinning-galaxy-image
-{
+  }
+  
+  #spinning-galaxy-image
+  {
     position: absolute;
     min-width: 280%;
     z-index: -1;
     animation:spin 300s linear infinite;
     overflow: hidden;
-}
-
-.image-positioner
-{
+  }
+  
+  .image-positioner
+  {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-@keyframes spin
-{
-	from{transform:rotate(0deg)}
-	to{transform:rotate(360deg)}
-}
-
-span
-{
+  }
+  
+  @keyframes spin
+  {
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+  }
+  
+  span
+  {
     color: white;
     font-weight: bold;
-}
-
-mat-card
-{
+  }
+  
+  mat-card
+  {
     display: flex;
     flex-direction: column;
-}
-
-mat-form-field
-{
+    height: 420px;
+    justify-content: center;
+  }
+  
+  mat-form-field
+  {
+    font-family: Futura Book;
+  
     width: 100%;
     background: white;
     border-radius: 7px;
-}
-
-
-#register-login
-{
+  }
+  
+  
+  #register-login
+  {
     display: flex;
     justify-content: center;
     width: 1000px;
     border-radius: 10px;
-    margin-top: 40px; 
-}
-
-mat-tab-group {
-  border-radius: 10px;
-  padding-top: 15px;
-}
-
-button
-{
+    margin-top: 40px;
+  }
+  
+  mat-tab-group {
+    border-radius: 10px;
+    padding-top: 15px;
+  }
+  
+  button
+  {
     margin-top: 20px;
     background: #F26925;
     color: white;
@@ -107,77 +125,88 @@ button
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 15px;
-}
-
-.row
-{
-
+    font-family: Futura Heavy;
+  }
+  
+  .row
+  {
     display: flex;
     align-items: center;
     gap: 1em;
-}
-
-#header-container
-{
-
+  }
+  
+  #header-container
+  {
     display: flex;
     justify-content: center;
     width: 1000px;
     border-radius: 10px;
-}
-.button-flex-container, #center-register-login, #center-header
-{
+  }
+  .button-flex-container, #center-register-login, #center-header
+  {
     display: flex;
     justify-content: center;
-}
-
-::ng-deep .mat-form-field-label {
+  }
+  
+  ::ng-deep .mat-form-field-label {
     /*change color of label*/
     color: #F26925 !important;
-   }
-
-
-#container {
-  overflow: hidden; /* Hide scrollbars */
-}
-
-.submit-button
-{
+  }
+  
+  
+  #container {
+    overflow: hidden; /* Hide scrollbars */
+  }
+  
+  .submit-button
+  {
     margin-top: 20px;
     margin-bottom: 15px;
-}
-
-#register-button
-{
+  }
+  
+  #register-button
+  {
     width: 100px;
     border-radius: 10px;
     margin-top: 20px;
     margin-bottom: 15px;
-}
+  }
+  
+  
+  /* tab styling */
+  
+  #register-tab-header
+  {
+    border-radius: 10px 10px 0 0;
+  }
+  
+  #register-tab-header
+  {
+    width: 90px;
+  }
 
-
-/* tab styling */
-
-#register-tab-header, #login-tab-header, #reset-tab-header
-{
-    border-radius: 10px 10px 0 0; 
-    margin: 0; 
-}
-
-#register-tab-header, #login-tab-header
-{
+  #login-tab-header
+  {
     width: 90px; 
-}
-
-#login-tab-header
-{
-    height: 50px; 
-}
-
-#reset-tab-header
-{
-    width: 121px; 
-    height: 60px; 
-    padding: 5px;  
-
-}
+    background-color: var(--orange); 
+    display: flex; 
+    justify-content: center; 
+  }
+  #login-tab-img
+  {
+    width: 70px; 
+  }
+  
+  #login-tab-header
+  {
+    background: var(--orange);
+    border-radius: 10px 10px 0 0; 
+  }
+  
+  #reset-tab-header
+  {
+    width: 121px;
+    height: 60px;
+    padding: 5px;
+  
+  }
