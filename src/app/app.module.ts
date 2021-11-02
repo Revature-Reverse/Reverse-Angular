@@ -16,6 +16,9 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {MatInputModule} from "@angular/material/input";
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { UserPostListComponent } from './user-components/user-post-list/user-post-list.component';
+import { UserDescriptionComponent } from './user-components/user-description/user-description.component';
+import { RelatedUsersComponent } from './user-components/related-users/related-users.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     PostComponent,
     AddPostComponent,
     HomepageComponent,
-    SidebarComponent
+    SidebarComponent,
+    UserPostListComponent,
+    UserDescriptionComponent,
+    RelatedUsersComponent
   ],
   imports: [
     BrowserModule,
