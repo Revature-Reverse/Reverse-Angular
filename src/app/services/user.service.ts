@@ -9,6 +9,9 @@ import {HttpClient} from "@angular/common/http";
 })
 export class UserService {
 
+  users: User[] = []; // empty user repository, try to populate by hardcoding or importing a list
+  currentUser?: User; // user currently logged in
+
   constructor (private httpClient: HttpClient){
   }
 
@@ -19,6 +22,10 @@ export class UserService {
 
   //user-login must match in back-end
   userLogin(user: User){
+    this.currentUser=user;
+    this.users.push(user);
+    console.log(this.currentUser);
+    console.log(this.users)
     return this.httpClient.post<User>("localhost:8080/user-login", user);
   }
 
