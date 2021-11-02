@@ -7,10 +7,18 @@ mat-grid-tile
 
 .flex-container
 {
-    display: flex;
-    flex-direction: column;
     border: 3px solid magenta;
     padding: 25px;
 }
 
+
+.btn-group-vertical{
+  position: absolute;
+}
+
+#middle-col
+{
+    display: flex;
+    flex-direction: column;
+}
 
