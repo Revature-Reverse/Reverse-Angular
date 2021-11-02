@@ -175,20 +175,32 @@
   
   /* tab styling */
   
-  #register-tab-header, #login-tab-header, #reset-tab-header
+  #register-tab-header
   {
     border-radius: 10px 10px 0 0;
-    margin: 0;
   }
   
-  #register-tab-header, #login-tab-header
+  #register-tab-header
   {
     width: 90px;
+  }
+
+  #login-tab-header
+  {
+    width: 90px; 
+    background-color: var(--orange); 
+    display: flex; 
+    justify-content: center; 
+  }
+  #login-tab-img
+  {
+    width: 70px; 
   }
   
   #login-tab-header
   {
-    height: 50px;
+    background: var(--orange);
+    border-radius: 10px 10px 0 0; 
   }
   
   #reset-tab-header
