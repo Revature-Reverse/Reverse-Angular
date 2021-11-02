@@ -17,15 +17,17 @@ export class UserService {
 
   userRegistration(user: User){
     //user-registration must match in back-end
-        return this.httpClient.post<User>("localhost:8080/user-registration", user);
+    this.users.push(user);
+    console.log("current list of users" + this.users);
+
+    return this.httpClient.post<User>("localhost:8080/user-registration", user);
   }
 
   //user-login must match in back-end
   userLogin(user: User){
     this.currentUser=user;
-    this.users.push(user);
-    console.log(this.currentUser);
-    console.log(this.users)
+    console.log("current user logging in" + this.currentUser);
+    console.log(this.users);
     return this.httpClient.post<User>("localhost:8080/user-login", user);
   }
 
