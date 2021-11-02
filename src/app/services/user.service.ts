@@ -35,12 +35,12 @@ export class UserService {
       password: "passwordjerry"
     },
   ]; // empty user repository, try to populate by hardcoding or importing a list
-  currentUser: User | undefined = null; // user currently logged in
+  currentUser: User | undefined = undefined; // user currently logged in
 
-  constructor (private httpClient: HttpClient){
+  constructor(private httpClient: HttpClient) {
   }
 
-  userRegistration(user: User){
+  userRegistration(user: User) {
     //user-registration must match in back-end
     this.users.push(user);
     console.log("Registering User to database.");
@@ -52,10 +52,9 @@ export class UserService {
   }
 
   //user-login must match in back-end
-  userLogin(user: User){
+  userLogin(user: User) {
     this.currentUser = this.users.find((dbUser) => dbUser.userName === user.userName && dbUser.password === user.password);
 
-    console.log(this.currentUser);
     if (this.currentUser) {
       console.log("Logging in User.");
       sessionStorage.setItem('token', JSON.stringify(this.currentUser));
@@ -67,12 +66,21 @@ export class UserService {
     }
   }
 
-  //user-login must match in back-end
-  resetPassword(user: User){
-
-
-    return this.httpClient.post<User>("localhost:8080/reset-password", user);
+  getUserById(userId : number) {
+    let user : User | undefined = this.users.find((dbUser) => dbUser.id === userId);
+    if (this.currentUser) {
+      return of(user);
+    } else {
+      throw new Error("User not found.");
+    }
   }
-}
 
+  // //user-login must match in back-end
+  // resetPassword(user: User){
+  //   let user : User | undefined = this.user;
+  //
+  //
+  //   return this.httpClient.post<User>("localhost:8080/reset-password", user);
+  // }
+}
 
