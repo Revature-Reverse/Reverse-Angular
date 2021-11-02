@@ -1,4 +1,10 @@
 .btn-group-vertical
 {
   position: absolute;
+  top: 10%; 
+}
+
+.users-button
+{
+  background: var(--yellow); 
 }
