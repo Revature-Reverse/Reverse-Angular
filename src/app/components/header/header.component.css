@@ -26,10 +26,10 @@
 .brandname span:nth-child(2){
   color: var(--orange);
 }
-mat-toolbar{
+header{
   background-color: #F7F7F7;
 }
-input{
+.searchbar{
   font-family: "Futura Book";
   font-weight: normal;
   flex: .4 .4 auto;
@@ -38,6 +38,6 @@ input{
   border: 1.5px solid #C9C9C9;
   height: 25px;
 }
-input:focus{
+.searchbar:focus{
   outline: none;
 }
