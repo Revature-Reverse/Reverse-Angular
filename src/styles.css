@@ -1,13 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-*
-{
-    box-sizing: border-box;
-    font-family: Futura; 
+:root {
+  --orange: #f26925;
+  --white: #ffffff;
+  --darkgray: #474C55;
+  --blue:#72a4c2;
+  --yellow: #FCB414;
+  --lightgray: #b9b9ba;
 }
+
+@font-face {
+  font-family: Futura;
+  font-weight: normal;
+  src: url("/assets/fonts/Futura-Std-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: Futura;
+  font-weight: bold;
+  src: url("/assets/fonts/Futura-Std-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: Futura Heavy;
+  src: url("/assets/fonts/Futura-Std-Heavy.otf") format("opentype");
+}
+@font-face {
+  font-family: Futura Book;
+  src: url("/assets/fonts/Futura-Std-Book.otf") format("opentype");
+}
+
+
+

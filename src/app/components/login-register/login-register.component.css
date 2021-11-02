@@ -1,96 +1,114 @@
-h1
-{
-  text-align: center;
-  color: #F26925;
-  -webkit-text-stroke: .2px white;
+
+:host::ng-deep .mat-tab-body-content{
+  overflow: hidden;
+
+}
+:host::ng-deep .mat-tab-list{
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-grow: 0;
+
+}
+
+:host::ng-deep .mat-tab-label-container{
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
 }
 
 
-mat-form-field
+h1
 {
-    text-align: center;
-    color: #F26925;
-    font-weight: bold;
-    z-index: 2;
-    font-size: 50px;
-    margin-top: 50px;
+  font-family: Futura;
+  text-align: center;
+  color: #F26925;
+  font-weight: bold;
+  z-index: 2;
+  font-size: 50px;
+  margin-top: 200px;
 }
 
 #re-verse
 {
-    color: white;
-    font-family: Arial;
-    font-weight: bold;
+  color: white;
+  font-family: Futura;
+  font-weight: bold;
 }
 
 #container
 {
-    position: relative;
-    min-height: 100vh;
-    width: 100%;
+  position: relative;
+  height: 100%;
+  width: 100%;
 
 }
 
- .color-overlay
+.color-overlay
 {
-    width: 100%;
-    height: 150%;
-    background: black;
-    opacity: 0.75;
-    position: absolute;
-    min-height: 100vh;
-    z-index: 1;
+  width: 100%;
+  height: 150%;
+  background: black;
+  opacity: 0.75;
+  position: absolute;
+  min-height: 100vh;
+  z-index: 1;
 }
 
 #spinning-galaxy-image
 {
-    position: absolute;
-    min-width: 280%;
-    z-index: -1;
-    animation:spin 300s linear infinite;
-    overflow: hidden;
+  position: absolute;
+  min-width: 280%;
+  z-index: -1;
+  animation:spin 300s linear infinite;
+  overflow: hidden;
 }
 
 .image-positioner
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes spin
 {
-	from{transform:rotate(0deg)}
-	to{transform:rotate(360deg)}
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
 }
 
 span
 {
-    color: white;
-    font-weight: bold;
+  color: white;
+  font-weight: bold;
 }
 
 mat-card
 {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  height: 420px;
+  justify-content: center;
 }
 
 mat-form-field
 {
-    width: 100%;
-    background: white;
-    border-radius: 7px;
+  font-family: Futura Book;
+
+  width: 100%;
+  background: white;
+  border-radius: 7px;
 }
 
 
 #register-login
 {
-    display: flex;
-    justify-content: center;
-    width: 1000px;
-    border-radius: 10px;
-    margin-top: 40px; 
+  display: flex;
+  justify-content: center;
+  width: 1000px;
+  border-radius: 10px;
+  margin-top: 40px;
 }
 
 mat-tab-group {
@@ -100,41 +118,40 @@ mat-tab-group {
 
 button
 {
-    margin-top: 20px;
-    background: #F26925;
-    color: white;
-    margin-left: 45%;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 15px;
+  margin-top: 20px;
+  background: #F26925;
+  color: white;
+  margin-left: 45%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-family: Futura Heavy;
 }
 
 .row
 {
-
-    display: flex;
-    align-items: center;
-    gap: 1em;
+  display: flex;
+  align-items: center;
+  gap: 1em;
 }
 
 #header-container
 {
-
-    display: flex;
-    justify-content: center;
-    width: 1000px;
-    border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  width: 1000px;
+  border-radius: 10px;
 }
 .button-flex-container, #center-register-login, #center-header
 {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 ::ng-deep .mat-form-field-label {
-    /*change color of label*/
-    color: #F26925 !important;
-   }
+  /*change color of label*/
+  color: #F26925 !important;
+}
 
 
 #container {
@@ -143,16 +160,16 @@ button
 
 .submit-button
 {
-    margin-top: 20px;
-    margin-bottom: 15px;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 #register-button
 {
-    width: 100px;
-    border-radius: 10px;
-    margin-top: 20px;
-    margin-bottom: 15px;
+  width: 100px;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 
@@ -160,24 +177,24 @@ button
 
 #register-tab-header, #login-tab-header, #reset-tab-header
 {
-    border-radius: 10px 10px 0 0; 
-    margin: 0; 
+  border-radius: 10px 10px 0 0;
+  margin: 0;
 }
 
 #register-tab-header, #login-tab-header
 {
-    width: 90px; 
+  width: 90px;
 }
 
 #login-tab-header
 {
-    height: 50px; 
+  height: 50px;
 }
 
 #reset-tab-header
 {
-    width: 121px; 
-    height: 60px; 
-    padding: 5px;  
+  width: 121px;
+  height: 60px;
+  padding: 5px;
 
 }
