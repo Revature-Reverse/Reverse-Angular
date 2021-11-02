@@ -3,6 +3,8 @@ mat-grid-tile
     background: var(--lightgray);
     height: 45%;
     border: 3px solid black;
+    display: flex; 
+    flex-direction: column; 
 }
 
 .flex-container
@@ -15,4 +17,10 @@ mat-grid-tile
 
 .btn-group-vertical{
   position: absolute;
+}
+
+#middle-col
+{
+    display: flex; 
+    flex-direction: column; 
 }
