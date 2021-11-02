@@ -35,7 +35,7 @@ export class UserService {
       password: "passwordjerry"
     },
   ]; // empty user repository, try to populate by hardcoding or importing a list
-  currentUser?: User; // user currently logged in
+  currentUser: User | undefined = null; // user currently logged in
 
   constructor (private httpClient: HttpClient){
   }
@@ -53,13 +53,18 @@ export class UserService {
 
   //user-login must match in back-end
   userLogin(user: User){
-    this.currentUser=user;
-    console.log("Logging in User.");
-    console.log(this.users);
-    sessionStorage.setItem('token', JSON.stringify(this.currentUser));
-    return of(this.currentUser);
+    this.currentUser = this.users.find((dbUser) => dbUser.userName === user.userName && dbUser.password === user.password);
 
-    //return this.httpClient.post<User>("localhost:8080/user-login", user);
+    console.log(this.currentUser);
+    if (this.currentUser) {
+      console.log("Logging in User.");
+      sessionStorage.setItem('token', JSON.stringify(this.currentUser));
+      return of(this.currentUser);
+
+      //return this.httpClient.post<User>("localhost:8080/user-login", user);
+    } else {
+      throw new Error("User not found.");
+    }
   }
 
   //user-login must match in back-end
