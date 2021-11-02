@@ -6,8 +6,9 @@
     </mat-grid-tile>
     <mat-grid-tile colspan="2">
         <div id="flex-container">
-        <app-user-description></app-user-description>
-        <app-user-post-list></app-user-post-list>
+        <app-user-description [user]="user"></app-user-description>
+          //modified 11/02 Jorge [posts]
+        <app-user-post-list [posts]="posts"></app-user-post-list>
         </div>
     </mat-grid-tile>
     <mat-grid-tile><h2>Related Users</h2></mat-grid-tile>
