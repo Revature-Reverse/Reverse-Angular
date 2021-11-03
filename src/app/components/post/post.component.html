@@ -1,1 +1,20 @@
-<p>post works!</p>
+<mat-grid-list cols="4" rowHeight="100%">
+  <mat-grid-tile id="side-nav">
+    <app-sidebar></app-sidebar>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2">
+    <div id="flex-container">
+      <div class="postbody" *ngIf="post">
+        <p>{{post.content}}</p>
+        <p *ngIf="user">{{user.firstName}}</p>
+
+      </div>
+      <div class="postcomments" *ngIf="post">
+        <p>{{post.comments}}</p>
+
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+  </mat-grid-tile>
+</mat-grid-list>

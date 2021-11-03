@@ -11,12 +11,20 @@
     <mat-icon class="searchicon">search</mat-icon>
     <input maxlength="50" class="searchbar">
   </div>
-  <div class="useraccount" *ngIf="!loggedin">
+  <div class="useraccount" *ngIf="!user">
     <div class="useravatarcontainer">
     </div>
     <div class="headerlinks">
       <span routerLink="login" >Login</span>
       <span routerLink="register" >Register</span>
+    </div>
+  </div>
+  <div class="useraccount" *ngIf="user">
+    <div class="useravatarcontainer">
+    </div>
+    <div class="headerlinks">
+      <span routerLink="users/{{user.id}}" >{{user.userName}}</span>
+      <span routerLink="logout" >Logout</span>
     </div>
   </div>
 </mat-toolbar>
