@@ -12,6 +12,9 @@ import POSTS from '../../POSTS';
 })
 export class AddPostComponent implements OnInit {
   medium: any;
+  postform!: FormGroup;
+  post!: Post;
+  title!: String;
 
   constructor(
     private postService: PostService,
@@ -19,18 +22,21 @@ export class AddPostComponent implements OnInit {
   ) {}
 
   ngAfterViewInit() {
-    this.medium = new MediumEditor('.editable', {});
-    // If you wish to add existing HTML into it, you can do it like this.
-    this.medium.setContent('<h2>MediumEditor<h2>');
+    this.medium = new MediumEditor('.editable', {
+      toolbar: {
+        static: true,
+        sticky: true,
+        updateOnEmptySelection: true,
+      },
+    });
   }
-  postform!: FormGroup;
-  post!: Post;
 
   ngOnInit(): void {
     this.postform = this.formBuilder.group({
       content: ['', [Validators.required]],
     });
   }
+
   get f() {
     return this.postform.controls;
   }
@@ -38,7 +44,8 @@ export class AddPostComponent implements OnInit {
   onSubmit() {
     this.post = {
       id: POSTS.length + 1,
-      content: this.f.content.value,
+      title: this.title,
+      content: this.medium.getContent(),
       user_id: 1,
     };
     this.postService
