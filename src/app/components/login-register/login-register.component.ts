@@ -32,11 +32,11 @@ export class LoginRegisterComponent implements OnInit {
     password : ["", Validators.minLength(8)],
   })
   user: User = {
-    email: undefined,
-    firstName: undefined,
-    lastName: undefined,
-    password: undefined,
-    userName: undefined
+    email: '',
+    firstName: '',
+    lastName: '',
+    password: '',
+    userName: ''
   };
 
   constructor(private userService: UserService,

@@ -1,0 +1,74 @@
+.container
+{
+    height: 100vh;
+    margin-top: 70px;
+}
+
+.container h2
+{
+  text-align: center;
+  font-family: Futura;
+  text-align: center;
+  font-weight: bold;
+  z-index: 2;
+  font-size: 20px;
+}
+
+h1
+{
+  font-family: Futura;
+  text-align: center;
+  font-weight: bold;
+  z-index: 2;
+  font-size: 20px;
+}
+
+ul li
+{
+  list-style: none;
+  margin: 10px;
+}
+
+#list_users {
+  border-radius: 10px;
+  background: #ecebeb;
+  margin: 10px;
+  padding: 5px;
+}
+
+#block_container
+{
+  text-align: left;
+  width: 220px;
+  font-family: Futura;
+  font-weight: bold;
+  margin: 30px;
+  display: flex; 
+  gap: 1em; 
+}
+#block1
+{
+  border: 1.5px solid black; 
+  border-radius: 50%;
+}
+
+#block1, #block2, #block3
+{
+  display: flex; 
+  width: 150px;  
+}
+
+
+
+#name-username
+{
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;  
+}
+
+#related-user-img
+{
+  width: 70px; 
+}

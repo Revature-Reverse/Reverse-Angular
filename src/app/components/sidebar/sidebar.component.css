@@ -1,3 +1,8 @@
+mat-icon
+{
+  margin-right: 15px; 
+}
+
 .btn-group-vertical
 {
   position: absolute;
@@ -7,4 +12,7 @@
 .users-button
 {
   background: var(--yellow); 
+  width: 150px; 
 }
+
+

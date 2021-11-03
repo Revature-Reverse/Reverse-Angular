@@ -29,6 +29,7 @@ h3
 {
     background: var(--orange);
     height: 30%;  
+    margin-right: 40px; 
 }
 
 .user-description
