@@ -6,13 +6,13 @@ mat-grid-tile
 
 #flex-container
 {
-    height: 100vh; 
-    margin-top: 10%; 
+    height: 100vh;
+    margin-top: 10%;
     display: flex;
     flex-direction: column;
-    gap: 1em; 
-    padding: 25px; 
-    width: 90%; 
+    gap: 1em;
+    padding: 25px;
+    width: 90%;
 
 }
 
