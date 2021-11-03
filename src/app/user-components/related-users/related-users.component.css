@@ -3,3 +3,8 @@
     height: 100vh; 
     margin-top: 70px; 
 }
+
+.container h2
+{
+    text-align: center; 
+}
