@@ -16,7 +16,36 @@
           </div>
         </div>
       </div>
-
+      <div class="icon-container">
+        <div class="likes-and-posts-icons">
+          <div class="like-icon-with-count">
+            <mat-icon class="like-icon">
+              thumb_up
+            </mat-icon>
+            <p>{{like_count}}</p>
+          </div>
+          <div class="number-of-posts">
+            <mat-icon class="chat-icon">
+              chat_bubble_outline
+            </mat-icon>
+            <p>{{post_count}}</p>
+          </div>
+        </div>
+        <div class="full-open-and-share">
+          <div class="open-in-full-with-text">
+            <mat-icon>
+              open_in_full
+            </mat-icon>
+            <p>Full Post</p>
+          </div>
+          <div class="share">
+            <mat-icon>
+              share
+            </mat-icon>
+            <p>Share</p>
+          </div>
+        </div>
+      </div>
     </mat-tab>
     <mat-tab label="Comments"></mat-tab>
   </mat-tab-group>

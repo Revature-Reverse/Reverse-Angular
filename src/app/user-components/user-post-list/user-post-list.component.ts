@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { PostService } from 'src/app/services/post.service';
 import {Post} from "../../classes/Post";
 
 @Component({
@@ -10,6 +11,9 @@ export class UserPostListComponent implements OnInit {
   time = new Date().toLocaleTimeString(); 
   @Input('posts')
   posts: Post[] =[];
+
+  like_count: number = 20; 
+  post_count: number = 1; 
 
   constructor() { }
 

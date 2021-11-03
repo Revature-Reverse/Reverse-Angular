@@ -47,3 +47,46 @@
 {
     margin: 0; 
 }
+
+.like-icon, .chat-icon
+{
+    margin-left: 20px; 
+    color: var(--orange); 
+}
+
+.like-icon-with-count, .number-of-posts
+{
+    display: flex; 
+    gap: 0.7em; 
+    align-items: flex-start; 
+}
+
+.like-icon-with-count p
+{
+    font-weight: 500; 
+}
+
+.icon-container
+{
+    display: flex; 
+    justify-content: space-between; 
+}
+
+.open-in-full-with-text, .share
+{
+    display: flex; 
+    gap: .8em; 
+}
+
+.full-open-and-share
+{
+    display: flex; 
+    gap: 2em;
+    margin-right: 20px; 
+}
+
+.likes-and-posts-icons
+{
+    display: flex; 
+    gap: 7em; 
+}
