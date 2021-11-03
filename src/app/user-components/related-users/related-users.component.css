@@ -39,16 +39,36 @@ ul li
 #block_container
 {
   text-align: left;
-  width: 200px;
+  width: 220px;
   font-family: Futura;
   font-weight: bold;
   margin: 30px;
+  display: flex; 
+  gap: 1em; 
 }
-#block1, #block2, #block3
+#block1
 {
-  display: inline;
+  border: 1.5px solid black; 
+  border-radius: 50%;
 }
 
-#block3{
-  text-align: center;
+#block1, #block2, #block3
+{
+  display: flex; 
+  width: 150px;  
+}
+
+
+
+#name-username
+{
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;  
+}
+
+#related-user-img
+{
+  width: 70px; 
 }
