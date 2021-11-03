@@ -23,7 +23,7 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.postService.getPostsByUser(parseInt(params.id)).subscribe(post => this.posts = post);
-      this.userService.getByUserId(parseInt(params.id)).subscribe(user => this.user = user);
+      this.userService.getUserById(parseInt(params.id)).subscribe(user => this.user = user);
     })
   }
 }
