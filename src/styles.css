@@ -1,14 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
 
 :root {
   --orange: #f26925;
   --white: #ffffff;
-  --darkgray: #474C55;
-  --blue:#72a4c2;
-  --yellow: #FCB414;
+  --darkgray: #474c55;
+  --blue: #72a4c2;
+  --yellow: #fcb414;
   --lightgray: #b9b9ba;
 }
 
@@ -31,5 +36,5 @@ body { margin: 0; }
   src: url("/assets/fonts/Futura-Std-Book.otf") format("opentype");
 }
 
-
-
+@import "~medium-editor/dist/css/medium-editor.min.css";
+@import "~medium-editor/dist/css/themes/default.min.css";
