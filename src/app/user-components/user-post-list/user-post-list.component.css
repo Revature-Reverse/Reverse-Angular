@@ -28,7 +28,7 @@
 .time-post-container
 {
     background: #ecebeb;
-    padding: 15px;
+    padding: 10px; 
     margin: 15px; 
     border-radius: 10px; 
     display: flex; 
@@ -39,8 +39,9 @@
 {
     display: flex; 
     flex-direction: column; 
-    margin: 15px 15px 15px 5px; 
+    margin: 15px 10px 15px 5px; 
     color: var(--darkgray); 
+    width: 150px; 
 }
 
 .dateTime p
@@ -89,4 +90,9 @@
 {
     display: flex; 
     gap: 7em; 
+}
+
+.icon
+{
+    color: var(--orange); 
 }

@@ -8,7 +8,7 @@ import {Post} from "../../classes/Post";
   styleUrls: ['./user-post-list.component.css']
 })
 export class UserPostListComponent implements OnInit {
-  time = new Date().toLocaleTimeString(); 
+  time = new Date(); 
   @Input('posts')
   posts: Post[] =[];
 
@@ -18,11 +18,5 @@ export class UserPostListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  getDate()
-  {
-    let date: Date = new Date(); 
-    return date.toLocaleDateString('en', { year: 'numeric', month: 'short', day: '2-digit'}); 
   }
 }
