@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { PostService } from './post.service';
 import {Post} from "../classes/Post";
 
-describe('PostService', () => {
+fdescribe('PostService', () => {
   let service: PostService;
 
   beforeEach(() => {
@@ -104,12 +104,26 @@ describe('PostService', () => {
    * Purpose: Tests to see if the posts of a user can be retrieved through the service.
    *
    **/
-  it("#getPostsByUser should retrieve a collection of posts", () => {
+  it("#getPostsByUser should retrieve a collection of posts by the user.", () => {
     let userId = 3;
     let posts : Post[] = [];
 
     service.getPostsByUser(userId).subscribe(dbPosts => posts = dbPosts);
 
     expect(posts.length).toEqual(2);
+  });
+
+  /**
+   *
+   * Test: (PostService) #getRecentPosts should retrieve a collection of recent posts.
+   * Purpose: Tests to see if recent posts can be retrieved through the service.
+   *
+   **/
+  it("#getRecentPosts should retrieve a collection of recent posts", () => {
+    let posts : Post[] = [];
+
+    service.getRecentPosts().subscribe(dbPosts => posts = dbPosts);
+
+    expect(posts.length).toEqual(5);
   });
 });
