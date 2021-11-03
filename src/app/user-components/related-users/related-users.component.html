@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Related Users</h2>
+    <ul id="list_users">
+        <li *ngFor="let user of populateUsers(); let indexOfelement=index;">
+          <div id="block_container">
+            <!-- <div id="block1"><img src="images/{{user.id}}"></div> -->
+            <div id="block1"><img id="related-user-img" src="../assets/favicon/favicon-32x32.png"></div>
+            <div id="name-username">
+              <div id="block2">{{user.firstName}} {{user.lastName}} </div>
+              <div id="block3"> @{{user.userName}}</div>
+            </div>
+
+            <!--<hr *ngIf="indexOfelement <= populateUsers()?.length">-->
+          </div>
+
+          <hr *ngIf="indexOfelement < (populateUsers().length - 1)">
+        </li>
+    </ul>
+</div>

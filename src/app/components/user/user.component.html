@@ -1,1 +1,17 @@
-<p>user works!</p>
+
+<mat-grid-list cols="4" rowHeight="1:1.5">
+    <mat-grid-tile id="side-nav">
+      <app-sidebar></app-sidebar>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+        <div id="flex-container">
+        <app-user-description [user]="user"></app-user-description>
+          <!--//modified 11/02 Jorge [posts]-->
+        <app-user-post-list [posts]="posts"></app-user-post-list>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <app-related-users></app-related-users>
+    </mat-grid-tile>
+</mat-grid-list>
+

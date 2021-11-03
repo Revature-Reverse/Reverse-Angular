@@ -1,18 +1,22 @@
 <mat-toolbar class="header">
-
   <span class="example-spacer"></span>
-
-  <img class="logo" src="assets/Reverse-Brand-Logo-Transparent.png" width="35px" height="35px" routerLink="">
+  <img class="logo" src="assets/Reverse-Brand-Logo-Transparent.png" routerLink="">
   <span class="brandname" routerLink=""><span>RE</span><span>VERSE</span></span>
-
   <span class="example-spacer"></span>
-
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button>
-
   <span class="example-spacer"></span>
+  <div class="searchbar-container">
+    <mat-icon class="searchicon">search</mat-icon>
     <input maxlength="50" class="searchbar">
-
-
+  </div>
+  <div class="useraccount" *ngIf="!loggedin">
+    <div class="useravatarcontainer">
+    </div>
+    <div class="headerlinks">
+      <span routerLink="login" >Login</span>
+      <span routerLink="register" >Register</span>
+    </div>
+  </div>
 </mat-toolbar>

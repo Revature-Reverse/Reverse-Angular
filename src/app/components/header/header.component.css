@@ -3,16 +3,19 @@
 }
 
 .logo{
-  border-right: 1px solid black;
   padding: 0px 7px 0px 7px;
-
+  width: 45px;
+  height: 45px;
 }
 .brandname{
+  border-left: 1.5px solid black;
+  line-height: 30px;
   font-family: Futura;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 25px;
   margin-left: 15px;
-  letter-spacing: 1px;
+  letter-spacing: 1.4px;
+  padding-left: 20px;
 }
 .brandname:hover{
   cursor: pointer;
@@ -26,18 +29,68 @@
 .brandname span:nth-child(2){
   color: var(--orange);
 }
-header{
+.header{
   background-color: #F7F7F7;
+  justify-content: center;
 }
-.searchbar{
-  font-family: "Futura Book";
-  font-weight: normal;
+.searchbar-container{
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
   flex: .4 .4 auto;
-  padding: 0px 0px 0px 10px;
+  padding: 2px 0px 2px 10px;
   border-radius: 5px;
   border: 1.5px solid #C9C9C9;
   height: 25px;
 }
+.searchbar-container:focus{
+  outline: none;
+}
+.searchbar{
+  font-family: "Futura Book";
+  font-size: 14px;
+  width: 100%;
+  border: none;
+  margin-left: 5px;
+}
 .searchbar:focus{
   outline: none;
+}
+.useraccount{
+  display: flex;
+  flex: .2 .2 auto;
+  flex-direction: row;
+  margin-left: 50px;
+  justify-content: flex-start;
+  padding-left: 50px;
+}
+.headerlinks{
+  font-family: Futura;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  line-height: 15px;
+  font-size: 13px;
+  color: var(--darkgray);
+  justify-content: center;
+  padding:0px 10px 0px 10px;
+
+}
+.useravatarcontainer{
+  width: 45px;
+  height: 45px;
+  background-color: #7f7f7f;
+  border-radius: 50%;
+}
+.headerlinks span{
+  animation: .5s;
+}
+.headerlinks span:nth-child(2){
+  color: #7f7f7f
+}
+.headerlinks span:hover{
+  text-decoration: underline 1px solid black;
+  cursor: pointer;
 }

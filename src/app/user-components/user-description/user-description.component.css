@@ -1,0 +1,47 @@
+h2
+{
+    margin-bottom: 0; 
+}
+
+h3
+{
+    margin-top: 0; 
+}
+
+.container
+{
+    display: flex; 
+    gap: 0; 
+    background-color: #ecebeb; 
+    border-radius: 10px; 
+   
+}
+
+.header
+{
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 30px 40px 10px 10px; 
+}
+
+.mat-raised-button
+{
+    background: var(--orange);
+    height: 30%;  
+    margin-right: 40px; 
+}
+
+.user-description
+{
+    font-weight: bold; 
+    padding-right: 30px; 
+}
+
+#user-img
+{
+    width: 100%;
+    border: 2px solid black; 
+    border-radius: 50%;  
+    margin: 55px; 
+}
