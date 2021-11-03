@@ -1,15 +1,54 @@
 .container
 {
-    height: 100vh; 
-    margin-top: 70px; 
+    height: 100vh;
+    margin-top: 70px;
 }
 
 .container h2
 {
-    text-align: center; 
+  text-align: center;
+  font-family: Futura;
+  text-align: center;
+  font-weight: bold;
+  z-index: 2;
+  font-size: 20px;
 }
 
-ul li 
+h1
 {
-    list-style: none; 
+  font-family: Futura;
+  text-align: center;
+  font-weight: bold;
+  z-index: 2;
+  font-size: 20px;
+}
+
+ul li
+{
+  list-style: none;
+  margin: 10px;
+}
+
+#list_users {
+  border-radius: 10px;
+  background: lightgray;
+  margin: 10px;
+  padding: 5px;
+}
+
+#block_container
+{
+  text-align: left;
+  width: 200px;
+  font-family: Futura;
+  font-weight: bold;
+  margin: 30px;
+}
+#block1, #block2, #block3
+{
+  display: inline;
+}
+
+#block3{
+  text-align: center;
 }
