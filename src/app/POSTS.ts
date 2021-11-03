@@ -16,25 +16,29 @@ export default [
               lastName: "Plum"
             }
         }
-      ]
+      ],
+    time: new Date()
   },
   {
     id: 2,
     content: "<h3>I'm not sure I see the advantage of Angular over AngularJS</h3><p>Is there any advantage? Angular" +
       " seems like AngularJS with extra steps</p>",
     user_id: 4,
+    time: new Date()
   },
   {
     id: 3,
     content: "<h3>Vue is objectively the best JavaScript framework</h3><p>It's like the best of both worlds between Angular" +
       " and React</p>",
     user_id: 3,
+    time: new Date()
   },
   {
     id: 4,
     content: "<h3>My S3 key is not working.</h3><p>I've been having issues with my S3 setup. Any Ideas? I put the code below." +
       "<code>Some code here...</code></p>",
     user_id: 3,
+    time: new Date()
   },
   {
     id: 5,
@@ -44,5 +48,6 @@ export default [
       "luctus elit tortor ut justo. Sed ac velit malesuada dolor iaculis facilisis. Nunc eget vehicula dolor, id dignissim t" +
       "urpis. Etiam imperdiet vel risus sed rutrum. Donec ac viverra mi.</p>",
     user_id: 2,
+    time: new Date()
   },
 ];
