@@ -1,3 +1,6 @@
+@import "~medium-editor/dist/css/medium-editor.min.css";
+@import "~medium-editor/dist/css/themes/flat.min.css";
+
 *,
 textarea {
   box-sizing: border-box;
@@ -18,6 +21,7 @@ textarea {
 }
 
 .add-post__textarea {
+  background-color: var(--white);
   border-radius: 0.5rem;
   display: block;
   height: 15rem;

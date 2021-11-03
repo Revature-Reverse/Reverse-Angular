@@ -13,22 +13,7 @@ export class AddPostComponent implements OnInit {
   ngOnInit(): void {}
 
   ngAfterViewInit() {
-    this.medium = new MediumEditor('.editor', {
-      toolbar: {
-        allowMultiParagraphSelection: true,
-        buttons: ['bold', 'italic', 'underline', 'anchor', 'h2', 'h3', 'quote'],
-        diffLeft: 0,
-        diffTop: -10,
-        firstButtonClass: 'medium-editor-button-first',
-        lastButtonClass: 'medium-editor-button-last',
-        standardizeSelectionStart: false,
-        static: true,
-
-        align: 'center',
-        sticky: false,
-        updateOnEmptySelection: false,
-      },
-    });
+    this.medium = new MediumEditor('.editable', {});
     // If you wish to add existing HTML into it, you can do it like this.
     this.medium.setContent('<h2>MediumEditor<h2>');
   }

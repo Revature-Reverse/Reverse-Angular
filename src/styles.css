@@ -35,6 +35,3 @@ body {
   font-family: Futura Book;
   src: url("/assets/fonts/Futura-Std-Book.otf") format("opentype");
 }
-
-@import "~medium-editor/dist/css/medium-editor.min.css";
-@import "~medium-editor/dist/css/themes/default.min.css";
