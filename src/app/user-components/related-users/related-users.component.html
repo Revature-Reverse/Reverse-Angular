@@ -1,8 +1,9 @@
 <div class="container">
     <h2>Related Users</h2>
     <ul>
-        <li *ngFor="let post of populatePosts()">
-            {{post.content}}
+        <li *ngFor="let user of populateUsers()">
+            {{user.firstName}} {{user.lastName}}
+            @{{user.userName}}
         </li>
     </ul>
 </div>
