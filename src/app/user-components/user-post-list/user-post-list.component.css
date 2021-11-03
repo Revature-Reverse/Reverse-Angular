@@ -1,4 +1,25 @@
-mat-tab-group
+
+
+#post-tab-label
 {
-    border: 2px solid black; 
+    background: var(--lightgray); 
+    padding: 15px; 
+    width: 50px;
+    border-radius: 10px 10px 0 0;
+    font-weight: bold; 
+    margin-bottom: -5px; 
+
+}
+
+.post-content
+{
+    background: #ecebeb; 
+    margin: 10px; 
+    border-radius: 10px; 
+    padding: 15px; 
+}
+
+.container
+{
+    background:#f7f7f7; 
 }

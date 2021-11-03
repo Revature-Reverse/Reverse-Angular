@@ -114,6 +114,7 @@
   mat-tab-group {
     border-radius: 10px;
     padding-top: 15px;
+    background: #f5f4f4; 
   }
   
   button
