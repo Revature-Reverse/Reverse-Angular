@@ -1,7 +1,9 @@
 <mat-tab-group>
     <mat-tab label="Posts">
       <!-- temporary : need to design view format (table, cards?) -->
-      <p *ngFor="let post of posts">{{post.content}}</p>
+      <div *ngFor="let post of posts">
+        <div [innerHTML] = "post.content"></div>
+      </div>
 
     </mat-tab>
     <mat-tab label="Comments"></mat-tab>
