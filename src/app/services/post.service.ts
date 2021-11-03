@@ -11,6 +11,7 @@ export class PostService {
 
   posts : Post[] = POSTS;
 
+
   constructor() {
 
   }
