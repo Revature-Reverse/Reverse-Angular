@@ -5,12 +5,25 @@
   <mat-grid-tile colspan="2">
     <div id="flex-container">
       <div class="postbody" *ngIf="post">
+        <div *ngIf="user" class="postuserprofile">
+          <div class="postuserimgcontainer">
+          </div>
+          <div class="postusername">
+            <p>{{user.firstName+" "+user.lastName}} </p>
+            <p>@{{user.userName}}</p>
+          </div>
+        </div>
+
         <p>{{post.content}}</p>
-        <p *ngIf="user">{{user.firstName}}</p>
 
       </div>
       <div class="postcomments" *ngIf="post">
-        <p>{{post.comments}}</p>
+        <div class="commentheader">
+          <p>Comments</p>
+        </div>
+        <p *ngFor="let item of post.comments">
+          {{item.message}}
+        </p>
 
       </div>
     </div>

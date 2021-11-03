@@ -11,6 +11,8 @@
     <mat-icon class="searchicon">search</mat-icon>
     <input maxlength="50" class="searchbar">
   </div>
+  <span class="example-spacer"></span>
+
   <div class="useraccount" *ngIf="!user">
     <div class="useravatarcontainer">
     </div>
@@ -20,11 +22,16 @@
     </div>
   </div>
   <div class="useraccount" *ngIf="user">
-    <div class="useravatarcontainer">
+    <div class="userinfo">
+      <div class="useravatarcontainer">
+      </div>
+      <div class="headerlinks">
+        <span routerLink="users/{{user.id}}" >{{user.userName}}</span>
+        <span routerLink="logout" >Logout</span>
+      </div>
     </div>
-    <div class="headerlinks">
-      <span routerLink="users/{{user.id}}" >{{user.userName}}</span>
-      <span routerLink="logout" >Logout</span>
-    </div>
+    <mat-icon>notifications</mat-icon>
+    <mat-icon>settings</mat-icon>
+
   </div>
 </mat-toolbar>
