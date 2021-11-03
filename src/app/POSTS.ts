@@ -5,6 +5,20 @@ export default [
     content:
       "<h3>How do I get Docker working?</h3><p>I can't seem to get Docker to run, any ideas?</p>",
     user_id: 1,
+    comments:
+      [
+        {
+          id: 1,
+          post_id: 1,
+          message: "test",
+          commentor:
+            {
+              user_id:2,
+              firstName: "Paxton",
+              lastName: "Plum"
+            }
+        }
+      ]
   },
   {
     id: 2,

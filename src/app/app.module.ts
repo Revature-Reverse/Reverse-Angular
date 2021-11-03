@@ -19,6 +19,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { UserPostListComponent } from './user-components/user-post-list/user-post-list.component';
 import { UserDescriptionComponent } from './user-components/user-description/user-description.component';
 import { RelatedUsersComponent } from './user-components/related-users/related-users.component';
+import { RelatedPostsComponent } from './post-components/related-posts/related-posts.component';
 
 @NgModule({
   declarations: [

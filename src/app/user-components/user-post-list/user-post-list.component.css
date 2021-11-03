@@ -40,8 +40,8 @@
     display: flex; 
     flex-direction: column; 
     margin: 15px 10px 15px 5px; 
-    color: var(--darkgray); 
-    width: 150px; 
+    color: var(--darkgray);  
+    width: 22%; 
 }
 
 .dateTime p
