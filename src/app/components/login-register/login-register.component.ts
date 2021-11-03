@@ -63,11 +63,11 @@ export class LoginRegisterComponent implements OnInit {
   });
 
 }
-  public resetPassword(){
-    this.userService.resetPassword(this.resetPasswordForm.value).subscribe( data => {
-        alert("Password reset successful.");
-        //this.router.navigate(['/home']);
-      }, error => {alert("Reset password failed: " + error.message);}
-    )
-  }
+  // public resetPassword(){
+  //   this.userService.resetPassword(this.resetPasswordForm.value).subscribe( data => {
+  //       alert("Password reset successful.");
+  //       //this.router.navigate(['/home']);
+  //     }, error => {alert("Reset password failed: " + error.message);}
+  //   )
+  // }
 }

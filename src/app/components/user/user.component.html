@@ -1,28 +1,16 @@
-<p>user works!</p>
-
 <mat-grid-list cols="4" rowHeight="1:1.5">
-    <mat-grid-tile id="side-nav" rowspan="0.4">
+    <mat-grid-tile id="side-nav">
       <app-sidebar></app-sidebar>
     </mat-grid-tile>
     <mat-grid-tile colspan="2">
-        <div class="flex-container">
-            <div>
-                <h2>First Last @Username</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Sed risus pretium quam vulputate dignissim suspendisse in.
-                    Suscipit adipiscing bibendum est ultricies integer quis auctor elit sed. Eget lorem dolor sed viverra.
-                    Augue interdum velit euismod in pellentesque massa placerat duis ultricies.
-                    Porttitor leo a diam sollicitudin tempor id eu. Eget mi proin sed libero enim sed faucibus.
-                    Blandit aliquam etiam erat velit scelerisque in dictum non consectetur.
-                </p>
-            </div>
+        <div id="flex-container">
+        <app-user-description [user]="user"></app-user-description>
+          //modified 11/02 Jorge [posts]
+        <app-user-post-list [posts]="posts"></app-user-post-list>
         </div>
-        <mat-tab-group>
-            <mat-tab label="Posts"></mat-tab>
-            <mat-tab label="Comments"></mat-tab>
-        </mat-tab-group>
     </mat-grid-tile>
-    <mat-grid-tile><h2>Related Users</h2></mat-grid-tile>
+    <mat-grid-tile>
+        <app-related-users></app-related-users>
+    </mat-grid-tile>
 </mat-grid-list>
 
