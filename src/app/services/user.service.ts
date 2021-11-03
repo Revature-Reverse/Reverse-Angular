@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import {FormGroup} from "@angular/forms";
 import {User} from "../user";
 import {HttpClient} from "@angular/common/http";
-import { of } from "rxjs"
+import {BehaviorSubject, Observable, of} from "rxjs"
 
 @Injectable({
   providedIn: 'root'
@@ -35,9 +35,12 @@ export class UserService {
       password: "passwordjerry"
     },
   ]; // empty user repository, try to populate by hardcoding or importing a list
-  currentUser: User | undefined = undefined; // user currently logged in
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User> | undefined;
 
   constructor(private httpClient: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(<string>sessionStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
   }
 
   userRegistration(user: User) {
@@ -53,11 +56,13 @@ export class UserService {
 
   //user-login must match in back-end
   userLogin(user: User) {
-    this.currentUser = this.users.find((dbUser) => dbUser.userName === user.userName && dbUser.password === user.password);
-
-    if (this.currentUser) {
+    let finduser = this.users.find((dbUser) => dbUser.userName === user.userName && dbUser.password === user.password);
+    if (finduser){
+      this.currentUserSubject.next(finduser);
+    }
+    if (this.currentUserValue) {
       console.log("Logging in User.");
-      sessionStorage.setItem('token', JSON.stringify(this.currentUser));
+      sessionStorage.setItem('currentUser', JSON.stringify(this.currentUserValue));
       return of(this.currentUser);
 
       //return this.httpClient.post<User>("localhost:8080/user-login", user);
@@ -68,11 +73,16 @@ export class UserService {
 
   getUserById(userId : number) {
     let user : User | undefined = this.users.find((dbUser) => dbUser.id === userId);
-    if (this.currentUser) {
+    console.log(this.currentUserValue);
+
+    if (this.currentUserValue) {
       return of(user);
     } else {
       throw new Error("User not found.");
     }
+  }
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
   }
 
   // //user-login must match in back-end
@@ -83,4 +93,3 @@ export class UserService {
   //   return this.httpClient.post<User>("localhost:8080/reset-password", user);
   // }
 }
-
