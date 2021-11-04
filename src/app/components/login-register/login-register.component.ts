@@ -45,6 +45,11 @@ export class LoginRegisterComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  logout() {
+    this.userService.logout();
+    this.router.navigate(['/login']);
+  }
+
   public userLogin(){
     this.userService.userLogin(this.loginForm.value).subscribe( data => {
       alert("User logged in successfully.");
