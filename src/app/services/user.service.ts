@@ -9,7 +9,6 @@ import {BehaviorSubject, Observable, of} from "rxjs"
   providedIn: 'root'
 })
 export class UserService {
-
   users: User[] = [
     {
       id: 1,
@@ -72,12 +71,10 @@ export class UserService {
       throw new Error("User not found.");
     }
   }
-
   logout(){
-    // @ts-ignore
-    this.currentUserSubject.next(undefined);
     sessionStorage.clear();
   }
+
 
   getUserById(userId : number) {
     let user : User | undefined = this.users.find((dbUser) => dbUser.id === userId);
@@ -93,7 +90,6 @@ export class UserService {
     return this.currentUserSubject.value;
   }
 
-
   // //user-login must match in back-end
   // resetPassword(user: User){
   //   let user : User | undefined = this.user;
@@ -101,7 +97,4 @@ export class UserService {
   //
   //   return this.httpClient.post<User>("localhost:8080/reset-password", user);
   // }
-
-
-
 }
