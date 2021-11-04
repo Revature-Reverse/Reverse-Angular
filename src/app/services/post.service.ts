@@ -100,4 +100,16 @@ export class PostService {
 
     return of(this.posts);
   }
+
+  /***
+   *
+   * Function: PostService.getRecentPosts().
+   * Purpose: Retrieves an array of the most recent posts made.
+   * Precondition: A valid data storage is set up.
+   * Postcondition: N/A.
+   *
+   */
+  getRecentPosts() : Observable<Post[]> {
+    return of(this.posts);
+  }
 }
