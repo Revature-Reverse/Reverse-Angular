@@ -11,6 +11,7 @@ import {HttpClient} from "@angular/common/http";
 export class PostService {
 
   posts : Post[] = POSTS;
+  userToken! : string | null;
 
 
   constructor(
@@ -30,6 +31,7 @@ export class PostService {
    *
    */
   savePost(post : Post) : Observable<Post> {
+    this.getUserToken();
     this.posts.push(post);
 
     // return this.httpClient.post<Post>("http://localhost:8080/backend/posts/create", post);
@@ -120,5 +122,9 @@ export class PostService {
   getRecentPosts() : Observable<Post[]> {
     // return this.httpClient.get<Post[]>("http://localhost:8080/backend/posts/recent");
     return of(this.posts);
+  }
+
+  private getUserToken() : void {
+    this.userToken = sessionStorage.getItem('token');
   }
 }
