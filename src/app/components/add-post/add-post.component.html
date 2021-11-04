@@ -1,1 +1,28 @@
-<p>add-post works!</p>
+<div class="add-post__page">
+  <h1 class="add-post__title">Make your Verse</h1>
+  <form>
+    <div class="add-post__container">
+      <label for="title" class="label">Title</label>
+      <input
+        name="title"
+        class="title-input"
+        placeholder="What is your subject"
+        [(ngModel)]="title"
+      />
+      <br />
+      <br />
+      <label for="body" class="label">Body</label>
+      <div class="add-post__textarea editable"></div>
+      <div class="submit-button">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          (click)="onSubmit()"
+        >
+          Submit my Verse
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
