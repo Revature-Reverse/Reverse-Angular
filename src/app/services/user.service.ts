@@ -38,7 +38,7 @@ export class UserService {
   ]; // empty user repository, try to populate by hardcoding or importing a list
 
   private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User> | undefined;
+  public currentUser: Observable<User>;
 
   constructor(private httpClient: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(<string>sessionStorage.getItem('currentUser')));
