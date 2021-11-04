@@ -3,6 +3,7 @@ import POSTS from '../POSTS';
 import { Observable } from "rxjs";
 import { of } from "rxjs"
 import {Post} from "../classes/Post";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ export class PostService {
   posts : Post[] = POSTS;
 
 
-  constructor() {
+  constructor(
+    private httpClient : HttpClient
+  ) {
 
   }
 
@@ -26,10 +29,11 @@ export class PostService {
    * @param post The post object that is being saved.
    *
    */
-  savePost(post : Post) : Observable<Post[]> {
+  savePost(post : Post) : Observable<Post> {
     this.posts.push(post);
 
-    return of(this.posts);
+    // return this.httpClient.post<Post>("http://localhost:8080/backend/posts/create", post);
+    return of(post);
   }
 
   /***
@@ -45,6 +49,7 @@ export class PostService {
   deletePost(id : number) : Observable<Post[]> {
     this.posts = this.posts.filter((post) => post.id !== id);
 
+    // return this.httpClient.delete<Post[]>(`http://localhost:8080/backend/posts/delete/${id}`);
     return of(this.posts);
   }
 
@@ -59,6 +64,7 @@ export class PostService {
    *
    */
   getPost(id : number) : Observable<Post | undefined> {
+    // return this.httpClient.get<Post>(`http://localhost:8080/backend/posts/${id}`);
     return of(this.posts.find((post : Post) => post.id === id));
   }
 
@@ -82,6 +88,7 @@ export class PostService {
       }
     });
 
+    // return this.httpClient.patch<Post>("http://localhost:8080/backend/posts/edit", updatedPost);
     return of(this.posts.find((post : Post) => post.id === updatedPost.id));
   }
 
@@ -98,6 +105,7 @@ export class PostService {
   getPostsByUser(userId : number) : Observable<Post[]> {
     this.posts = this.posts.filter(post => post.user_id === userId);
 
+    // return this.httpClient.get<Post[]>(`http://localhost:8080/api/users/${userId}/posts`);
     return of(this.posts);
   }
 
@@ -110,6 +118,7 @@ export class PostService {
    *
    */
   getRecentPosts() : Observable<Post[]> {
+    // return this.httpClient.get<Post[]>("http://localhost:8080/backend/posts/recent");
     return of(this.posts);
   }
 }
