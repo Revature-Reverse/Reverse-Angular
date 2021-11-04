@@ -52,7 +52,7 @@
           <img id="register-button" src="../assets/register-tab.JPG">
         </div> -->
 
-        <button mat-raised-button (click)="userRegistration()">Register</button>
+        <button mat-raised-button (click)="userRegistration()" [disabled]="!registrationForm.valid">Register</button>
         </form>
       </mat-tab>
 
@@ -61,7 +61,7 @@
       <mat-tab label="Login">
         <form [formGroup]="loginForm">
         <ng-template mat-tab-label>
-          <div id="login-tab-header"> 
+          <div id="login-tab-header">
             <img id="login-tab-img" src="../assets/logIn.JPG">
           </div>
         </ng-template>
@@ -83,7 +83,7 @@
           <img id="login-tab-header" class="submit-button" src="../assets/logIn.JPG">
         </div> -->
 
-        <button mat-raised-button (click)="userLogin()">Login</button>
+        <button mat-raised-button (click)="userLogin()" [disabled]="!loginForm.valid">Login</button>
       </form>
       </mat-tab>
 
