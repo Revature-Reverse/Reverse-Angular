@@ -10,17 +10,16 @@ import { UserComponent } from './components/user/user.component';
 import { PostComponent } from './components/post/post.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
-import { AngularMaterialModule } from "./modules/angular-material/angular-material.module";
-import {MatCardModule} from "@angular/material/card";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
-import {MatInputModule} from "@angular/material/input";
+import { AngularMaterialModule } from './modules/angular-material/angular-material.module';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { UserPostListComponent } from './user-components/user-post-list/user-post-list.component';
 import { UserDescriptionComponent } from './user-components/user-description/user-description.component';
 import { RelatedUsersComponent } from './user-components/related-users/related-users.component';
 import { RelatedPostsComponent } from './post-components/related-posts/related-posts.component';
-
 
 @NgModule({
   declarations: [
@@ -35,7 +34,6 @@ import { RelatedPostsComponent } from './post-components/related-posts/related-p
     UserPostListComponent,
     UserDescriptionComponent,
     RelatedUsersComponent,
-    RelatedPostsComponent
   ],
   imports: [
     BrowserModule,
@@ -47,10 +45,9 @@ import { RelatedPostsComponent } from './post-components/related-posts/related-p
     MatCardModule,
     MatFormFieldModule,
     HttpClientModule,
-    MatInputModule
+    MatInputModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}
