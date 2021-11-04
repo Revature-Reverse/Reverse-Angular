@@ -35,8 +35,9 @@ export class UserService {
       password: "passwordjerry"
     },
   ]; // empty user repository, try to populate by hardcoding or importing a list
+
   private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User> | undefined;
+  public currentUser: Observable<User>;
 
   constructor(private httpClient: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(<string>sessionStorage.getItem('currentUser')));
@@ -63,13 +64,17 @@ export class UserService {
     if (this.currentUserValue) {
       console.log("Logging in User.");
       sessionStorage.setItem('currentUser', JSON.stringify(this.currentUserValue));
-      return of(this.currentUser);
+      return this.currentUser;
 
       //return this.httpClient.post<User>("localhost:8080/user-login", user);
     } else {
       throw new Error("User not found.");
     }
   }
+  logout(){
+    sessionStorage.clear();
+  }
+
 
   getUserById(userId : number) {
     let user : User | undefined = this.users.find((dbUser) => dbUser.id === userId);
