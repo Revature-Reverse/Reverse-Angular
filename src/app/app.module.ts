@@ -36,7 +36,9 @@ import { FeedComponent } from './post-components/feed/feed.component';
     UserPostListComponent,
     UserDescriptionComponent,
     RelatedUsersComponent,
-    RelatedPostsComponent
+    RelatedPostsComponent,
+    PostInFeedComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,
