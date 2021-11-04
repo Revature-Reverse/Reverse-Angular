@@ -37,6 +37,10 @@ import { UserProfileEditComponent } from './user-components/user-profile-edit/us
     UserPostListComponent,
     UserDescriptionComponent,
     RelatedUsersComponent,
+    RelatedPostsComponent,
+    UserProfileEditComponent,
+    PostInFeedComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,
