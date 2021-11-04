@@ -11,7 +11,8 @@ import {User} from "../../user";
 })
 export class LoginRegisterComponent implements OnInit {
 
-
+  branch_selected = "branch_option1";
+  login_selected = "login_option1"; 
   loginForm = this.fb.group({
     userName : ["", [Validators.required]],
     password : ["", [Validators.required]],
