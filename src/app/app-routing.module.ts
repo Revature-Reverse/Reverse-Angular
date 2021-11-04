@@ -5,6 +5,7 @@ import { UserComponent } from './components/user/user.component';
 import { PostComponent } from './components/post/post.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { UserProfileEditComponent } from './user-components/user-profile-edit/user-profile-edit.component';
 
 const routes: Routes = [
 
@@ -23,6 +24,10 @@ const routes: Routes = [
     path: 'users/:id',
     component: UserComponent,
   },
+  {
+    path: 'users/:id/edit',
+    component: UserProfileEditComponent,
+  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
