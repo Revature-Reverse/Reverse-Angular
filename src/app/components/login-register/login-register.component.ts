@@ -46,21 +46,12 @@ export class LoginRegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   public userLogin(){
-    const maybeUser = this.userService.userLogin(this.loginForm.value);
-
-    if (maybeUser) {
-      maybeUser.subscribe(data => {
-        //console.log(data);
-          if (data && data.id) {
-            this.router.navigate(['users/' + data.id]);
-          }
-        }, error => {
-          alert("Login failed: " + error.message);
-        }
-      );
-    } else {
-      alert("Login failed.");
-    }
+    this.userService.userLogin(this.loginForm.value).subscribe( data => {
+      alert("User logged in successfully.");
+      window.location.href= "";
+        //this.router.navigate(['/home']);
+    }, error => {alert("Login failed: " + error.message);}
+    )
   }
   public userRegistration(){
     this.user = { ...this.user, ...this.registrationForm.value };
