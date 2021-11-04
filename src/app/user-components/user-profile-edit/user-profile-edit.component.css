@@ -1,0 +1,49 @@
+.container
+{
+  position: absolute;
+  top: 10%;
+}
+
+.container h2
+{
+  text-align: center;
+  font-family: Futura;
+  font-weight: bold;
+  z-index: 2;
+  font-size: 20px;
+}
+
+ul li
+{
+  list-style: none;
+  margin: 10px;
+  align-self: center;
+}
+
+.block1, .block2
+{
+  display: flex;
+
+}
+
+.block1
+{
+  width: 30px;
+  align-content: center;
+}
+
+.block2
+{
+  width: 180px;
+}
+
+.block_container
+{
+  text-align: left;
+  width: 220px;
+  font-family: Futura;
+  font-weight: bold;
+  margin: 30px;
+  display: flex;
+  gap: 1em;
+}
