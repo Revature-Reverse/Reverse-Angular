@@ -11,6 +11,8 @@ import {User} from "../../user";
 })
 export class LoginRegisterComponent implements OnInit {
 
+  selected = 'option2'; 
+  selected2 = 'option1'; 
 
   loginForm = this.fb.group({
     userName : ["", [Validators.required]],
