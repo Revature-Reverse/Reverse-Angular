@@ -1,7 +1,7 @@
 export interface Post {
     id?: number,
     content: string,
-    user_id: number,
+  title: String;
     comments?: any[],
     time?: Date
 }

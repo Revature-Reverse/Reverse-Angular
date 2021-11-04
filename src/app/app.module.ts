@@ -10,11 +10,11 @@ import { UserComponent } from './components/user/user.component';
 import { PostComponent } from './components/post/post.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
-import { AngularMaterialModule } from "./modules/angular-material/angular-material.module";
-import {MatCardModule} from "@angular/material/card";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
-import {MatInputModule} from "@angular/material/input";
+import { AngularMaterialModule } from './modules/angular-material/angular-material.module';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { UserPostListComponent } from './user-components/user-post-list/user-post-list.component';
 import { UserDescriptionComponent } from './user-components/user-description/user-description.component';
@@ -22,7 +22,6 @@ import { RelatedUsersComponent } from './user-components/related-users/related-u
 import { RelatedPostsComponent } from './post-components/related-posts/related-posts.component';
 import { PostInFeedComponent } from './post-components/post-in-feed/post-in-feed.component';
 import { FeedComponent } from './post-components/feed/feed.component';
-
 
 @NgModule({
   declarations: [
@@ -37,9 +36,7 @@ import { FeedComponent } from './post-components/feed/feed.component';
     UserPostListComponent,
     UserDescriptionComponent,
     RelatedUsersComponent,
-    RelatedPostsComponent,
-    PostInFeedComponent,
-    FeedComponent
+    RelatedPostsComponent
   ],
   imports: [
     BrowserModule,
@@ -51,10 +48,9 @@ import { FeedComponent } from './post-components/feed/feed.component';
     MatCardModule,
     MatFormFieldModule,
     HttpClientModule,
-    MatInputModule
+    MatInputModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}
