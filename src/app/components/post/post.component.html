@@ -1,1 +1,33 @@
-<p>post works!</p>
+<mat-grid-list cols="4" rowHeight="100%">
+  <mat-grid-tile id="side-nav">
+    <app-sidebar></app-sidebar>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2">
+    <div id="flex-container">
+      <div class="postbody" *ngIf="post">
+        <div *ngIf="user" class="postuserprofile">
+          <div class="postuserimgcontainer">
+          </div>
+          <div class="postusername">
+            <p>{{user.firstName+" "+user.lastName}} </p>
+            <p>@{{user.userName}}</p>
+          </div>
+        </div>
+
+        <p>{{post.content}}</p>
+
+      </div>
+      <div class="postcomments" *ngIf="post">
+        <div class="commentheader">
+          <p>Comments</p>
+        </div>
+        <p *ngFor="let item of post.comments">
+          {{item.message}}
+        </p>
+
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+  </mat-grid-tile>
+</mat-grid-list>
