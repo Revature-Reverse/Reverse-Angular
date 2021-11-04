@@ -20,6 +20,8 @@ import { UserPostListComponent } from './user-components/user-post-list/user-pos
 import { UserDescriptionComponent } from './user-components/user-description/user-description.component';
 import { RelatedUsersComponent } from './user-components/related-users/related-users.component';
 import { RelatedPostsComponent } from './post-components/related-posts/related-posts.component';
+import { PostInFeedComponent } from './post-components/post-in-feed/post-in-feed.component';
+import { FeedComponent } from './post-components/feed/feed.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { RelatedPostsComponent } from './post-components/related-posts/related-p
     UserPostListComponent,
     UserDescriptionComponent,
     RelatedUsersComponent,
-    RelatedPostsComponent
+    RelatedPostsComponent,
+    PostInFeedComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,
