@@ -11,10 +11,11 @@ import {User} from "../../user";
 })
 export class LoginRegisterComponent implements OnInit {
 
-
+  branch_selected = "branch_option1";
+  login_selected = "login_option1"; 
   loginForm = this.fb.group({
     userName : ["", [Validators.required]],
-    password : ["", Validators.minLength(8)],
+    password : ["", [Validators.required]],
   })
 
   registrationForm = this.fb.group({
@@ -44,6 +45,11 @@ export class LoginRegisterComponent implements OnInit {
               private fb: FormBuilder){}
 
   ngOnInit(): void {}
+
+  logout() {
+    this.userService.logout();
+    this.router.navigate(['/login']);
+  }
 
   public userLogin(){
     this.userService.userLogin(this.loginForm.value).subscribe( data => {

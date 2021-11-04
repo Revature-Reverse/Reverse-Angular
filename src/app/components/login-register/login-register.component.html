@@ -47,12 +47,34 @@
             <mat-label>Confirm Password</mat-label>
             <input type="password" matInput formControlName="confirm_password">
           </mat-form-field>
+          <div class="row">
+            <mat-form-field appearance="fill">
+              <mat-label>Select your gender</mat-label>
+              <mat-select [(value)]="branch_selected">
+                <mat-option>None</mat-option>
+                <mat-option value="gender_option1">Male</mat-option>
+                <mat-option value="gender_option2">Female</mat-option>
+                <mat-option value="gender_option3">Other</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Select your branch</mat-label>
+              <mat-select [(value)]="login_selected">
+                <mat-option>None</mat-option>
+                <mat-option value="branch_option1">DC Office - Reston, VA USA</mat-option>
+                <mat-option value="branch_option2">Dallas Office - Dallas, TX USA</mat-option>
+                <mat-option value="branch_option3">New York Office - New York, NY USA</mat-option>
+                <mat-option value="branch_option4">Orlando Office - Orlando, FL USA</mat-option>
+                <mat-option value="branch_option5">West Virginia University - Morgantown, WV USA</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
         </mat-card>
         <!-- <div class="button-flex-container">
           <img id="register-button" src="../assets/register-tab.JPG">
         </div> -->
 
-        <button mat-raised-button (click)="userRegistration()">Register</button>
+        <button mat-raised-button (click)="userRegistration()" [disabled]="!registrationForm.valid">Register</button>
         </form>
       </mat-tab>
 
@@ -61,7 +83,7 @@
       <mat-tab label="Login">
         <form [formGroup]="loginForm">
         <ng-template mat-tab-label>
-          <div id="login-tab-header"> 
+          <div id="login-tab-header">
             <img id="login-tab-img" src="../assets/logIn.JPG">
           </div>
         </ng-template>
@@ -83,7 +105,7 @@
           <img id="login-tab-header" class="submit-button" src="../assets/logIn.JPG">
         </div> -->
 
-        <button mat-raised-button (click)="userLogin()">Login</button>
+        <button mat-raised-button (click)="userLogin()" [disabled]="!loginForm.valid">Login</button>
       </form>
       </mat-tab>
 
