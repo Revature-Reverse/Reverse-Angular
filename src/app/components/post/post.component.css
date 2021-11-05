@@ -1,6 +1,12 @@
 mat-grid-tile
 {
   height: 100%;
+  width: 100%;
+  padding-top: 0 !important;
+}
+mat-grid-list{
+  height: 100%;
+  padding-bottom: 0 !important;
 }
 
 mat-grid-tile:first-child,
@@ -18,11 +24,12 @@ mat-grid-tile:nth-child(2){
   gap: 1em;
   padding: 25px;
   width: 100%;
+  overflow-y: scroll;
 
 }
 
 .postbody{
-  font-family: "Futura Heavy";
+  font-family: "Futura Heavy" !important;
   height: 200px;
   width: 90%;
   background-color: #F2F2F2;
