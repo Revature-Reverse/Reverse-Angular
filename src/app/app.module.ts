@@ -42,7 +42,7 @@ import {TokenInterceptor} from "./interceptors/token.interceptor";
     RelatedPostsComponent,
     UserProfileEditComponent,
     PostInFeedComponent,
-    FeedComponent
+    FeedComponent,
     UserProfileEditComponent,
   ],
   imports: [
