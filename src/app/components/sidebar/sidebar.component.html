@@ -1,26 +1,22 @@
 <div class="btn-group-vertical" role="group" aria-label="Vertical button group" >
-  <button mat-button class="menu-button">
+  <button mat-button class="menu-button" routerLink="">
     <mat-icon>home</mat-icon>
     <span>Home</span>
-  </button><br>
-  <button mat-button class="menu-button">
+  </button>
+  <button mat-button class="menu-button" routerLink="/posts/1">
     <mat-icon>chat_bubble_outline</mat-icon>
     <span>Posts</span>
-  </button><br>
+  </button>
   <button mat-button class="menu-button">
     <mat-icon>message</mat-icon>
     <span>Messages</span>
-  </button><br>
+  </button>
   <button mat-button class="menu-button">
     <mat-icon>explore</mat-icon>
     <span>Explore</span>
-  </button><br>
-  <button mat-button class="users-button">
+  </button>
+  <button mat-button class="users-button menu-button" routerLink="/users/1">
     <mat-icon>person</mat-icon>
     <span>Users</span>
-  </button>
-  <button mat-button class="users-button" (click)="logout()">
-    <mat-icon>logout</mat-icon>
-    <span>Logout</span>
   </button>
 </div>

@@ -25,6 +25,7 @@ import { FeedComponent } from './post-components/feed/feed.component';
 import { UserProfileEditComponent } from './user-components/user-profile-edit/user-profile-edit.component';
 import {TokenInterceptor} from "./interceptors/token.interceptor";
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import {TokenInterceptor} from "./interceptors/token.interceptor";
     UserProfileEditComponent,
     PostInFeedComponent,
     FeedComponent
+    UserProfileEditComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,18 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterContentChecked,
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router, ActivatedRoute} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {User} from "../../user";
+import {MatTabGroup} from "@angular/material/tabs";
 
 @Component({
   selector: 'app-login-register',
   templateUrl: './login-register.component.html',
   styleUrls: ['./login-register.component.css']
 })
-export class LoginRegisterComponent implements OnInit {
+export class LoginRegisterComponent implements OnInit,AfterContentChecked{
 
+  selectedIndex?:number;
   branch_selected = "branch_option1";
-  login_selected = "login_option1"; 
+  login_selected = "login_option1";
   loginForm = this.fb.group({
     userName : ["", [Validators.required]],
     password : ["", [Validators.required]],
@@ -40,15 +50,39 @@ export class LoginRegisterComponent implements OnInit {
     userName: ''
   };
 
+
+
   constructor(private userService: UserService,
               private router: Router,
               private fb: FormBuilder){}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if(this.router.url=="/register"){
+      this.selectedIndex=0;
+    } else{
+      this.selectedIndex=1;
+    }
+
+
+  }
+  ngAfterContentChecked(): void {
+
+
+  }
+
 
   logout() {
     this.userService.logout();
-    this.router.navigate(['/login']);
+    window.location.href="";
+  }
+  loginclick(event:any){
+    history.pushState({}, "Reverse Login", "login");
+    this.selectedIndex=1;
+
+  }
+  registerclick(event:any){
+    history.pushState({}, "Reverse Register", "register");
+    this.selectedIndex=0;
   }
 
   public userLogin(){

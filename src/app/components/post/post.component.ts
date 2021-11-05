@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { PostService} from "../../services/post.service";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import POSTS from 'src/app/POSTS';
@@ -13,9 +13,11 @@ import {User} from "../../user";
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
+
   date:string="";
   post?: any;
   user?: User;
+  content?:any;
 
   constructor(private activatedRoute:ActivatedRoute,
               private postService:PostService,
@@ -28,7 +30,7 @@ export class PostComponent implements OnInit {
       this.postService.getPost(parseInt(params.id)).subscribe(post => this.post = post);
       if (this.post){
         this.userService.getUserById(this.post?.user_id).subscribe(user => this.user = user);
-
+        this.loadHtml();
       }
 
       console.log(this.post);
@@ -37,6 +39,11 @@ export class PostComponent implements OnInit {
   getDate(){
     let date1:Date = new Date();
     return date1.toLocaleDateString('en', { year: 'numeric', month: 'short', day: '2-digit' });
+
+  }
+
+  loadHtml(){
+    this.content= this.post.content;
 
   }
 }
