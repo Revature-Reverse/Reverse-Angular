@@ -20,7 +20,10 @@ import { UserPostListComponent } from './user-components/user-post-list/user-pos
 import { UserDescriptionComponent } from './user-components/user-description/user-description.component';
 import { RelatedUsersComponent } from './user-components/related-users/related-users.component';
 import { RelatedPostsComponent } from './post-components/related-posts/related-posts.component';
+import { PostInFeedComponent } from './post-components/post-in-feed/post-in-feed.component';
+import { FeedComponent } from './post-components/feed/feed.component';
 import { UserProfileEditComponent } from './user-components/user-profile-edit/user-profile-edit.component';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +38,9 @@ import { UserProfileEditComponent } from './user-components/user-profile-edit/us
     UserPostListComponent,
     UserDescriptionComponent,
     RelatedUsersComponent,
+    RelatedPostsComponent,
+    PostInFeedComponent,
+    FeedComponent,
     UserProfileEditComponent,
   ],
   imports: [

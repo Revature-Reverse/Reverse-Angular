@@ -3,9 +3,22 @@
     <app-sidebar></app-sidebar>
   </mat-grid-tile>
   <mat-grid-tile colspan="2">
+    <div id="flex-container">
+      <app-feed [posts]="posts"></app-feed>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <app-related-users></app-related-users>
 
   </mat-grid-tile>
   <mat-grid-tile>
   </mat-grid-tile>
 </mat-grid-list>
 
+<style>
+  div.scroll
+  {
+
+    Overflow-x:scroll;
+  }
+</style>
