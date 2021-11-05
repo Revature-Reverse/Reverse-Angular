@@ -24,6 +24,7 @@ import { PostInFeedComponent } from './post-components/post-in-feed/post-in-feed
 import { FeedComponent } from './post-components/feed/feed.component';
 import { UserProfileEditComponent } from './user-components/user-profile-edit/user-profile-edit.component';
 import {TokenInterceptor} from "./interceptors/token.interceptor";
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import {TokenInterceptor} from "./interceptors/token.interceptor";
     MatCardModule,
     MatFormFieldModule,
     HttpClientModule,
-    MatInputModule,
+    MatInputModule, 
+    MatNativeDateModule
   ],
   providers: [
     {
