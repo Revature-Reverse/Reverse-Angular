@@ -21,6 +21,7 @@ import { UserDescriptionComponent } from './user-components/user-description/use
 import { RelatedUsersComponent } from './user-components/related-users/related-users.component';
 import { RelatedPostsComponent } from './post-components/related-posts/related-posts.component';
 import { UserProfileEditComponent } from './user-components/user-profile-edit/user-profile-edit.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { UserProfileEditComponent } from './user-components/user-profile-edit/us
     MatCardModule,
     MatFormFieldModule,
     HttpClientModule,
-    MatInputModule,
+    MatInputModule, 
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent],
