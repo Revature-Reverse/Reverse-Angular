@@ -62,9 +62,7 @@
   display: flex;
   flex: .2 .2 auto;
   flex-direction: row;
-  margin-left: 50px;
   justify-content: space-around;
-  padding-left: 50px;
   align-items: center;
 }
 .headerlinks{
