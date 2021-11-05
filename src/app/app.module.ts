@@ -40,7 +40,7 @@ import { UserProfileEditComponent } from './user-components/user-profile-edit/us
     RelatedUsersComponent,
     RelatedPostsComponent,
     PostInFeedComponent,
-    FeedComponent
+    FeedComponent,
     UserProfileEditComponent,
   ],
   imports: [
