@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Post} from "../../classes/Post";
+import {Subscription} from "rxjs";
+import {PostService} from "../../services/post.service";
 
 @Component({
   selector: 'app-homepage',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  posts! : Post[];
+  postsSubscription! : Subscription;
+
+  constructor(
+    private postService : PostService
+  ) { }
 
   ngOnInit(): void {
+    this.postsSubscription = this.postService.getRecentPosts().subscribe(dbPosts => this.posts = dbPosts);
   }
 
 }
