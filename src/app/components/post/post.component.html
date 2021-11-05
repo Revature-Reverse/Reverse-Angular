@@ -1,4 +1,4 @@
-<mat-grid-list cols="4" rowHeight="100%">
+<mat-grid-list cols="4">
   <mat-grid-tile id="side-nav">
     <app-sidebar></app-sidebar>
   </mat-grid-tile>
@@ -14,7 +14,8 @@
           </div>
         </div>
 
-        <p>{{post.content}}</p>
+        <div  class="posthtmlcontent" [innerHtml]="content"></div>
+
 
       </div>
       <div class="postcomments" *ngIf="post">
