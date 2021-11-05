@@ -23,6 +23,7 @@ import { RelatedPostsComponent } from './post-components/related-posts/related-p
 import { PostInFeedComponent } from './post-components/post-in-feed/post-in-feed.component';
 import { FeedComponent } from './post-components/feed/feed.component';
 import { UserProfileEditComponent } from './user-components/user-profile-edit/user-profile-edit.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { UserProfileEditComponent } from './user-components/user-profile-edit/us
     MatCardModule,
     MatFormFieldModule,
     HttpClientModule,
-    MatInputModule,
+    MatInputModule, 
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent],
