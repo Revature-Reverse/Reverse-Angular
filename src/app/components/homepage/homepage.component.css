@@ -1,0 +1,15 @@
+mat-grid-tile {
+  height: 10%;
+}
+
+mat-grid-tile:first-child,
+mat-grid-tile:nth-child(2){
+  height: 10%;
+}
+
+#flex-container
+{
+  height: 80%;
+}
+
+
