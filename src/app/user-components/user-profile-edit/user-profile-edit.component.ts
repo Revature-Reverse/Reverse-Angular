@@ -8,8 +8,8 @@ import {Router, ActivatedRoute} from "@angular/router";
   styleUrls: ['./user-profile-edit.component.css']
 })
 export class UserProfileEditComponent implements OnInit {
-  branch_selected = "branch_option1"; 
-  gender_selected = "gender_option1"; 
+  branch_selected = "1"; 
+  sex_selected = "sex_option1"; 
   
   user_profile_edit_form = this.fb.group({
     //id = [],
