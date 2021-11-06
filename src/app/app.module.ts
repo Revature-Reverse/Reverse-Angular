@@ -13,7 +13,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { AngularMaterialModule } from './modules/angular-material/angular-material.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { UserPostListComponent } from './user-components/user-post-list/user-post-list.component';
@@ -23,6 +23,7 @@ import { RelatedPostsComponent } from './post-components/related-posts/related-p
 import { PostInFeedComponent } from './post-components/post-in-feed/post-in-feed.component';
 import { FeedComponent } from './post-components/feed/feed.component';
 import { UserProfileEditComponent } from './user-components/user-profile-edit/user-profile-edit.component';
+import {TokenInterceptor} from "./interceptors/token.interceptor";
 import { MatNativeDateModule } from '@angular/material/core';
 
 
@@ -40,6 +41,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     UserDescriptionComponent,
     RelatedUsersComponent,
     RelatedPostsComponent,
+    UserProfileEditComponent,
     PostInFeedComponent,
     FeedComponent,
     UserProfileEditComponent,
@@ -57,7 +59,13 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatInputModule, 
     MatNativeDateModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
