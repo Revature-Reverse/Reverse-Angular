@@ -36,6 +36,9 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
     userName : [null, [Validators.required]],
     password : [null, Validators.minLength(8)],
     confirm_password : [null, Validators.minLength(8)],
+    gender: [null, [Validators.required]],
+    branch: [null, [Validators.required]]
+
   });
 
   resetPasswordForm = this.fb.group({
@@ -47,7 +50,10 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
     firstName: '',
     lastName: '',
     password: '',
-    userName: ''
+    userName: '',
+    gender: "",
+    branch: "",
+    birthdate: new Date(2000,0,1)
   };
 
 

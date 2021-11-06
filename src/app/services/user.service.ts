@@ -16,7 +16,10 @@ export class UserService {
       lastName: "Harper",
       email: "lee@leeharper.dev",
       userName: "leeharper",
-      password: "passwordharper"
+      password: "passwordharper",
+      gender: "M",
+      branch: "1",
+      birthdate: new Date(2000,0,1)
     },
     {
       id: 2,
@@ -24,7 +27,10 @@ export class UserService {
       lastName: "Plum",
       email: "paxton@plum.dev",
       userName: "paxtonplum",
-      password: "passwordplum"
+      password: "passwordplum",
+      gender: "F", // just for testing purposes >:
+      branch: "1",
+      birthdate: new Date(2000,0,1)
     },
     {
       id: 3,
@@ -32,7 +38,10 @@ export class UserService {
       lastName: "Zheng",
       email: "jerry@zheng.dev",
       userName: "jerryzheng",
-      password: "passwordjerry"
+      password: "passwordjerry",
+      gender: "0", //just for testing purposes
+      branch: "1",
+      birthdate: new Date(2000,0,1)
     },
   ]; // empty user repository, try to populate by hardcoding or importing a list
 
@@ -75,6 +84,10 @@ export class UserService {
     sessionStorage.clear();
   }
 
+  userUpdate(user: User): Observable<User> {
+    //return this.httpClient.post<User>("localhost:8080/user-login", user);
+    return of (user);
+  }
 
   getUserById(userId : number) {
     let user : User | undefined = this.users.find((dbUser) => dbUser.id === userId);
