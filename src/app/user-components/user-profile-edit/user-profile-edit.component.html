@@ -4,18 +4,29 @@
   </mat-grid-tile>
   <mat-grid-tile colspan="2">
     <div class="flex-container">
+      <h1>My Info</h1>
       <form [formGroup]="user_profile_edit_form">
       <mat-card style="padding: 40px 70px 50px; width: 600px">
         <div class="row">
-          <mat-form-field appearance="fill">
-            <mat-label>First Name</mat-label>
-            <input matInput formControlName ="firstName">
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Last Name</mat-label>
-            <input matInput formControlName="lastName">
-          </mat-form-field>
+          <img src="../assets/favicon/favicon-32x32.png">
+          <div class="col">
+            <mat-form-field appearance="fill">
+              <mat-label>First Name</mat-label>
+              <input matInput formControlName ="firstName">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Last Name</mat-label>
+              <input matInput formControlName="lastName">
+            </mat-form-field>
+          </div>
         </div>
+        <mat-form-field class="mat-form-field">
+          <div class="row image-uploader">
+            <button mat-raised-button>+ Upload</button>
+            <input matInput [value]="" />
+            <input type="file" id="fileInput" name="fileInput"/>
+          </div>
+        </mat-form-field>
         <div class="row">
           <mat-form-field appearance="fill">
             <mat-label>Email</mat-label>

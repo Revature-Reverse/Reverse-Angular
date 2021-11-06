@@ -11,6 +11,7 @@ import {User} from "../../user";
 })
 export class UserProfileEditComponent implements OnInit {
 
+  filename: any = "filename"; 
   branch_selected = "branch_option1";
   gender_selected = "gender_option1";
   user?: User;
