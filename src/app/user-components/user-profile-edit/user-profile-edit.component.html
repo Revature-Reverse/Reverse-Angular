@@ -6,78 +6,78 @@
     <div class="flex-container">
       <h1>My Info</h1>
       <form [formGroup]="user_profile_edit_form">
-      <mat-card style="padding: 40px 70px 50px; width: 600px">
-        <div class="row">
-          <img src="../assets/favicon/favicon-32x32.png">
-          <div class="col">
+        <mat-card style="padding: 40px 70px 50px; width: 600px">
+          <div class="row">
+            <img src="../assets/favicon/favicon-32x32.png">
+            <div class="col">
+              <mat-form-field appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName ="firstName">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName">
+              </mat-form-field>
+            </div>
+          </div>
+          <mat-form-field class="mat-form-field">
+            <div class="row image-uploader">
+              <button mat-raised-button>+ Upload</button>
+              <input matInput [value]="" />
+              <input type="file" id="fileInput" name="fileInput"/>
+            </div>
+          </mat-form-field>
+          <div class="row">
             <mat-form-field appearance="fill">
-              <mat-label>First Name</mat-label>
-              <input matInput formControlName ="firstName">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email">
             </mat-form-field>
             <mat-form-field appearance="fill">
-              <mat-label>Last Name</mat-label>
-              <input matInput formControlName="lastName">
+              <mat-label>Username</mat-label>
+              <input matInput formControlName="userName">
             </mat-form-field>
           </div>
+          <div class="row">
+            <mat-form-field appearance="fill">
+              <mat-label>Password</mat-label>
+              <input type="password" matInput formControlName="password">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Confirm Password</mat-label>
+              <input type="password" matInput formControlName="confirm_password">
+            </mat-form-field>
         </div>
-        <mat-form-field class="mat-form-field">
-          <div class="row image-uploader">
-            <button mat-raised-button>+ Upload</button>
-            <input matInput [value]="" />
-            <input type="file" id="fileInput" name="fileInput"/>
+          <div class="row">
+            <mat-form-field appearance="fill">
+              <mat-label>Select your sex</mat-label>
+              <mat-select formControlName="gender">
+                <mat-option>None</mat-option>
+                <mat-option value="M">Male</mat-option>
+                <mat-option value="F">Female</mat-option>
+                <mat-option value="O">Other</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Select your branch</mat-label>
+              <mat-select formControlName="branch">
+                <mat-option>None</mat-option>
+                <mat-option value="1">DC Office - Reston, VA USA</mat-option>
+                <mat-option value="2">Dallas Office - Dallas, TX USA</mat-option>
+                <mat-option value="3">New York Office - New York, NY USA</mat-option>
+                <mat-option value="4">Orlando Office - Orlando, FL USA</mat-option>
+                <mat-option value="5">West Virginia University - Morgantown, WV USA</mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
-        </mat-form-field>
-        <div class="row">
           <mat-form-field appearance="fill">
-            <mat-label>Email</mat-label>
-            <input matInput formControlName="email">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="birthdate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Username</mat-label>
-            <input matInput formControlName="userName">
-          </mat-form-field>
-        </div>
-        <div class="row">
-          <mat-form-field appearance="fill">
-            <mat-label>Password</mat-label>
-            <input type="password" matInput formControlName="password">
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Confirm Password</mat-label>
-            <input type="password" matInput formControlName="confirm_password">
-          </mat-form-field>
-      </div>
-        <div class="row">
-          <mat-form-field appearance="fill">
-            <mat-label>Select your sex</mat-label>
-            <mat-select formControlName="gender">
-              <mat-option>None</mat-option>
-              <mat-option value="M">Male</mat-option>
-              <mat-option value="F">Female</mat-option>
-              <mat-option value="O">Other</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Select your branch</mat-label>
-            <mat-select formControlName="branch">
-              <mat-option>None</mat-option>
-              <mat-option value="1">DC Office - Reston, VA USA</mat-option>
-              <mat-option value="2">Dallas Office - Dallas, TX USA</mat-option>
-              <mat-option value="3">New York Office - New York, NY USA</mat-option>
-              <mat-option value="4">Orlando Office - Orlando, FL USA</mat-option>
-              <mat-option value="5">West Virginia University - Morgantown, WV USA</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <mat-form-field appearance="fill">
-          <mat-label>Choose a date</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="birthdate">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        <br>
-        <button mat-raised-button (click)="saveUser()">Save</button>
-      </mat-card>
+          <br>
+          <button mat-raised-button (click)="saveUser()">Save</button>
+        </mat-card>
       </form>
     </div>
   </mat-grid-tile>

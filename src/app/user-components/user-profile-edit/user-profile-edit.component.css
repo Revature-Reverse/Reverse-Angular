@@ -45,11 +45,6 @@ mat-grid-tile:nth-child(2){
 
 }
 
-app-sidebar
-{
-  width: 35%; 
-}
-
 .flex-container
 {
   height: 100%;
