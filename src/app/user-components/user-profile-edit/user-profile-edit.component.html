@@ -136,14 +136,18 @@
           </ng-template>
         </li>
         <li>
-          <div class="block_container">
+          <div class="block_container" *ngIf="picker != null; else dateNotPicked">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Birthdate</div>
           </div>
+          <ng-template #dateNotPicked>
+            <div class="block_container">
+              <div class="block1"><mat-icon>clear</mat-icon></div>
+              <div class="block2">Birthdate</div>
+            </div>
+          </ng-template>
         </li>
       </ul>
     </div>
-
   </mat-grid-tile>
 </mat-grid-list>
-

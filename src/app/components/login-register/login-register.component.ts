@@ -22,7 +22,7 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
 
   selectedIndex?:number;
   branch_selected = "1";
-  sex_selected = "login_option1";
+  sex_selected = "sex_option1";
   loginForm = this.fb.group({
     userName : ["", [Validators.required]],
     password : ["", [Validators.required]],
