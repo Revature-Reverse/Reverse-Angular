@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {User} from "../../user";
 
 @Component({
   selector: 'app-sidebar',
@@ -9,14 +10,23 @@ import {Router} from "@angular/router";
 })
 export class SidebarComponent implements OnInit {
 
+  user?: User;
+
   constructor(private userService: UserService,
-              private router: Router) { }
+              private router: Router,
+              private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
+    this.userService.currentUser.subscribe(user => {
+      this.user = user;
+    });
   }
 
   logout() {
     this.userService.logout();
-    window.location.href="";
+    window.location.href = "";
   }
+
 }
+
