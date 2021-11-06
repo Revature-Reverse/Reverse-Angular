@@ -22,6 +22,10 @@ img
   border: 1.5px solid black; 
   width: 150px; 
 }
+mat-card
+{
+  background: #f7f5f5; 
+}
 
 mat-grid-tile
 {
@@ -54,7 +58,7 @@ app-sidebar
   align-items: center;
   padding: 25px;
   width: 100%;  
-  margin-right: 5%;  
+  margin-right: 5%; 
 
 }
 
