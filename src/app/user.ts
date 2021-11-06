@@ -5,4 +5,7 @@ export interface User {
     email: string | undefined;
     userName: string | undefined;
     password: string | undefined;
+    gender: string | undefined;
+    branch: string | undefined;
+    birthdate: Date | undefined;
   }

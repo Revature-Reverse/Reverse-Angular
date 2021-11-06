@@ -46,6 +46,7 @@ ul li
   display: flex;
   gap: 1em;
 }
+
 #block1
 {
   border: 1.5px solid black;

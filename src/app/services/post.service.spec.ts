@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { PostService } from './post.service';
 import {Post} from "../classes/Post";
 
-fdescribe('PostService', () => {
+describe('PostService', () => {
   let service: PostService;
 
   beforeEach(() => {
@@ -30,16 +30,16 @@ fdescribe('PostService', () => {
   it("#savePost should save a post", () => {
     let post : Post = {
       id: 6,
+      title: "test",
       content: "<h3>I got it working!</h3><p>But now there are more issues.</p>",
       user_id: 1,
+      time: new Date()
     }
-    let posts : Post[] = [];
+    let newPost : Post | undefined;
 
-    let oldPostsLength : number = service.posts.length;
+    service.savePost(post).subscribe(dbPost => newPost = dbPost);
 
-    service.savePost(post).subscribe(dbPosts => posts = dbPosts);
-
-    expect(posts.length).toEqual(oldPostsLength+1);
+    expect(newPost).toEqual(post);
   });
 
   /**
@@ -83,6 +83,7 @@ fdescribe('PostService', () => {
   it("#updatePost should update a post in data storage", () => {
     let post : Post = {
       id: 2,
+      title: "title",
       content: "<h3>I'm not sure I see the advantage of Angular over AngularJS</h3><p>Is there any advantage? Angular" +
         " seems like AngularJS with extra steps</p><p>EDIT: Sorry, my mistake. I confused AngularJS with JQuery. </p>",
       user_id: 4,
