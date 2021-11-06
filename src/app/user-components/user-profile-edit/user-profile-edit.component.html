@@ -3,6 +3,7 @@
     <app-sidebar></app-sidebar>
   </mat-grid-tile>
   <mat-grid-tile colspan="2">
+    <div class="flex-container">
       <form [formGroup]="user_profile_edit_form">
       <mat-card style="padding: 40px 70px 50px; width: 600px">
         <div class="row">
@@ -15,22 +16,26 @@
             <input matInput formControlName="lastName">
           </mat-form-field>
         </div>
-        <mat-form-field appearance="fill">
-          <mat-label>Email</mat-label>
-          <input matInput formControlName="email">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Username</mat-label>
-          <input matInput formControlName="userName">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Password</mat-label>
-          <input type="password" matInput formControlName="password">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Confirm Password</mat-label>
-          <input type="password" matInput formControlName="confirm_password">
-        </mat-form-field>
+        <div class="row">
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="userName">
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Confirm Password</mat-label>
+            <input type="password" matInput formControlName="confirm_password">
+          </mat-form-field>
+      </div>
         <div class="row">
           <mat-form-field appearance="fill">
             <mat-label>Select your sex</mat-label>
@@ -62,8 +67,8 @@
         <br>
         <button mat-raised-button (click)="saveUser()">Save</button>
       </mat-card>
-
       </form>
+    </div>
   </mat-grid-tile>
   <mat-grid-tile>
     <div class="container">
