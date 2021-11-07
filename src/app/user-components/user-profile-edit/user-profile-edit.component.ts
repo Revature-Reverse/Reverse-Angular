@@ -12,8 +12,8 @@ import {User} from "../../user";
 export class UserProfileEditComponent implements OnInit {
 
   filename: any = "filename"; 
-  branch_selected = "branch_option1";
-  gender_selected = "gender_option1";
+  branch_selected = "1";
+  gender_selected = "M";
   user?: User;
 
   user_profile_edit_form = this.fb.group({

@@ -4,6 +4,7 @@ import {FormGroup} from "@angular/forms";
 import {User} from "../user";
 import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, Observable, of} from "rxjs"
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -48,7 +49,7 @@ export class UserService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(<string>sessionStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -82,6 +83,7 @@ export class UserService {
   }
   logout(){
     sessionStorage.clear();
+    this.router.navigate(["/login"]); 
   }
 
   userUpdate(user: User): Observable<User> {
