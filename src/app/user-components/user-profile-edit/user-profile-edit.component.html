@@ -104,7 +104,7 @@
           </div>
         </li>
         <li>
-          <div class="block_container" *ngIf="user_profile_edit_form.get('userName').value != null; else otherBlock">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('userName').value != ''; else otherBlock">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Username</div>
           </div>
