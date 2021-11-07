@@ -1,3 +1,67 @@
+
+h1 
+{
+  margin-top: 80px; 
+  font-weight: bold; 
+  width: 80%; 
+  font-size: 35px; 
+  font-family: "Futura"; 
+}
+
+button
+{
+  display: flex; 
+  justify-content: center; 
+  background: var(--orange); 
+  font-weight: bold; 
+  border-radius: 12px; 
+}
+img
+{
+  border-radius: 50%; 
+  border: 1.5px solid black; 
+  width: 150px; 
+}
+mat-card
+{
+  background: #f7f5f5; 
+}
+
+mat-grid-tile
+{
+  height: 100%;
+  width: 100%;
+  padding-top: 0 !important;
+}
+
+mat-grid-list{
+  height: 100%;
+  padding-bottom: 0 !important;
+}
+
+mat-grid-tile:first-child,
+mat-grid-tile:nth-child(2){
+  border-right: 1px solid var(--lightgray);
+
+}
+
+.flex-container
+{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  width: 100%;  
+  margin-right: 5%; 
+
+}
+
+form
+{
+  width: 95%; 
+}
+
 .container
 {
   position: absolute;
@@ -48,4 +112,26 @@ ul li
   gap: 1em;
 }
 
+.row
+{
+  display: flex; 
+  gap: 1em; 
+  align-items: center; 
+}
+
+.col
+{
+  display: flex; 
+  flex-direction: column; 
+}
+
+.mat-form-field
+{
+  width: 100%; 
+}
+
+.image-uploader
+{
+  width: 50%; 
+}
 

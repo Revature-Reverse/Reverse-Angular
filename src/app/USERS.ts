@@ -5,7 +5,10 @@ export default [
     lastName: 'Washington',
     email: 'jw@gmail.com',
     userName: 'user1',
-    password: '1234'
+    password: '1234',
+    gender: "M",
+    branch: "1",
+    birthdate: new Date(2000,0,1)
   },
   {
   id: 2,
@@ -13,7 +16,10 @@ export default [
   lastName: 'Obama',
   email: 'bo@gmail.com',
   userName: 'user2',
-  password: '1234'
+  password: '1234',
+    gender: "M",
+    branch: "1",
+    birthdate: new Date(2000,0,1)
 },
 
 ];
