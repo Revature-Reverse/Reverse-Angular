@@ -104,7 +104,7 @@ mat-card
 {
   display: flex;
   flex-direction: column;
-  height: 520px;
+  height: 420px;
   justify-content: flex-start;
   overflow-y: scroll;
 }

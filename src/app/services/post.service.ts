@@ -9,6 +9,7 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class PostService {
+  baseUrl: string = `http://3.91.248.52/backend/`;
 
   posts : Post[] = POSTS;
   userToken! : string | null;
@@ -35,8 +36,7 @@ export class PostService {
     this.getUserToken();
     this.posts.push(post);
     console.log(this.userToken)
-    // return this.httpClient.post<Post>("http://localhost:8080/backend/posts/create", post);
-    return of(post);
+    return this.httpClient.post<Post>('${this.baseUrl}/backend/posts/create', post);
   }
 
   /***
