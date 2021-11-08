@@ -54,22 +54,23 @@ export class UserService {
 
   //user-login must match in back-end
   userLogin(user: User) {
-    console.log(user)
-    let finduser = this.users.find((dbUser) => dbUser.userName === user.userName && dbUser.password === user.password);
-    if (finduser){
-      this.currentUserSubject.next(finduser);
-    }
-    if (this.currentUserValue) {
-      console.log("Logging in User.");
-      sessionStorage.setItem('currentUser', JSON.stringify(this.currentUserValue));
-      sessionStorage.setItem('token', "testtoken");
+    return this.httpClient.post<User>(this.baseUrl+"auth/login", user,this.httpOptions);
 
-      console.log(this.currentUser)
-
-      return this.httpClient.post<User>("${this.baseUrl}/users/login", user);
-    } else {
-      throw new Error("User not found.");
-    }
+    //console.log(user)
+    //let finduser = this.users.find((dbUser) => dbUser.userName === user.userName && dbUser.password === user.password);
+    //if (finduser){
+    //  this.currentUserSubject.next(finduser);
+    //}
+    //if (this.currentUserValue) {
+    //  console.log("Logging in User.");
+    //  sessionStorage.setItem('currentUser', JSON.stringify(this.currentUserValue));
+    //  sessionStorage.setItem('token', "testtoken");
+//
+    //  console.log(this.currentUser)
+//
+    //} else {
+    //  throw new Error("User not found.");
+    //}
   }
   logout(){
     sessionStorage.clear();
@@ -84,7 +85,7 @@ export class UserService {
   getUserById(userId : number) {
     //let user : User | undefined = this.users.find((dbUser) => dbUser.id === userId);
 
-    return this.httpClient.get<User>(this.baseUrl+"/users/"+userId, this.httpOptions);
+    return this.httpClient.get<User>(this.baseUrl+"users/"+userId, this.httpOptions);
 
   }
   getBranchesList() {
