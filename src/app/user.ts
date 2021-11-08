@@ -1,4 +1,5 @@
 export interface User {
+    profilePicture?: any;
     id?: number | undefined;
     firstName: string | undefined;
     lastName: string | undefined;
@@ -6,6 +7,6 @@ export interface User {
     userName: string | undefined;
     password?: string | undefined;
     birthdate?: Date | undefined;
-    gender?: number | undefined;
-    branch?: number | undefined;
+    gender?: any;
+    branch?: any;
   }
