@@ -165,3 +165,22 @@ ul li
   margin-left: 20px; 
 }
 
+.profileimgcontainer{
+  width: 200px;
+  height: 200px;
+  background-color: rgb(240, 240, 240);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.profileimgcontainer img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  width: 160px;
+}
+
