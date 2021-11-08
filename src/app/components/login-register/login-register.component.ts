@@ -21,8 +21,8 @@ import {MatTabGroup} from "@angular/material/tabs";
 export class LoginRegisterComponent implements OnInit,AfterContentChecked{
 
   selectedIndex?:number;
-  branch_selected = "1";
-  sex_selected = "sex_option1";
+  imageSrc!:string;
+
   loginForm = this.fb.group({
     userName : ["", [Validators.required]],
     password : ["", [Validators.required]],
@@ -37,7 +37,9 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
     password : [null, Validators.minLength(8)],
     confirm_password : [null, Validators.minLength(8)],
     gender: [null, [Validators.required]],
-    branch: [null, [Validators.required]]
+    branch: [null, [Validators.required]],
+    birthdate: [null, [Validators.required]],
+    profilepic: [null, [Validators.required]]
 
   });
 
@@ -45,14 +47,15 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
     userName : ["", [Validators.required]],
     password : ["", Validators.minLength(8)],
   })
+
   user: User = {
     email: '',
     firstName: '',
     lastName: '',
     password: '',
     userName: '',
-    gender: "",
-    branch: "",
+    gender: 0,
+    branch: 0,
     birthdate: new Date(2000,0,1)
   };
 
@@ -99,7 +102,16 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
     }, error => {alert("Login failed: " + error.message);}
     )
   }
+
+  get f() { return this.registrationForm.controls; }
+
   public userRegistration(){
+    console.log(this.f.birthdate.value);
+    console.log(this.f.profilepic.value.files[0].name);
+    this.imageSrc= this.imageSrc.split(',')[1];
+    //console.log(this.imageSrc);
+
+
     this.user = { ...this.user, ...this.registrationForm.value };
 
     this.userService.userRegistration(this.user)
@@ -117,4 +129,22 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
   //     }, error => {alert("Reset password failed: " + error.message);}
   //   )
   // }
+  onFileChange(event: any) {
+    const reader = new FileReader();
+
+    if(event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.imageSrc = reader.result as string;
+
+        this.registrationForm.patchValue({
+          fileSource: reader.result
+        });
+
+      };
+
+    }
+  }
 }
