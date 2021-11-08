@@ -89,11 +89,7 @@
             "karmaConfig": "karma.conf.js",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "src/styles.css",
-              "../node_modules/medium-editor/dist/css/medium-editor.min.css"
-            ],
-            "scripts": [
-              "../node_modules/medium-editor/dist/js/medium-editor.min.js"
+              "src/styles.css"
             ]
           }
         }

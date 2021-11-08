@@ -8,8 +8,12 @@
       <form [formGroup]="user_profile_edit_form">
         <mat-card style="padding: 40px 70px 50px; width: 600px">
           <div class="row">
-            <img src="../assets/favicon/favicon-32x32.png">
-            <div class="col">
+            <div class="row">
+              <div class="profileimgcontainer">
+                <img [src]="imageSrc" *ngIf="imageSrc">
+              </div>
+            </div>
+            <div class="col full-name">
               <mat-form-field appearance="fill">
                 <mat-label>First Name</mat-label>
                 <input matInput formControlName ="firstName">
@@ -20,13 +24,13 @@
               </mat-form-field>
             </div>
           </div>
-          <mat-form-field class="mat-form-field">
-            <div class="row image-uploader">
-              <button mat-raised-button>+ Upload</button>
-              <input matInput [value]="" />
-              <input type="file" id="fileInput" name="fileInput"/>
-            </div>
-          </mat-form-field>
+          <div class="row">
+            <mat-form-field appearance="fill">
+              <mat-label>Profile Picture</mat-label>
+              <ngx-mat-file-input (change)="onFileChange($event)" formControlName="profilepic" placeholder="Profile Picture" ></ngx-mat-file-input>
+              <mat-icon matSuffix>image</mat-icon>
+            </mat-form-field>
+          </div>
           <div class="row">
             <mat-form-field appearance="fill">
               <mat-label>Email</mat-label>
@@ -76,7 +80,10 @@
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
           <br>
-          <button mat-raised-button (click)="saveUser()">Save</button>
+          <div class="flex-center">
+            <button mat-raised-button (click)="saveUser()">Save</button>
+          </div>
+        
         </mat-card>
       </form>
     </div>

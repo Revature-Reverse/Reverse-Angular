@@ -9,7 +9,7 @@
       <!-- temporary : need to design view format (table, cards?) -->
       <div *ngFor="let post of posts">
         <div class="time-post-container">
-          <div class="post-content" [innerHTML] = "post.content"></div>
+          <div class="post-content" [innerHTML] = "post.body"></div>
           <div class="dateTime">
             <p>{{time | date: 'longDate'}}</p>
             <p>{{time | date: 'mediumTime'}}</p>
