@@ -5,6 +5,7 @@ import {UserService} from "../services/user.service";
 import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
 import {HTTP_INTERCEPTORS, HttpClient} from "@angular/common/http";
 import {User} from "../user";
+import {RouterTestingModule} from "@angular/router/testing";
 
 fdescribe('TokenInterceptor', () => {
   let service : UserService;
@@ -14,10 +15,12 @@ fdescribe('TokenInterceptor', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        RouterTestingModule
       ],
       providers: [
         UserService,
+        TokenInterceptor,
         {
           provide: HTTP_INTERCEPTORS,
           useClass: TokenInterceptor,
@@ -26,8 +29,8 @@ fdescribe('TokenInterceptor', () => {
       ]
     });
 
-    service = TestBed.get(UserService);
-    httpMock = TestBed.get(HttpClientTestingModule)
+    service = TestBed.inject(UserService);
+    httpMock = TestBed.inject(HttpTestingController)
   });
 
   it('should be created', () => {
@@ -38,7 +41,7 @@ fdescribe('TokenInterceptor', () => {
   it("user should be authenticated", () => {
     let user : User = {
       userName: "leeharper",
-      password: "passwordHarper",
+      password: "passwordharper",
       firstName: "lee",
       lastName: "Harper",
       email: "test"
@@ -46,7 +49,7 @@ fdescribe('TokenInterceptor', () => {
 
     service.userLogin(user).subscribe(dbUser => authUser = dbUser);
 
-    const httpRequest = httpMock.expectOne("http://localhost:8080/user-login");
+    const httpRequest = httpMock.expectOne("localhost:8080/user-login");
     expect(httpRequest.request.headers.has("Authorization")).toEqual(true);
   });
 });
