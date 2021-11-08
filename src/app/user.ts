@@ -6,6 +6,6 @@ export interface User {
     userName: string | undefined;
     password?: string | undefined;
     birthdate?: Date | undefined;
-    gender?: string | undefined;
-    branch?: string | undefined;
+    gender?: number | undefined;
+    branch?: number | undefined;
   }
