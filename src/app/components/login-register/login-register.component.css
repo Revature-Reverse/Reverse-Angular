@@ -157,6 +157,12 @@ button
   gap: 1em;
 }
 
+.login-toast
+{
+  background: var(--orange) !important; 
+  color: white; 
+}
+
 #header-container
 {
   display: flex;

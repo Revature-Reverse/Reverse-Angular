@@ -13,6 +13,7 @@ import {UserService} from "../../services/user.service";
 import {User} from "../../user";
 import {MatTabGroup} from "@angular/material/tabs";
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-login-register',
@@ -99,7 +100,7 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
   //the toaster
   openToast(message: string, action: string)
   {
-    this._toast.open(message, action, {duration: 2500}); 
+    this._toast.open(message, action, {duration: 2500, verticalPosition:'top', panelClass:['login-toast', 'register-toast']}); 
   }
 
   public userLogin(){
