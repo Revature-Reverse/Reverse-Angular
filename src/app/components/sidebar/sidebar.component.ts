@@ -27,6 +27,6 @@ export class SidebarComponent implements OnInit {
     this.userService.logout();
     window.location.href = "";
   }
-
+  
 }
 

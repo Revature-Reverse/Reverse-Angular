@@ -50,7 +50,7 @@
           <div class="row">
             <mat-form-field appearance="fill">
               <mat-label>Select your sex</mat-label>
-              <mat-select formControlName="gender">
+              <mat-select formControlName="gender" [(value)]="gender_selected">
                 <mat-option>None</mat-option>
                 <mat-option value="M">Male</mat-option>
                 <mat-option value="F">Female</mat-option>
@@ -59,7 +59,7 @@
             </mat-form-field>
             <mat-form-field appearance="fill">
               <mat-label>Select your branch</mat-label>
-              <mat-select formControlName="branch">
+              <mat-select formControlName="branch" [(value)]="branch_selected">
                 <mat-option>None</mat-option>
                 <mat-option value="1">DC Office - Reston, VA USA</mat-option>
                 <mat-option value="2">Dallas Office - Dallas, TX USA</mat-option>
@@ -70,7 +70,7 @@
             </mat-form-field>
           </div>
           <mat-form-field appearance="fill">
-            <mat-label>Choose a date</mat-label>
+            <mat-label>Select your birthdate</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="birthdate">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
@@ -86,7 +86,7 @@
       <h2>Requirements</h2>
       <ul class="user_list">
         <li>
-          <div class="block_container" *ngIf="user_profile_edit_form.get('firstName').value != null && user_profile_edit_form.get('lastName').value != null; else elseBlock">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('firstName').value != '' && user_profile_edit_form.get('lastName').value != ''; else elseBlock">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">First & Last Names</div>
           </div>
