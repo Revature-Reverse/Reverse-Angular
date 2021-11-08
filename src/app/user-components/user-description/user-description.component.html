@@ -8,9 +8,13 @@
                     <h3>@{{user?.userName}}</h3>
                 </div>
 
-                <button mat-raised-button>
+                <button mat-raised-button *ngIf="!editable">
                     <mat-icon>person_add</mat-icon>
                     Follow
+                </button>
+                <button mat-raised-button *ngIf="editable" routerLink="edit">
+                  <mat-icon>edit</mat-icon>
+                  Edit Profile
                 </button>
             </div>
             <p class="user-description">
@@ -20,7 +24,7 @@
                 Augue interdum velit euismod in pellentesque massa placerat duis ultricies.
             </p>
         </div>
-        
+
     </div>
 </div>
 

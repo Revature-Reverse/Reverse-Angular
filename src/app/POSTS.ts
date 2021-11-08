@@ -22,7 +22,22 @@ export default [
               userName: "paxtonplum",
               firstName: "Paxton",
               lastName: "Plum"
-            }
+            },
+          replies:
+            [
+              {
+                replier:
+                  {
+                    id: 1,
+                    post_id: 1,
+                    message: "test reply",
+                    created: new Date(),
+                    user_id:5,
+                    firstName: "Jerry",
+                    lastName: "Zheng"
+                  }
+              }
+            ]
         }
       ],
     created_at: new Date()

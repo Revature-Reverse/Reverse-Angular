@@ -31,9 +31,10 @@ export class PostService {
    *
    */
   savePost(post : Post) : Observable<Post> {
+    console.log(post)
     this.getUserToken();
     this.posts.push(post);
-
+    console.log(this.userToken)
     // return this.httpClient.post<Post>("http://localhost:8080/backend/posts/create", post);
     return of(post);
   }
@@ -82,6 +83,7 @@ export class PostService {
    *
    */
   updatePost(updatedPost : any) : Observable<Post | undefined> {
+    console.log(updatedPost)
     this.posts = this.posts.map(post => {
       if (post.id === updatedPost.id) {
         return updatedPost;

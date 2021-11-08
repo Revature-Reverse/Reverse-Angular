@@ -25,6 +25,8 @@ import { FeedComponent } from './post-components/feed/feed.component';
 import { UserProfileEditComponent } from './user-components/user-profile-edit/user-profile-edit.component';
 import {TokenInterceptor} from "./interceptors/token.interceptor";
 import { MatNativeDateModule } from '@angular/material/core';
+import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 
 @NgModule({
@@ -45,6 +47,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     PostInFeedComponent,
     FeedComponent,
     UserProfileEditComponent,
+    LoadingScreenComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,8 +59,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatCardModule,
     MatFormFieldModule,
     HttpClientModule,
-    MatInputModule, 
-    MatNativeDateModule
+    MatInputModule,
+    MatNativeDateModule,
+    MaterialFileInputModule
   ],
   providers: [
     {
