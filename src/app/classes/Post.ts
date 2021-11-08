@@ -1,8 +1,15 @@
+import {User} from "../user";
+import {PostImage} from "./PostImage";
+import {Comment} from "./Comment";
+
 export interface Post {
     id?: number,
-    user_id: number;
-    content: string,
-    title: String;
-    comments?: any[],
-    time?: Date
+    poster: User,
+    title: String,
+    body: string,
+    created?: Date,
+    lastEdited?: Date,
+    likes?: User[],
+    comments?: Comment[],
+    post_images?: PostImage[]
 }
