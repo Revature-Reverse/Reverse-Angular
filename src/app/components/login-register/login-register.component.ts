@@ -12,6 +12,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {User} from "../../user";
 import {MatTabGroup} from "@angular/material/tabs";
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login-register',
@@ -63,7 +64,8 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
 
   constructor(private userService: UserService,
               private router: Router,
-              private fb: FormBuilder){}
+              private fb: FormBuilder, 
+              private _toast: MatSnackBar){}
 
   ngOnInit(): void {
     if(this.router.url=="/register"){
@@ -146,5 +148,11 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
       };
 
     }
+  }
+
+  //the toaster
+  openToast(message: string, action: string)
+  {
+    this._toast.open(message, action, {duration: 2500}); 
   }
 }
