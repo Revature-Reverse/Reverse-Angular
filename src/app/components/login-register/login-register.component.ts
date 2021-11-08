@@ -108,7 +108,7 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
       //alert("User logged in successfully.");
       //window.location.href= "";
         //this.router.navigate(['/home']);
-    }, error => {alert("Login failed: " + error.message);}
+    }, error => {this.openToast("Login failed: " + error.message, "");}
     )
   }
 
@@ -125,9 +125,9 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
 
     this.userService.userRegistration(this.user)
       .subscribe( (data) => {
-        alert("User created successfully.");
+        this.openToast("User created successfully.", "");
         //this.router.navigate(['/login']);
-      }, error => { alert("Could not create a user: " + error.message);
+      }, error => { this.openToast("Could not create a user: " + error.message, "");
   });
 
 }
