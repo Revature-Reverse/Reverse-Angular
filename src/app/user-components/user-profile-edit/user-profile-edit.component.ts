@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router, ActivatedRoute} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {User} from "../../user";
+import {passwordValidator} from "../password-validator";
 
 @Component({
   selector: 'app-user-profile-edit',
@@ -11,7 +12,7 @@ import {User} from "../../user";
 })
 export class UserProfileEditComponent implements OnInit {
 
-  filename: any = "filename"; 
+  filename: any = "filename";
   branch_selected = "1";
   gender_selected = "M";
   user?: User;
@@ -28,7 +29,9 @@ export class UserProfileEditComponent implements OnInit {
     gender: [null, [Validators.required]],
     branch: [null, [Validators.required]],
     birthdate: [null, [Validators.required]]
-  });
+  },
+    {validators: passwordValidator()});
+
 
   constructor(   private router: Router,
                  private fb: FormBuilder,

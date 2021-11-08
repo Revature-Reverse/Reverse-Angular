@@ -49,6 +49,9 @@
             <mat-form-field appearance="fill">
               <mat-label>Confirm Password</mat-label>
               <input type="password" matInput formControlName="confirm_password">
+              <span style="font-size: 8px; color: red" *ngIf="user_profile_edit_form.errors?.password_mismatch">
+              Passwords do not match.
+            </span>
             </mat-form-field>
         </div>
           <div class="row">
@@ -83,7 +86,7 @@
           <div class="flex-center">
             <button mat-raised-button (click)="saveUser()">Save</button>
           </div>
-        
+
         </mat-card>
       </form>
     </div>
