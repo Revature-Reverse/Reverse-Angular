@@ -10,16 +10,33 @@ export default [
         {
           id: 1,
           post_id: 1,
-          message: "test",
+          message: "test comment",
+          created: new Date(),
           commentor:
             {
-              user_id:2,
+              user_id:3,
               firstName: "Paxton",
               lastName: "Plum"
-            }
+            },
+          replies:
+            [
+              {
+                replier:
+                  {
+                    id: 1,
+                    post_id: 1,
+                    message: "test reply",
+                    created: new Date(),
+                    user_id:5,
+                    firstName: "Jerry",
+                    lastName: "Zheng"
+                  }
+              }
+            ]
         }
       ],
-    time: new Date()
+    created: new Date(),
+    last_edited: new Date()
   },
   {
     id: 2,
@@ -106,7 +123,7 @@ export default [
       'luctus elit tortor ut justo. Sed ac velit malesuada dolor iaculis facilisis. Nunc eget vehicula dolor, id dignissim t' +
       'urpis. Etiam imperdiet vel risus sed rutrum. Donec ac viverra mi.</p>',
     user_id: 2,
-    time: new Date()
+    time: new Date(),
   }
 
 ];

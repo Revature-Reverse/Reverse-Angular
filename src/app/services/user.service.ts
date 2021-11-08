@@ -5,46 +5,15 @@ import {User} from "../user";
 import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, Observable, of} from "rxjs"
 import { Router } from '@angular/router';
+import USERS from "../USERS";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  users: User[] = [
-    {
-      id: 1,
-      firstName: "Timothy",
-      lastName: "Harper",
-      email: "lee@leeharper.dev",
-      userName: "leeharper",
-      password: "passwordharper",
-      gender: 1,
-      branch: 1,
-      birthdate: new Date(2000,0,1)
-    },
-    {
-      id: 2,
-      firstName: "Paxton",
-      lastName: "Plum",
-      email: "paxton@plum.dev",
-      userName: "paxtonplum",
-      password: "passwordplum",
-      gender: 2, // just for testing purposes >:
-      branch: 2,
-      birthdate: new Date(2000,0,1)
-    },
-    {
-      id: 3,
-      firstName: "Jerry",
-      lastName: "Zheng",
-      email: "jerry@zheng.dev",
-      userName: "jerryzheng",
-      password: "passwordjerry",
-      gender: 3, //just for testing purposes
-      branch: 3,
-      birthdate: new Date(2000,0,1)
-    },
-  ]; // empty user repository, try to populate by hardcoding or importing a list
+  users: User[] = USERS;
+
+  // empty user repository, try to populate by hardcoding or importing a list
 
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
