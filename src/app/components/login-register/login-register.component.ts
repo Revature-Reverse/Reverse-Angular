@@ -39,8 +39,8 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
     confirm_password : [null, Validators.minLength(8)],
     gender: [null, [Validators.required]],
     branch: [null, [Validators.required]],
-    birthdate: [null, [Validators.required]],
-    profilepic: [null, [Validators.required]]
+    birthdate: [null, [Validators.required]]
+    //profilepic: [null, [Validators.required]]
 
   });
 
@@ -109,15 +109,15 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
 
   public userRegistration(){
     console.log(this.f.birthdate.value);
-    console.log(this.f.profilepic.value.files[0].name);
-    this.imageSrc= this.imageSrc.split(',')[1];
+    //console.log(this.f.profilepic.value.files[0].name);
+    //this.imageSrc= this.imageSrc.split(',')[1];
     //console.log(this.imageSrc);
 
 
     this.user = { ...this.user, ...this.registrationForm.value };
 
     this.userService.userRegistration(this.user)
-      .subscribe( data => {
+      .subscribe( (data) => {
         alert("User created successfully.");
         //this.router.navigate(['/login']);
       }, error => { alert("Could not create a user: " + error.message);
