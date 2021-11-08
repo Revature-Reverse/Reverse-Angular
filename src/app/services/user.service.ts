@@ -32,10 +32,11 @@ export class UserService {
     this.currentUser = this.currentUserSubject.asObservable();
    this.getGendersList().toPromise().then(resp =>{
      this.genders=resp;
-      console.log(resp);
+      console.log(this.genders);
     });
    this.getBranchesList().toPromise().then(resp =>{
-     console.log(resp);
+     this.branches=resp;
+     console.log(this.branches);
    });;
     this.getUserById(1).toPromise().then(resp =>{
       console.log("get user by id 1");
