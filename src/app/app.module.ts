@@ -26,6 +26,7 @@ import { UserProfileEditComponent } from './user-components/user-profile-edit/us
 import {TokenInterceptor} from "./interceptors/token.interceptor";
 import { MatNativeDateModule } from '@angular/material/core';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { LoadingScreenComponent } from './loading-screen/loading-screen.componen
     MatFormFieldModule,
     HttpClientModule,
     MatInputModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MaterialFileInputModule
   ],
   providers: [
     {

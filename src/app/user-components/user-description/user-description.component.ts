@@ -13,9 +13,14 @@ export class UserDescriptionComponent implements OnInit {
   @Input('user')
   user?: User;
 
+  @Input('editable')
+  editable?: Boolean;
+
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.editable)
   }
 
 }

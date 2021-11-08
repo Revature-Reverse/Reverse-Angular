@@ -21,6 +21,7 @@ import {MatTabGroup} from "@angular/material/tabs";
 export class LoginRegisterComponent implements OnInit,AfterContentChecked{
 
   selectedIndex?:number;
+  imageSrc!:string;
 
   loginForm = this.fb.group({
     userName : ["", [Validators.required]],
@@ -37,7 +38,8 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
     confirm_password : [null, Validators.minLength(8)],
     gender: [null, [Validators.required]],
     branch: [null, [Validators.required]],
-    birthdate: [null, [Validators.required]]
+    birthdate: [null, [Validators.required]],
+    profilepic: [null, [Validators.required]]
 
   });
 
@@ -105,6 +107,11 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
 
   public userRegistration(){
     console.log(this.f.birthdate.value);
+    console.log(this.f.profilepic.value.files[0].name);
+    this.imageSrc= this.imageSrc.split(',')[1];
+    //console.log(this.imageSrc);
+
+
     this.user = { ...this.user, ...this.registrationForm.value };
 
     this.userService.userRegistration(this.user)
@@ -122,4 +129,22 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
   //     }, error => {alert("Reset password failed: " + error.message);}
   //   )
   // }
+  onFileChange(event: any) {
+    const reader = new FileReader();
+
+    if(event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.imageSrc = reader.result as string;
+
+        this.registrationForm.patchValue({
+          fileSource: reader.result
+        });
+
+      };
+
+    }
+  }
 }
