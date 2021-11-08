@@ -1,8 +1,8 @@
 <div class="post-container">
-  <div class="post-content" [innerHTML] = "post.content"></div>
+  <div class="post-content" [innerHTML] = "post.body"></div>
   <div class="dateTime">
-    <p>{{post.time | date: 'longDate'}}</p>
-    <p>{{post.time | date: 'mediumTime'}}</p>
+    <p>{{post.created | date: 'longDate'}}</p>
+    <p>{{post.created | date: 'mediumTime'}}</p>
   </div>
   <div class="icon-container">
     <div class="likes-and-posts-icons">
