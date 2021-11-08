@@ -2,97 +2,103 @@
 
 #post-tab-label
 {
-    background: var(--lightgray); 
-    padding: 15px; 
+    background: var(--lightgray);
+    padding: 15px;
     width: 50px;
     border-radius: 10px 10px 0 0;
-    font-weight: bold; 
-    margin-bottom: -5px; 
+    font-weight: bold;
+    margin-bottom: -5px;
 
 }
 
 .post-content
 {
-  
-    margin: 10px; 
-    border-radius: 10px; 
-    padding: 15px; 
-    width: 650px; 
+  font-family: "Futura Book";
+    margin: 10px;
+    border-radius: 10px;
+    padding: 15px;
+    width: 650px;
 }
 
 .container
 {
-    background:#f7f7f7; 
+    background:#f7f7f7;
 }
 
 .time-post-container
 {
     background: #ecebeb;
-    padding: 10px; 
-    margin: 15px; 
-    border-radius: 10px; 
-    display: flex; 
-      
+    padding: 10px;
+    margin: 15px;
+    border-radius: 10px;
+    display: flex;
+
 }
 
 .dateTime
 {
-    display: flex; 
-    flex-direction: column; 
-    margin: 15px 10px 15px 5px; 
-    color: var(--darkgray);  
-    width: 22%; 
+  font-family: "Futura Book";
+
+  display: flex;
+    flex-direction: column;
+    margin: 15px 10px 15px 5px;
+    color: var(--darkgray);
+    width: 22%;
 }
 
 .dateTime p
 {
-    margin: 0; 
+    margin: 0;
 }
 
 .like-icon, .chat-icon
 {
-    margin-left: 20px; 
-    color: var(--orange); 
+    margin-left: 20px;
+    color: var(--orange);
 }
 
 .like-icon-with-count, .number-of-posts
 {
-    display: flex; 
-    gap: 0.7em; 
-    align-items: flex-start; 
+  font-family: "Futura Book";
+
+  display: flex;
+    gap: 0.7em;
+    align-items: flex-start;
 }
 
 .like-icon-with-count p
 {
-    font-weight: 500; 
+    font-weight: 500;
 }
 
 .icon-container
 {
-    display: flex; 
-    justify-content: space-between; 
+    display: flex;
+    justify-content: space-between;
 }
 
 .open-in-full-with-text, .share
 {
-    display: flex; 
-    gap: .8em; 
+  font-family: "Futura Book";
+
+  display: flex;
+    gap: .8em;
 }
 
 .full-open-and-share
 {
-    display: flex; 
+    display: flex;
     gap: 2em;
-    margin-right: 20px; 
+    margin-right: 20px;
 }
 
 .likes-and-posts-icons
 {
-    display: flex; 
-    gap: 7em; 
+    display: flex;
+    gap: 7em;
 }
 
 .icon
 {
-    color: var(--orange); 
+    color: var(--orange);
 }

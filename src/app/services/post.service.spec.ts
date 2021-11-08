@@ -29,17 +29,17 @@ describe('PostService', () => {
    */
   it("#savePost should save a post", () => {
     let post : Post = {
-      id: 4,
+      id: 6,
+      title: "test",
       content: "<h3>I got it working!</h3><p>But now there are more issues.</p>",
       user_id: 1,
+      time: new Date()
     }
-    let posts : Post[] = [];
+    let newPost : Post | undefined;
 
-    let oldPostsLength : number = service.posts.length;
+    service.savePost(post).subscribe(dbPost => newPost = dbPost);
 
-    service.savePost(post).subscribe(dbPosts => posts = dbPosts);
-
-    expect(posts.length).toEqual(oldPostsLength+1);
+    expect(newPost).toEqual(post);
   });
 
   /**
@@ -83,9 +83,11 @@ describe('PostService', () => {
   it("#updatePost should update a post in data storage", () => {
     let post : Post = {
       id: 2,
+      title: "title",
       content: "<h3>I'm not sure I see the advantage of Angular over AngularJS</h3><p>Is there any advantage? Angular" +
         " seems like AngularJS with extra steps</p><p>EDIT: Sorry, my mistake. I confused AngularJS with JQuery. </p>",
       user_id: 4,
+      time: new Date(1)
     };
 
     let updatedPost : Post | undefined;
@@ -104,7 +106,7 @@ describe('PostService', () => {
    * Purpose: Tests to see if the posts of a user can be retrieved through the service.
    *
    **/
-  it("#getPostsByUser should retrieve a collection of posts", () => {
+  it("#getPostsByUser should retrieve a collection of posts by the user.", () => {
     let userId = 3;
     let posts : Post[] = [];
 
@@ -112,4 +114,18 @@ describe('PostService', () => {
 
     expect(posts.length).toEqual(2);
   });
+
+  // /**
+  //  *
+  //  * Test: (PostService) #getRecentPosts should retrieve a collection of recent posts.
+  //  * Purpose: Tests to see if recent posts can be retrieved through the service.
+  //  *
+  //  **/
+  // it("#getRecentPosts should retrieve a collection of recent posts", () => {
+  //   let posts : Post[] = [];
+  //
+  //   service.getRecentPosts().subscribe(dbPosts => posts = dbPosts);
+  //
+  //   expect(posts.length).toEqual(6);
+  // });
 });

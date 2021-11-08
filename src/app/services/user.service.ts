@@ -4,46 +4,28 @@ import {FormGroup} from "@angular/forms";
 import {User} from "../user";
 import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, Observable, of} from "rxjs"
+import { Router } from '@angular/router';
+import USERS from "../USERS";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  users: User[] = [
-    {
-      id: 1,
-      firstName: "Timothy",
-      lastName: "Harper",
-      email: "lee@leeharper.dev",
-      userName: "leeharper",
-      password: "passwordharper"
-    },
-    {
-      id: 2,
-      firstName: "Paxton",
-      lastName: "Plum",
-      email: "paxton@plum.dev",
-      userName: "paxtonplum",
-      password: "passwordplum"
-    },
-    {
-      id: 3,
-      firstName: "Jerry",
-      lastName: "Zheng",
-      email: "jerry@zheng.dev",
-      userName: "jerryzheng",
-      password: "passwordjerry"
-    },
-  ]; // empty user repository, try to populate by hardcoding or importing a list
-  private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User> | undefined;
+  users: User[] = USERS;
 
-  constructor(private httpClient: HttpClient) {
+  // empty user repository, try to populate by hardcoding or importing a list
+
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
+
+  constructor(private httpClient: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(<string>sessionStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
   userRegistration(user: User) {
+    console.log(user)
+
     //user-registration must match in back-end
     this.users.push(user);
     console.log("Registering User to database.");
@@ -56,6 +38,7 @@ export class UserService {
 
   //user-login must match in back-end
   userLogin(user: User) {
+    console.log(user)
     let finduser = this.users.find((dbUser) => dbUser.userName === user.userName && dbUser.password === user.password);
     if (finduser){
       this.currentUserSubject.next(finduser);
@@ -63,12 +46,23 @@ export class UserService {
     if (this.currentUserValue) {
       console.log("Logging in User.");
       sessionStorage.setItem('currentUser', JSON.stringify(this.currentUserValue));
-      return of(this.currentUser);
+      sessionStorage.setItem('token', "testtoken");
+
+      return this.currentUser;
 
       //return this.httpClient.post<User>("localhost:8080/user-login", user);
     } else {
       throw new Error("User not found.");
     }
+  }
+  logout(){
+    sessionStorage.clear();
+  }
+
+  userUpdate(user: User): Observable<User> {
+    console.log(user)
+    //return this.httpClient.post<User>("localhost:8080/user-login", user);
+    return of (user);
   }
 
   getUserById(userId : number) {

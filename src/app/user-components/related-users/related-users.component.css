@@ -1,6 +1,6 @@
 .container
 {
-    height: 100vh;
+    height: 100%;
     margin-top: 70px;
 }
 
@@ -43,32 +43,33 @@ ul li
   font-family: Futura;
   font-weight: bold;
   margin: 30px;
-  display: flex; 
-  gap: 1em; 
+  display: flex;
+  gap: 1em;
 }
+
 #block1
 {
-  border: 1.5px solid black; 
+  border: 1.5px solid black;
   border-radius: 50%;
 }
 
 #block1, #block2, #block3
 {
-  display: flex; 
-  width: 150px;  
+  display: flex;
+  width: 150px;
 }
 
 
 
 #name-username
 {
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #related-user-img
 {
-  width: 70px; 
+  width: 70px;
 }

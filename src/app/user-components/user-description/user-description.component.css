@@ -1,47 +1,56 @@
 h2
 {
-    margin-bottom: 0; 
+  font-family: "Futura Heavy";
+
+  margin-bottom: 0;
 }
 
 h3
 {
-    margin-top: 0; 
+  font-family: "Futura Book";
+
+  margin-top: 0;
 }
 
 .container
 {
-    display: flex; 
-    gap: 0; 
-    background-color: #ecebeb; 
-    border-radius: 10px; 
-   
+    display: flex;
+    gap: 0;
+    background-color: #ecebeb;
+    border-radius: 10px;
+    padding-bottom: 30px;
+
 }
 
 .header
 {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 30px 40px 10px 10px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 40px 0px 0px;
 }
 
 .mat-raised-button
 {
     background: var(--orange);
-    height: 30%;  
-    margin-right: 40px; 
+    height: 40%;
+    margin-right: 40px;
+    top:-20px;
+  font-family: "Futura Heavy";
+
 }
 
 .user-description
 {
-    font-weight: bold; 
-    padding-right: 30px; 
+    font-family: "Futura Book";
+    font-weight: bold;
+    padding-right: 30px;
 }
 
 #user-img
 {
     width: 100%;
-    border: 2px solid black; 
-    border-radius: 50%;  
-    margin: 55px; 
+    border: 2px solid black;
+    border-radius: 50%;
+    margin: 55px;
 }

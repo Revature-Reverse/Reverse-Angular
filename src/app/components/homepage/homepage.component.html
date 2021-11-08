@@ -1,2 +1,21 @@
-<p>homepage works!</p>
+<mat-grid-list cols="4">
+  <mat-grid-tile id="side-nav">
+    <app-sidebar></app-sidebar>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2">
+    <div id="flex-container">
+      <div class="feedheader">
+        <h1>Feed</h1>
+        <button routerLink="/posts/add"><mat-icon>add</mat-icon> New Post</button>
+      </div>
+      <app-feed [posts]="posts"></app-feed>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <app-related-users></app-related-users>
+
+  </mat-grid-tile>
+  <mat-grid-tile>
+  </mat-grid-tile>
+</mat-grid-list>
 

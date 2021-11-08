@@ -10,15 +10,33 @@ export default [
         {
           id: 1,
           post_id: 1,
-          message: "test",
+          message: "test comment",
+          created: new Date(),
           commentor:
             {
-              user_id:2,
+              user_id:3,
               firstName: "Paxton",
               lastName: "Plum"
-            }
+            },
+          replies:
+            [
+              {
+                replier:
+                  {
+                    id: 1,
+                    post_id: 1,
+                    message: "test reply",
+                    created: new Date(),
+                    user_id:5,
+                    firstName: "Jerry",
+                    lastName: "Zheng"
+                  }
+              }
+            ]
         }
-      ]
+      ],
+    created: new Date(),
+    last_edited: new Date()
   },
   {
     id: 2,
@@ -27,6 +45,7 @@ export default [
       "<h3>I'm not sure I see the advantage of Angular over AngularJS</h3><p>Is there any advantage? Angular" +
       ' seems like AngularJS with extra steps</p>',
     user_id: 4,
+    time: new Date()
   },
   {
     id: 3,
@@ -35,6 +54,7 @@ export default [
       "<h3>Vue is objectively the best JavaScript framework</h3><p>It's like the best of both worlds between Angular" +
       ' and React</p>',
     user_id: 3,
+    time: new Date()
   },
   {
     id: 4,
@@ -43,6 +63,7 @@ export default [
       "<h3>My S3 key is not working.</h3><p>I've been having issues with my S3 setup. Any Ideas? I put the code below." +
       '<code>Some code here...</code></p>',
     user_id: 3,
+    time: new Date()
   },
   {
     id: 5,
@@ -54,5 +75,55 @@ export default [
       'luctus elit tortor ut justo. Sed ac velit malesuada dolor iaculis facilisis. Nunc eget vehicula dolor, id dignissim t' +
       'urpis. Etiam imperdiet vel risus sed rutrum. Donec ac viverra mi.</p>',
     user_id: 2,
+    time: new Date()
   },
+  {
+    id: 6,
+    title: 'Title 5',
+    content:
+      '<h3>Lorem ipsum.</h3><p>Mauris tortor eros, interdum at massa vitae, eleifend consequat justo. Donec ' +
+      'malesuada quam vel auctor vestibulum. Phasellus viverra, velit a malesuada suscipit, odio dui venenatis dui, ac ' +
+      'cursus purus nisi vel risus. Nullam convallis, dolor fringilla semper vulputate, massa nibh pellentesque orci, in ' +
+      'luctus elit tortor ut justo. Sed ac velit malesuada dolor iaculis facilisis. Nunc eget vehicula dolor, id dignissim t' +
+      'urpis. Etiam imperdiet vel risus sed rutrum. Donec ac viverra mi.</p>',
+    user_id: 2,
+    time: new Date()
+  },
+  {
+    id: 7,
+    title: 'Title 5',
+    content:
+      '<h3>Lorem ipsum.</h3><p>Mauris tortor eros, interdum at massa vitae, eleifend consequat justo. Donec ' +
+      'malesuada quam vel auctor vestibulum. Phasellus viverra, velit a malesuada suscipit, odio dui venenatis dui, ac ' +
+      'cursus purus nisi vel risus. Nullam convallis, dolor fringilla semper vulputate, massa nibh pellentesque orci, in ' +
+      'luctus elit tortor ut justo. Sed ac velit malesuada dolor iaculis facilisis. Nunc eget vehicula dolor, id dignissim t' +
+      'urpis. Etiam imperdiet vel risus sed rutrum. Donec ac viverra mi.</p>',
+    user_id: 2,
+    time: new Date()
+  },
+  {
+    id: 8,
+    title: 'Title 5',
+    content:
+      '<h3>Lorem ipsum.</h3><p>Mauris tortor eros, interdum at massa vitae, eleifend consequat justo. Donec ' +
+      'malesuada quam vel auctor vestibulum. Phasellus viverra, velit a malesuada suscipit, odio dui venenatis dui, ac ' +
+      'cursus purus nisi vel risus. Nullam convallis, dolor fringilla semper vulputate, massa nibh pellentesque orci, in ' +
+      'luctus elit tortor ut justo. Sed ac velit malesuada dolor iaculis facilisis. Nunc eget vehicula dolor, id dignissim t' +
+      'urpis. Etiam imperdiet vel risus sed rutrum. Donec ac viverra mi.</p>',
+    user_id: 2,
+    time: new Date()
+  },
+  {
+    id: 9,
+    title: 'Title 5',
+    content:
+      '<h3>Lorem ipsum.</h3><p>Mauris tortor eros, interdum at massa vitae, eleifend consequat justo. Donec ' +
+      'malesuada quam vel auctor vestibulum. Phasellus viverra, velit a malesuada suscipit, odio dui venenatis dui, ac ' +
+      'cursus purus nisi vel risus. Nullam convallis, dolor fringilla semper vulputate, massa nibh pellentesque orci, in ' +
+      'luctus elit tortor ut justo. Sed ac velit malesuada dolor iaculis facilisis. Nunc eget vehicula dolor, id dignissim t' +
+      'urpis. Etiam imperdiet vel risus sed rutrum. Donec ac viverra mi.</p>',
+    user_id: 2,
+    time: new Date(),
+  }
+
 ];

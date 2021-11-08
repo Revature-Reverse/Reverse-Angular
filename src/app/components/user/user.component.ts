@@ -15,6 +15,7 @@ export class UserComponent implements OnInit {
 
   posts: Post[] = [];
   user?: User;
+  editable?:Boolean;
 
   constructor(private activatedRoute:ActivatedRoute,
               private postService: PostService,
@@ -22,6 +23,12 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
+      console.log(params.id)
+      console.log(this.userService.currentUserValue.id)
+
+      if(params.id == this.userService.currentUserValue.id){
+        this.editable=true;
+      }
       this.postService.getPostsByUser(parseInt(params.id)).subscribe(post => this.posts = post);
       this.userService.getUserById(parseInt(params.id)).subscribe(user => this.user = user);
     })

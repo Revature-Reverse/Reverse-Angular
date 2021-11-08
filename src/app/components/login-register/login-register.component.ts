@@ -1,22 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterContentChecked,
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router, ActivatedRoute} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {User} from "../../user";
+import {MatTabGroup} from "@angular/material/tabs";
 
 @Component({
   selector: 'app-login-register',
   templateUrl: './login-register.component.html',
   styleUrls: ['./login-register.component.css']
 })
-export class LoginRegisterComponent implements OnInit {
+export class LoginRegisterComponent implements OnInit,AfterContentChecked{
 
   selected = 'option2'; 
   selected2 = 'option1'; 
 
   loginForm = this.fb.group({
     userName : ["", [Validators.required]],
-    password : ["", Validators.minLength(8)],
+    password : ["", [Validators.required]],
   })
 
   registrationForm = this.fb.group({
@@ -27,25 +36,63 @@ export class LoginRegisterComponent implements OnInit {
     userName : [null, [Validators.required]],
     password : [null, Validators.minLength(8)],
     confirm_password : [null, Validators.minLength(8)],
+    gender: [null, [Validators.required]],
+    branch: [null, [Validators.required]],
+    birthdate: [null, [Validators.required]],
+    profilepic: [null, [Validators.required]]
+
   });
 
   resetPasswordForm = this.fb.group({
     userName : ["", [Validators.required]],
     password : ["", Validators.minLength(8)],
   })
+
   user: User = {
     email: '',
     firstName: '',
     lastName: '',
     password: '',
-    userName: ''
+    userName: '',
+    gender: 0,
+    branch: 0,
+    birthdate: new Date(2000,0,1)
   };
+
+
 
   constructor(private userService: UserService,
               private router: Router,
               private fb: FormBuilder){}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if(this.router.url=="/register"){
+      this.selectedIndex=0;
+    } else{
+      this.selectedIndex=1;
+    }
+
+
+  }
+  ngAfterContentChecked(): void {
+
+
+  }
+
+
+  logout() {
+    this.userService.logout();
+    window.location.href="";
+  }
+  loginclick(event:any){
+    history.pushState({}, "Reverse Login", "login");
+    this.selectedIndex=1;
+
+  }
+  registerclick(event:any){
+    history.pushState({}, "Reverse Register", "register");
+    this.selectedIndex=0;
+  }
 
   public userLogin(){
     this.userService.userLogin(this.loginForm.value).subscribe( data => {
@@ -55,7 +102,16 @@ export class LoginRegisterComponent implements OnInit {
     }, error => {alert("Login failed: " + error.message);}
     )
   }
+
+  get f() { return this.registrationForm.controls; }
+
   public userRegistration(){
+    console.log(this.f.birthdate.value);
+    console.log(this.f.profilepic.value.files[0].name);
+    this.imageSrc= this.imageSrc.split(',')[1];
+    //console.log(this.imageSrc);
+
+
     this.user = { ...this.user, ...this.registrationForm.value };
 
     this.userService.userRegistration(this.user)
@@ -73,4 +129,22 @@ export class LoginRegisterComponent implements OnInit {
   //     }, error => {alert("Reset password failed: " + error.message);}
   //   )
   // }
+  onFileChange(event: any) {
+    const reader = new FileReader();
+
+    if(event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.imageSrc = reader.result as string;
+
+        this.registrationForm.patchValue({
+          fileSource: reader.result
+        });
+
+      };
+
+    }
+  }
 }

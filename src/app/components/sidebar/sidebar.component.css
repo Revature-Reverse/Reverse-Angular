@@ -1,18 +1,38 @@
 mat-icon
 {
-  margin-right: 15px; 
+  margin-right: 15px;
 }
 
 .btn-group-vertical
 {
+
   position: absolute;
-  top: 10%; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  top: 150px;
+  height: 100%;
+  width: 100%;
+
 }
 
-.users-button
+.active
 {
-  background: var(--yellow); 
-  width: 150px; 
+  background: var(--yellow);
 }
 
+.menu-button{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 5px;
+  align-items: flex-start;
+}
 
+.menu-button span{
+
+  font-family: "Futura";
+  font-weight: bold;
+  font-size: 17px;
+}

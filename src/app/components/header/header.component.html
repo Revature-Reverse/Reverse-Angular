@@ -1,7 +1,7 @@
 <mat-toolbar class="header">
   <span class="example-spacer"></span>
-  <img class="logo" src="assets/Reverse-Brand-Logo-Transparent.png" routerLink="">
-  <span class="brandname" routerLink=""><span>RE</span><span>VERSE</span></span>
+  <img class="logo" src="assets/Reverse-Brand-Logo-Transparent.png" routerLink="home">
+  <span class="brandname" routerLink="home"><span>RE</span><span>VERSE</span></span>
   <span class="example-spacer"></span>
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
@@ -14,11 +14,13 @@
   <span class="example-spacer"></span>
 
   <div class="useraccount" *ngIf="!user">
-    <div class="useravatarcontainer">
-    </div>
-    <div class="headerlinks">
-      <span routerLink="login" >Login</span>
-      <span routerLink="register" >Register</span>
+    <div class="userinfo">
+      <div class="useravatarcontainer">
+      </div>
+      <div class="headerlinks">
+        <span routerLink="login" >Login</span>
+        <span routerLink="register" >Register</span>
+      </div>
     </div>
   </div>
   <div class="useraccount" *ngIf="user">
@@ -27,7 +29,7 @@
       </div>
       <div class="headerlinks">
         <span routerLink="users/{{user.id}}" >{{user.userName}}</span>
-        <span routerLink="logout" >Logout</span>
+        <span (click)="logout()" >Logout</span>
       </div>
     </div>
     <mat-icon>notifications</mat-icon>
