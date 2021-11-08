@@ -12,6 +12,8 @@ import {Router, ActivatedRoute} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {User} from "../../user";
 import {MatTabGroup} from "@angular/material/tabs";
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-login-register',
@@ -38,8 +40,8 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
     confirm_password : [null, Validators.minLength(8)],
     gender: [null, [Validators.required]],
     branch: [null, [Validators.required]],
-    birthdate: [null, [Validators.required]],
-    profilepic: [null, [Validators.required]]
+    birthdate: [null, [Validators.required]]
+    //profilepic: [null, [Validators.required]]
 
   });
 
@@ -63,7 +65,8 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
 
   constructor(private userService: UserService,
               private router: Router,
-              private fb: FormBuilder){}
+              private fb: FormBuilder, 
+              private _toast: MatSnackBar){}
 
   ngOnInit(): void {
     if(this.router.url=="/register"){
@@ -94,12 +97,19 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
     this.selectedIndex=0;
   }
 
+  //the toaster
+  openToast(message: string, action: string)
+  {
+    this._toast.open(message, action, {duration: 2500, verticalPosition:'top', panelClass:['login-toast', 'register-toast']}); 
+  }
+
   public userLogin(){
     this.userService.userLogin(this.loginForm.value).subscribe( data => {
-      alert("User logged in successfully.");
-      window.location.href= "";
+      console.log(data)
+      //alert("User logged in successfully.");
+      //window.location.href= "";
         //this.router.navigate(['/home']);
-    }, error => {alert("Login failed: " + error.message);}
+    }, error => {this.openToast("Login failed: " + error.message, "");}
     )
   }
 
@@ -107,18 +117,18 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
 
   public userRegistration(){
     console.log(this.f.birthdate.value);
-    console.log(this.f.profilepic.value.files[0].name);
-    this.imageSrc= this.imageSrc.split(',')[1];
+    //console.log(this.f.profilepic.value.files[0].name);
+    //this.imageSrc= this.imageSrc.split(',')[1];
     //console.log(this.imageSrc);
 
 
     this.user = { ...this.user, ...this.registrationForm.value };
 
     this.userService.userRegistration(this.user)
-      .subscribe( data => {
-        alert("User created successfully.");
+      .subscribe( (data) => {
+        this.openToast("User created successfully.", "");
         //this.router.navigate(['/login']);
-      }, error => { alert("Could not create a user: " + error.message);
+      }, error => { this.openToast("Could not create a user: " + error.message, "");
   });
 
 }
@@ -147,4 +157,7 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
 
     }
   }
+
+
+
 }

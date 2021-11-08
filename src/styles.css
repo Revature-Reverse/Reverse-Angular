@@ -57,3 +57,9 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.login-toast
+{
+  background: var(--orange) !important; 
+  color: white; 
+}
