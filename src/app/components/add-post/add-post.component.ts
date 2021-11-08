@@ -15,7 +15,7 @@ export class AddPostComponent implements OnInit {
   medium: any;
   postform!: FormGroup;
   post!: Post;
-  title!: String;
+  title!: string;
 
   constructor(
     private postService: PostService,
