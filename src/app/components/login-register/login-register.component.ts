@@ -65,7 +65,7 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
 
   constructor(private userService: UserService,
               private router: Router,
-              private fb: FormBuilder, 
+              private fb: FormBuilder,
               private _toast: MatSnackBar){}
 
   ngOnInit(): void {
@@ -100,7 +100,7 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
   //the toaster
   openToast(message: string, action: string)
   {
-    this._toast.open(message, action, {duration: 2500, verticalPosition:'top', panelClass:['login-toast', 'register-toast']}); 
+    this._toast.open(message, action, {duration: 2500, verticalPosition:'top', panelClass:['login-toast', 'register-toast']});
   }
 
   public userLogin(){
