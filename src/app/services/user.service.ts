@@ -13,6 +13,8 @@ import USERS from "../USERS";
 export class UserService {
   users?: User[];
   baseUrl: string = `http://3.91.248.52/backend/`;
+  branches:any[];
+  genders:any[];
 
   // empty user repository, try to populate by hardcoding or importing a list
 
@@ -29,12 +31,12 @@ export class UserService {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(<string>sessionStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
    this.getGendersList().toPromise().then(resp =>{
-      console.log("list of genders");
-      console.log(resp);
+     this.genders=resp;
+      console.log(this.genders);
     });
    this.getBranchesList().toPromise().then(resp =>{
-     console.log("list of Branches");
-     console.log(resp);
+     this.branches=resp;
+     console.log(this.branches);
    });;
     this.getUserById(1).toPromise().then(resp =>{
       console.log("get user by id 1");
@@ -43,6 +45,11 @@ export class UserService {
   }
 
   userRegistration(user: User) {
+    let gindex = user.gender;
+    user.gender = this.genders[gindex-1];
+    let bindex = user.branch;
+    user.branch = this.branches[bindex-1];
+    user.profilePicture = null;
     //console.log(user)
     //user-registration must match in back-end
     console.log("Registering User to database.");
@@ -87,11 +94,11 @@ export class UserService {
 
   }
   getBranchesList() {
-    return this.httpClient.get<User>(this.baseUrl+"lists/genders", this.httpOptions);
+    return this.httpClient.get<any>(this.baseUrl+"lists/genders", this.httpOptions);
 
   }
   getGendersList() {
-    return this.httpClient.get<User>(this.baseUrl+"lists/locations", this.httpOptions);
+    return this.httpClient.get<any>(this.baseUrl+"lists/locations", this.httpOptions);
 
   }
   public get currentUserValue(): User {
