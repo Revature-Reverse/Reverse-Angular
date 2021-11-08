@@ -3,29 +3,32 @@ textarea {
   box-sizing: border-box;
 }
 
+#side-nav {
+  z-index: 99;
+}
+
+.add-post__container {
+  width: 90%;
+}
+
+.add-post__container h1 {
+  font-family: "Futura";
+  font-weight: bold;
+  font-size: 38px;
+}
+
 .textarea {
   display: none;
 }
 
-.add-post__page {
-  padding: 3rem;
-  padding-top: 7rem;
-  background-color: var(--darkgray);
-}
-
-.add-post__container {
-  background-color: var(--orange);
-  padding: 2rem;
-  border-radius: 0.5rem;
-}
-
 .add-post__textarea {
   background-color: var(--white);
+  border: 1px solid var(--lightgray);
   border-radius: 0.5rem;
   display: block;
   max-width: 100%;
   min-width: 100%;
-  min-height: 6rem;
+  min-height: 16rem;
   padding: 1rem;
   margin: 0.5rem auto;
 }
@@ -36,7 +39,7 @@ textarea {
 }
 
 .add-post__title {
-  color: var(--white);
+  color: var(--darkgray);
   text-align: center;
   padding: 3rem 0;
 }
@@ -59,4 +62,25 @@ textarea {
   color: var(--white);
   font-size: 1.2rem;
   margin: 1rem;
+}
+
+mat-grid-tile {
+  height: 100%;
+  width: 100%;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+mat-grid-list {
+  height: 100%;
+  padding-bottom: 0 !important;
+}
+
+mat-grid-tile:first-child,
+mat-grid-tile:nth-child(2) {
+  border-right: 1px solid var(--lightgray);
+}
+
+.mat-grid-tile-content {
+  align-items: flex-start !important;
 }
