@@ -27,6 +27,7 @@ import {TokenInterceptor} from "./interceptors/token.interceptor";
 import { MatNativeDateModule } from '@angular/material/core';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
     FeedComponent,
     UserProfileEditComponent,
     LoadingScreenComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
