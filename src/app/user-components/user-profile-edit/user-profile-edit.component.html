@@ -53,20 +53,20 @@
               <mat-label>Select your sex</mat-label>
               <mat-select formControlName="gender" [(value)]="gender_selected">
                 <mat-option>None</mat-option>
-                <mat-option value="M">Male</mat-option>
-                <mat-option value="F">Female</mat-option>
-                <mat-option value="O">Other</mat-option>
+                <mat-option value=1>Male</mat-option>
+                <mat-option value=2>Female</mat-option>
+                <mat-option value=3>Other</mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field appearance="fill">
               <mat-label>Select your branch</mat-label>
               <mat-select formControlName="branch" [(value)]="branch_selected">
                 <mat-option>None</mat-option>
-                <mat-option value="1">DC Office - Reston, VA USA</mat-option>
-                <mat-option value="2">Dallas Office - Dallas, TX USA</mat-option>
-                <mat-option value="3">New York Office - New York, NY USA</mat-option>
-                <mat-option value="4">Orlando Office - Orlando, FL USA</mat-option>
-                <mat-option value="5">West Virginia University - Morgantown, WV USA</mat-option>
+                <mat-option value=1>DC Office - Reston, VA USA</mat-option>
+                <mat-option value=2>Dallas Office - Dallas, TX USA</mat-option>
+                <mat-option value=3>New York Office - New York, NY USA</mat-option>
+                <mat-option value=4>Orlando Office - Orlando, FL USA</mat-option>
+                <mat-option value=5>West Virginia University - Morgantown, WV USA</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -108,7 +108,7 @@
           </div>
         </li>
         <li>
-          <div class="block_container" *ngIf="user_profile_edit_form.get('userName').value != null; else otherBlock">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('userName').value != ''; else otherBlock">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Username</div>
           </div>

@@ -31,6 +31,20 @@
               <input matInput formControlName="lastName">
             </mat-form-field>
           </div>
+          <div class="row">
+            <div class="profileimgcontainer">
+              <img [src]="imageSrc" *ngIf="imageSrc">
+
+            </div>
+          </div>
+          <div class="row">
+            <mat-form-field appearance="fill">
+              <mat-label>Profile Picture</mat-label>
+              <ngx-mat-file-input (change)="onFileChange($event)" formControlName="profilepic" placeholder="Profile Picture" ></ngx-mat-file-input>
+              <mat-icon matSuffix>image</mat-icon>
+            </mat-form-field>
+
+          </div>
           <mat-form-field appearance="fill">
             <mat-label>Email</mat-label>
             <input matInput formControlName="email">
@@ -52,23 +66,29 @@
               <mat-label>Select your gender</mat-label>
               <mat-select formControlName="gender">
                 <mat-option>None</mat-option>
-                <mat-option value="M">Male</mat-option>
-                <mat-option value="F">Female</mat-option>
-                <mat-option value="O">Other</mat-option>
+                <mat-option value=1>Male</mat-option>
+                <mat-option value=2>Female</mat-option>
+                <mat-option value=3>Other</mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field appearance="fill">
               <mat-label>Select your branch</mat-label>
               <mat-select formControlName="branch">
                 <mat-option>None</mat-option>
-                <mat-option value="1">DC Office - Reston, VA USA</mat-option>
-                <mat-option value="2">Dallas Office - Dallas, TX USA</mat-option>
-                <mat-option value="3">New York Office - New York, NY USA</mat-option>
-                <mat-option value="4">Orlando Office - Orlando, FL USA</mat-option>
-                <mat-option value="5">West Virginia University - Morgantown, WV USA</mat-option>
+                <mat-option value=1>DC Office - Reston, VA USA</mat-option>
+                <mat-option value=2>Dallas Office - Dallas, TX USA</mat-option>
+                <mat-option value=3>New York Office - New York, NY USA</mat-option>
+                <mat-option value=4>Orlando Office - Orlando, FL USA</mat-option>
+                <mat-option value=5>West Virginia University - Morgantown, WV USA</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
+          <mat-form-field appearance="fill">
+            <mat-label>Select your birthdate</mat-label>
+            <input matInput placeholder="MM/DD/YYYY" [matDatepicker]="picker" formControlName="birthdate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
         </mat-card>
         <!-- <div class="button-flex-container">
           <img id="register-button" src="../assets/register-tab.JPG">

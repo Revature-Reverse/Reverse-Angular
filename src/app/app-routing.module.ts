@@ -10,12 +10,16 @@ import { UserProfileEditComponent } from './user-components/user-profile-edit/us
 const routes: Routes = [
 
   { path: 'home', component: HomepageComponent },
-  { path: '', component: HomepageComponent},
   { path: 'login', component: LoginRegisterComponent },
   { path: 'register', component: LoginRegisterComponent },
   {
     path: 'posts/add',
     component: AddPostComponent,
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home'
   },
   {
     path: 'posts/:id',

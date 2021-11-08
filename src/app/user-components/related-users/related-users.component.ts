@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from "../../user";
 import POSTS  from "src/app/USERS"
+import USERS from "src/app/USERS";
 
 @Component({
   selector: 'app-related-users',
@@ -10,20 +11,20 @@ import POSTS  from "src/app/USERS"
 export class RelatedUsersComponent implements OnInit {
 
   @Input('users')
-  users: User[] = []; 
-  usersMockData: User[] = POSTS; 
+  users: User[] = [];
+  usersMockData: User[] = USERS;
 
   populateUsers(): User[]
   {
-    this.users = []; 
+    this.users = [];
     for (let i = 0; i < this.usersMockData.length; i++)
     {
-      this.users.push(this.usersMockData[i]); 
+      this.users.push(this.usersMockData[i]);
     }
-    return this.users; 
+    return this.users;
   }
 
-  
+
 
 
   constructor() { }
