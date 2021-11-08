@@ -105,7 +105,7 @@ export class PostService {
    *
    */
   getPostsByUser(userId : number) : Observable<Post[]> {
-    this.posts = this.posts.filter(post => post.user_id === userId);
+    this.posts = this.posts.filter(post => post.poster.id === userId);
 
     // return this.httpClient.get<Post[]>(`http://localhost:8080/api/users/${userId}/posts`);
     return of(this.posts);
