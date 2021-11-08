@@ -1,28 +1,38 @@
-<div class="add-post__page">
-  <h1 class="add-post__title">Make your Verse</h1>
-  <form>
+<mat-grid-list cols="4">
+  <mat-grid-tile id="side-nav">
+    <app-sidebar></app-sidebar>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2">
     <div class="add-post__container">
-      <label class="label">Title</label>
-      <input
-        name="title"
-        class="title-input"
-        placeholder="What is your subject"
-        [(ngModel)]="title"
-      />
-      <br />
-      <br />
-      <label class="label">Body</label>
-      <div class="add-post__textarea editable"></div>
-      <div class="submit-button">
-        <button
-          mat-raised-button
-          color="primary"
-          type="submit"
-          (click)="onSubmit()"
-        >
-          Submit my Verse
-        </button>
-      </div>
+      <h1 class="add-post__title">Make your Verse</h1>
+      <form>
+        <!-- <div class="add-post__container"> -->
+        <label class="label">Title</label>
+        <input
+          name="title"
+          class="title-input"
+          placeholder="What is your subject"
+          [(ngModel)]="title"
+        />
+        <br />
+        <br />
+        <label class="label">Body</label>
+        <div class="add-post__textarea editable"></div>
+        <div class="submit-button">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            (click)="onSubmit()"
+          >
+            Submit my Verse
+          </button>
+        </div>
+        <!-- </div> -->
+      </form>
     </div>
-  </form>
-</div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <app-related-users></app-related-users>
+  </mat-grid-tile>
+</mat-grid-list>

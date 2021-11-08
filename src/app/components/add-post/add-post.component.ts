@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Post } from '../../classes/Post';
 import { PostService } from '../../services/post.service';
 import POSTS from '../../POSTS';
-import {User} from "../../user";
+import { User } from '../../user';
 
 @Component({
   selector: 'app-add-post',
@@ -43,11 +43,11 @@ export class AddPostComponent implements OnInit {
   }
 
   onSubmit() {
-    let user : User = {
-        id: 1,
-        userName: "timothyharper",
-        firstName: "Timothy",
-        lastName: "Harper"
+    let user: User = {
+      id: 1,
+      userName: 'timothyharper',
+      firstName: 'Timothy',
+      lastName: 'Harper',
     };
 
     this.post = {
@@ -67,6 +67,9 @@ export class AddPostComponent implements OnInit {
           alert('Please fill out all required fields.');
         }
       );
+    // .catch((err) => {
+    //   console.log('Please fill out all required fields.');
+    // });
   }
 
   ngOnChanges(change: any) {
