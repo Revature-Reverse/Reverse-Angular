@@ -96,6 +96,12 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
     this.selectedIndex=0;
   }
 
+  //the toaster
+  openToast(message: string, action: string)
+  {
+    this._toast.open(message, action, {duration: 2500}); 
+  }
+
   public userLogin(){
     this.userService.userLogin(this.loginForm.value).subscribe( data => {
       alert("User logged in successfully.");
@@ -150,9 +156,6 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
     }
   }
 
-  //the toaster
-  openToast(message: string, action: string)
-  {
-    this._toast.open(message, action, {duration: 2500}); 
-  }
+
+
 }
