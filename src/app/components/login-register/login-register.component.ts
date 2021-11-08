@@ -96,8 +96,9 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
 
   public userLogin(){
     this.userService.userLogin(this.loginForm.value).subscribe( data => {
-      alert("User logged in successfully.");
-      window.location.href= "";
+      console.log(data)
+      //alert("User logged in successfully.");
+      //window.location.href= "";
         //this.router.navigate(['/home']);
     }, error => {alert("Login failed: " + error.message);}
     )
