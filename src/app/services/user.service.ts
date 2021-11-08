@@ -45,11 +45,9 @@ export class UserService {
   userRegistration(user: User) {
     //console.log(user)
     //user-registration must match in back-end
-    this.users.push(user);
     console.log("Registering User to database.");
     //console.log(this.users);
-
-    return this.httpClient.post<User>("${this.baseUrl}/users/register", user);
+    return this.httpClient.post<User>(this.baseUrl+"users/register", user,this.httpOptions);
   }
 
   //user-login must match in back-end

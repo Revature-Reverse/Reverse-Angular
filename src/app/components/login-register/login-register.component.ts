@@ -117,6 +117,7 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
 
     this.userService.userRegistration(this.user)
       .subscribe( (data) => {
+        console.log(data)
         alert("User created successfully.");
         //this.router.navigate(['/login']);
       }, error => { alert("Could not create a user: " + error.message);
