@@ -109,7 +109,7 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
       //alert("User logged in successfully.");
       //window.location.href= "";
         //this.router.navigate(['/home']);
-    }, error => {this.openToast("Login failed: " + error.message, "");}
+    }, error => {this.openToast("Login failed: Wrong username or password", "");}
     )
   }
 
