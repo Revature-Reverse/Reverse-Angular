@@ -6,8 +6,8 @@ export default [
     email: 'jw@gmail.com',
     userName: 'user1',
     password: '1234',
-    gender: "M",
-    branch: "1",
+    gender: 1,
+    branch: 1,
     birthdate: new Date(2000,0,1)
   },
   {
@@ -17,8 +17,8 @@ export default [
   email: 'bo@gmail.com',
   userName: 'user2',
   password: '1234',
-    gender: "M",
-    branch: "1",
+    gender: 1,
+    branch: 1,
     birthdate: new Date(2000,0,1)
 },
 

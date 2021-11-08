@@ -18,8 +18,8 @@ export class UserService {
       email: "lee@leeharper.dev",
       userName: "leeharper",
       password: "passwordharper",
-      gender: "M",
-      branch: "1",
+      gender: 1,
+      branch: 1,
       birthdate: new Date(2000,0,1)
     },
     {
@@ -29,8 +29,8 @@ export class UserService {
       email: "paxton@plum.dev",
       userName: "paxtonplum",
       password: "passwordplum",
-      gender: "F", // just for testing purposes >:
-      branch: "1",
+      gender: 2, // just for testing purposes >:
+      branch: 2,
       birthdate: new Date(2000,0,1)
     },
     {
@@ -40,8 +40,8 @@ export class UserService {
       email: "jerry@zheng.dev",
       userName: "jerryzheng",
       password: "passwordjerry",
-      gender: "0", //just for testing purposes
-      branch: "1",
+      gender: 3, //just for testing purposes
+      branch: 3,
       birthdate: new Date(2000,0,1)
     },
   ]; // empty user repository, try to populate by hardcoding or importing a list
@@ -55,6 +55,8 @@ export class UserService {
   }
 
   userRegistration(user: User) {
+    console.log(user)
+
     //user-registration must match in back-end
     this.users.push(user);
     console.log("Registering User to database.");
@@ -67,6 +69,7 @@ export class UserService {
 
   //user-login must match in back-end
   userLogin(user: User) {
+    console.log(user)
     let finduser = this.users.find((dbUser) => dbUser.userName === user.userName && dbUser.password === user.password);
     if (finduser){
       this.currentUserSubject.next(finduser);
@@ -74,6 +77,8 @@ export class UserService {
     if (this.currentUserValue) {
       console.log("Logging in User.");
       sessionStorage.setItem('currentUser', JSON.stringify(this.currentUserValue));
+      sessionStorage.setItem('token', "testtoken");
+
       return this.currentUser;
 
       //return this.httpClient.post<User>("localhost:8080/user-login", user);
@@ -83,10 +88,10 @@ export class UserService {
   }
   logout(){
     sessionStorage.clear();
-    this.router.navigate(["/login"]); 
   }
 
   userUpdate(user: User): Observable<User> {
+    console.log(user)
     //return this.httpClient.post<User>("localhost:8080/user-login", user);
     return of (user);
   }
