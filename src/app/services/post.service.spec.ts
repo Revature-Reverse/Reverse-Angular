@@ -41,8 +41,8 @@ describe('PostService', () => {
       email: "lee@leeharper.dev",
       userName: "leeharper",
       password: "passwordharper",
-      gender: "M",
-      branch: "1",
+      gender: 0,
+      branch: 1,
       birthdate: new Date(2000,0,1)
     };
     let post : Post = {
@@ -104,8 +104,8 @@ describe('PostService', () => {
       email: "jharper@leeharper.dev",
       userName: "juelieharper",
       password: "passwordjulie",
-      gender: "F",
-      branch: "1",
+      gender: 1,
+      branch: 1,
       birthdate: new Date(1994,4,23)
     };
     let post : Post = {
