@@ -15,6 +15,7 @@ export class UserProfileEditComponent implements OnInit {
   branch_selected = "1";
   gender_selected = "M";
   user?: User;
+  imageSrc!:string;
 
   user_profile_edit_form = this.fb.group({
     //id = [],
@@ -49,5 +50,24 @@ export class UserProfileEditComponent implements OnInit {
           alert("User updated successfully.");
         }, error => { alert("Could not create a user: " + error.message);
         });
+  }
+
+  onFileChange(event: any) {
+    const reader = new FileReader();
+
+    if(event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.imageSrc = reader.result as string;
+
+        this.user_profile_edit_form.patchValue({
+          fileSource: reader.result
+        });
+
+      };
+
+    }
   }
 }
