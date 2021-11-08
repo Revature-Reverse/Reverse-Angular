@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Post } from '../../classes/Post';
 import { PostService } from '../../services/post.service';
 import POSTS from '../../POSTS';
+import {User} from "../../user";
 
 @Component({
   selector: 'app-add-post',
@@ -42,11 +43,18 @@ export class AddPostComponent implements OnInit {
   }
 
   onSubmit() {
+    let user : User = {
+        id: 1,
+        userName: "timothyharper",
+        firstName: "Timothy",
+        lastName: "Harper"
+    };
+
     this.post = {
       id: POSTS.length + 1,
       title: this.title,
-      content: this.medium.getContent(),
-      user_id: 1,
+      body: this.medium.getContent(),
+      poster: user,
     };
     this.postService
       .savePost(this.post)
