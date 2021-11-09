@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Post} from "../../classes/Post";
-import {User} from "../../user";
+import {User} from "../../classes/user";
 
 @Component({
   selector: 'app-user-description',

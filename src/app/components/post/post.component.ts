@@ -5,7 +5,7 @@ import POSTS from 'src/app/POSTS';
 import {Post} from "src/app/classes/Post";
 import {UserService} from "../../services/user.service";
 import {ActivatedRoute} from "@angular/router";
-import {User} from "../../user";
+import {User} from "../../classes/user";
 
 @Component({
   selector: 'app-post',

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import {FormGroup} from "@angular/forms";
-import {User} from "../user";
+import {User} from "../classes/user";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {BehaviorSubject, Observable, of} from "rxjs"
 import { Router } from '@angular/router';

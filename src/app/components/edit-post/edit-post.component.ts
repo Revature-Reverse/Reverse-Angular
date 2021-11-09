@@ -1,7 +1,7 @@
 import { Post } from 'src/app/classes/Post';
 import { Component, OnInit } from '@angular/core';
 import POSTS from '../../POSTS';
-import { User } from '../../user';
+import { User } from '../../classes/user';
 
 @Component({
   selector: 'app-edit-post',
@@ -11,8 +11,8 @@ import { User } from '../../user';
 export class EditPostComponent implements OnInit {
   medium: any;
   post!: Post;
-  title!: String;
-  body!: String;
+  title!: string;
+  body!: string;
 
   constructor() {}
 
