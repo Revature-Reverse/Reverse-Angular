@@ -61,7 +61,7 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
     userName: '',
     gender: 0,
     branch: 0,
-    birthdate: new Date(2000, 0, 1)
+    dateOfBirth: new Date(2000, 0, 1)
   };
 
 
@@ -129,7 +129,7 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
   }
 
   public userRegistration() {
-    console.log(this.f.birthdate.value);
+    console.log(this.f.dateOfBirth.value);
     //console.log(this.f.profilepic.value.files[0].name);
     //this.imageSrc= this.imageSrc.split(',')[1];
     //console.log(this.imageSrc);

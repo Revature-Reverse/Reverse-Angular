@@ -13,7 +13,7 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const jwt = sessionStorage.getItem("token");
+    const jwt = "testing";
 
     if (jwt) {
 
