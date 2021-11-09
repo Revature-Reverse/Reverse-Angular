@@ -2,6 +2,8 @@ import { Post } from 'src/app/classes/Post';
 import { Component, OnInit } from '@angular/core';
 import POSTS from '../../POSTS';
 import { User } from '../../classes/user';
+import { NotificationService } from "../../services/notification.service";
+import { FilterService } from "../../services/filter.service";
 
 @Component({
   selector: 'app-edit-post',
@@ -14,7 +16,10 @@ export class EditPostComponent implements OnInit {
   title!: string;
   body!: string;
 
-  constructor() {}
+  constructor(
+    private filterService : FilterService,
+    private notify : NotificationService
+  ) {}
 
   ngAfterViewInit() {
     this.medium = new MediumEditor('.editable', {
@@ -42,6 +47,10 @@ export class EditPostComponent implements OnInit {
       body: this.medium.getContent(),
       poster: user,
     };
-    console.log(this.post);
+    if (this.filterService.checkForProfanity(this.post.body) || this.filterService.checkForProfanity(this.post.title)) {
+      this.notify.openToast("The post cannot contain profanity.", "");
+    } else {
+      console.log(this.post);
+    }
   }
 }

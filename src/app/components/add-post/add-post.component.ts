@@ -7,6 +7,7 @@ import POSTS from '../../POSTS';
 import { User } from '../../classes/user';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NotificationService } from 'src/app/services/notification.service';
+import {FilterService} from "../../services/filter.service";
 
 @Component({
   selector: 'app-add-post',
@@ -21,6 +22,7 @@ export class AddPostComponent implements OnInit {
 
   constructor(
     private postService: PostService,
+    private filterService: FilterService,
     private formBuilder: FormBuilder,
     private notify: NotificationService
   ) {}
@@ -65,7 +67,11 @@ export class AddPostComponent implements OnInit {
       body: this.medium.getContent(),
       poster: user,
     };
-    this.postService
+
+    if (this.filterService.checkForProfanity(this.post.body) || this.filterService.checkForProfanity(this.post.title)) {
+      this.notify.openToast("The post cannot contain profanity.", "");
+    } else {
+      this.postService
       .savePost(this.post)
       .toPromise()
       .then(
@@ -76,9 +82,10 @@ export class AddPostComponent implements OnInit {
           this.notify.openToast('Please fill out all required fields.', "");
         }
       );
-    // .catch((err) => {
-    //   console.log('Please fill out all required fields.');
-    // });
+      // .catch((err) => {
+      //   console.log('Please fill out all required fields.');
+      // });
+    }
   }
 
   ngOnChanges(change: any) {
