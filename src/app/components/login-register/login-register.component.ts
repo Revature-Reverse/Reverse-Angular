@@ -43,7 +43,7 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
     confirm_password: [null, [Validators.minLength(8)]],
     gender: [null, [Validators.required]],
     branch: [null, [Validators.required]],
-    birthdate: [null, [Validators.required]]
+    dateOfBirth: [null, [Validators.required]]
     //profilepic: [null, [Validators.required]]
 
   }, {validators: passwordValidator()});
