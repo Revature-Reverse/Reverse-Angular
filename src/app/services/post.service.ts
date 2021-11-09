@@ -13,12 +13,15 @@ export class PostService {
 
   posts : Post[] = POSTS;
   userToken! : string | null;
-
+  recentposts:any[];
 
   constructor(
     private httpClient : HttpClient
   ) {
-
+    this.getRecentPosts().toPromise().then(resp =>{
+      this.recentposts=resp;
+      console.log(this.recentposts);
+    });
   }
 
   /***
@@ -67,8 +70,7 @@ export class PostService {
    *
    */
   getPost(id : number) : Observable<Post | undefined> {
-    // return this.httpClient.get<Post>(`http://localhost:8080/backend/posts/${id}`);
-    return of(this.posts.find((post : Post) => post.id === id));
+    return this.httpClient.get<Post>(this.baseUrl+`backend/posts/`+id);
   }
 
 
@@ -122,8 +124,7 @@ export class PostService {
    *
    */
   getRecentPosts() : Observable<Post[]> {
-    // return this.httpClient.get<Post[]>("http://localhost:8080/backend/posts/recent");
-    return of(this.posts);
+    return this.httpClient.get<Post[]>(this.baseUrl+"backend/posts/recent");
   }
 
   private getUserToken() : void {

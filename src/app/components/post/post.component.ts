@@ -28,6 +28,7 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.postService.getPost(parseInt(params.id)).subscribe(post => this.post = post);
+      console.log(this.post)
       if (this.post){
         this.userService.getUserById(this.post?.user_id).subscribe(user => this.user = user);
         this.loadHtml();
