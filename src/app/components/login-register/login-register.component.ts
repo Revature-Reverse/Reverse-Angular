@@ -43,7 +43,7 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
     confirm_password: [null, [Validators.minLength(8)]],
     gender: [null, [Validators.required]],
     branch: [null, [Validators.required]],
-    birthdate: [null, [Validators.required]]
+    dateOfBirth: [null, [Validators.required]]
     //profilepic: [null, [Validators.required]]
 
   }, {validators: passwordValidator()});
@@ -113,8 +113,10 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
   // }
 
   public userLogin() {
-    this.userService.userLogin(this.loginForm.value).toPromise().then(data => {
-        console.log(data)
+    this.userService.userLogin(this.loginForm.value).toPromise().then((data)  => {
+        console.log(data);
+        sessionStorage.setItem("token", data);
+
         //alert("User logged in successfully.");
         //window.location.href= "";
         //this.router.navigate(['/home']);
