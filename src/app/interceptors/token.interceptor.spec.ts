@@ -4,7 +4,7 @@ import { TokenInterceptor } from './token.interceptor';
 import {UserService} from "../services/user.service";
 import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
 import {HTTP_INTERCEPTORS, HttpClient} from "@angular/common/http";
-import {User} from "../user";
+import {User} from "../classes/user";
 import {RouterTestingModule} from "@angular/router/testing";
 
 fdescribe('TokenInterceptor', () => {

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {User} from "../../user";
+import {User} from "../../classes/user";
 
 @Component({
   selector: 'app-sidebar',
@@ -27,6 +27,6 @@ export class SidebarComponent implements OnInit {
     this.userService.logout();
     window.location.href = "";
   }
-  
+
 }
 

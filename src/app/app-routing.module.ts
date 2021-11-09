@@ -7,6 +7,7 @@ import { PostComponent } from './components/post/post.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { UserProfileEditComponent } from './user-components/user-profile-edit/user-profile-edit.component';
+import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
   { path: 'home', component: HomepageComponent },
@@ -37,6 +38,10 @@ const routes: Routes = [
     path: 'users/:id/edit',
     component: UserProfileEditComponent,
   },
+  {
+    path: '**',
+    component: PageNotFoundComponent
+  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

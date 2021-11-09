@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Post } from '../../classes/Post';
 import { PostService } from '../../services/post.service';
 import POSTS from '../../POSTS';
-import { User } from '../../user';
+import { User } from '../../classes/user';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NotificationService } from 'src/app/services/notification.service';
 
@@ -17,12 +17,12 @@ export class AddPostComponent implements OnInit {
   medium: any;
   postform!: FormGroup;
   post!: Post;
-  title!: String;
+  title!: string;
 
   constructor(
     private postService: PostService,
-    private formBuilder: FormBuilder, 
-    private notify: NotificationService
+    private formBuilder: FormBuilder,
+    private _toast: MatSnackBar
   ) {}
 
     //the toaster

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { User } from "../../user";
+import { User } from "../../classes/user";
 import POSTS  from "src/app/USERS"
 import USERS from "src/app/USERS";
 
