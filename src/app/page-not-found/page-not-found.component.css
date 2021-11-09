@@ -1,0 +1,25 @@
+div {
+  padding-top: 5rem;
+  text-align: center;
+}
+h1 {
+  font-size: 500%;
+  margin: 2rem;
+}
+hr {
+  animation-name: hrShrink;
+  animation-duration: 6.2s;
+  animation-fill-mode: forwards;
+  border: 1px solid var(--orange);
+}
+.orangeLettering {
+  color: var(--orange);
+}
+
+@keyframes hrShrink {
+  from {
+    width: 50%;
+  } to {
+  width: 0;
+      }
+}

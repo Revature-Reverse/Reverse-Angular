@@ -1,11 +1,11 @@
-import {User} from "../user";
+import {User} from "./user";
 import {PostImage} from "./PostImage";
 import {Comment} from "./Comment";
 
 export interface Post {
     id?: number,
     poster: User,
-    title: String,
+    title: string,
     body: string,
     created?: Date,
     lastEdited?: Date,

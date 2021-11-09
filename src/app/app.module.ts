@@ -32,6 +32,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { EditPostComponent } from './components/edit-post/edit-post.component';
     UserProfileEditComponent,
     LoadingScreenComponent,
     EditPostComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
