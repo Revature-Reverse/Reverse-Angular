@@ -39,7 +39,7 @@ export class PostService {
     this.getUserToken();
     this.posts.push(post);
     console.log(this.userToken)
-    return this.httpClient.post<Post>('${this.baseUrl}/backend/posts/create', post);
+    return this.httpClient.post<Post>(this.baseUrl+'posts/create', post);
   }
 
   /***
@@ -55,8 +55,7 @@ export class PostService {
   deletePost(id : number) : Observable<Post[]> {
     this.posts = this.posts.filter((post) => post.id !== id);
 
-    // return this.httpClient.delete<Post[]>(`http://localhost:8080/backend/posts/delete/${id}`);
-    return of(this.posts);
+    return this.httpClient.delete<Post[]>(this.baseUrl+`posts/delete/`+id);
   }
 
   /***
@@ -70,7 +69,7 @@ export class PostService {
    *
    */
   getPost(id : number) : Observable<Post | undefined> {
-    return this.httpClient.get<Post>(this.baseUrl+`backend/posts/`+id);
+    return this.httpClient.get<Post>(this.baseUrl+`posts/`+id);
   }
 
 
@@ -94,8 +93,7 @@ export class PostService {
       }
     });
 
-    // return this.httpClient.patch<Post>("http://localhost:8080/backend/posts/edit", updatedPost);
-    return of(this.posts.find((post : Post) => post.id === updatedPost.id));
+    return this.httpClient.patch<Post>(this.baseUrl+"posts/edit", updatedPost);
   }
 
   /***
@@ -111,8 +109,7 @@ export class PostService {
   getPostsByUser(userId : number) : Observable<Post[]> {
     this.posts = this.posts.filter(post => post.poster.id === userId);
 
-    // return this.httpClient.get<Post[]>(`http://localhost:8080/api/users/${userId}/posts`);
-    return of(this.posts);
+    return this.httpClient.get<Post[]>(this.baseUrl+'users/'+userId);
   }
 
   /***
@@ -124,7 +121,7 @@ export class PostService {
    *
    */
   getRecentPosts() : Observable<Post[]> {
-    return this.httpClient.get<Post[]>(this.baseUrl+"backend/posts/recent");
+    return this.httpClient.get<Post[]>(this.baseUrl+"posts/recent");
   }
 
   private getUserToken() : void {
