@@ -11,8 +11,8 @@ import { User } from '../../classes/user';
 export class EditPostComponent implements OnInit {
   medium: any;
   post!: Post;
-  title!: String;
-  body!: String;
+  title!: string;
+  body!: string;
 
   constructor() {}
 
