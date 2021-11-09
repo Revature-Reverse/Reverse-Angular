@@ -113,7 +113,7 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
   // }
 
   public userLogin() {
-    this.userService.userLogin(this.loginForm.value).subscribe(data => {
+    this.userService.userLogin(this.loginForm.value).toPromise().then(data => {
         console.log(data)
         //alert("User logged in successfully.");
         //window.location.href= "";
@@ -138,8 +138,8 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
     this.user = {...this.user, ...this.registrationForm.value};
 
     this.userService.userRegistration(this.user)
-      .subscribe((data) => {
-        this.notify.openToast("User created successfully.", "");
+      .toPromise().then((data) => {
+        this.openToast("User created successfully.", "");
         //this.router.navigate(['/login']);
       }, error => {
         this.notify.openToast("Could not create a user: " + error.message, "");

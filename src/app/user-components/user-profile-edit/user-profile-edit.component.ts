@@ -40,7 +40,7 @@ export class UserProfileEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-    this.userService.getUserById(parseInt(params.id)).subscribe(user => this.user = user);
+    this.userService.getUserById(parseInt(params.id)).toPromise().then(user => this.user = user);
     this.user_profile_edit_form.patchValue(this.user);
   }
   )}
@@ -49,7 +49,7 @@ export class UserProfileEditComponent implements OnInit {
         this.user = { ...this.user, ...this.user_profile_edit_form.value };
 
       this.userService.userUpdate(this.user)
-        .subscribe( data => {
+        .toPromise().then( data => {
           alert("User updated successfully.");
         }, error => { alert("Could not create a user: " + error.message);
         });
