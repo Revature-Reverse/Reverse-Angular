@@ -59,7 +59,7 @@ export class UserService {
 
   //user-login must match in back-end
   userLogin(user: User) {
-    return this.httpClient.post<User>(this.baseUrl+"auth/login", user,this.httpOptions);
+    return this.httpClient.post<string>(this.baseUrl+"auth/login", user,this.httpOptions);
 
     //console.log(user)
     //let finduser = this.users.find((dbUser) => dbUser.userName === user.userName && dbUser.password === user.password);
