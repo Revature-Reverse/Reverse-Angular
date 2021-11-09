@@ -22,7 +22,7 @@ export class AddPostComponent implements OnInit {
   constructor(
     private postService: PostService,
     private formBuilder: FormBuilder,
-    private _toast: MatSnackBar
+    private notify: NotificationService
   ) {}
 
     //the toaster

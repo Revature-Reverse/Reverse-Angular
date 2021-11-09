@@ -139,7 +139,7 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
 
     this.userService.userRegistration(this.user)
       .toPromise().then((data) => {
-        this.openToast("User created successfully.", "");
+        this.notify.openToast("User created successfully.", "");
         //this.router.navigate(['/login']);
       }, error => {
         this.notify.openToast("Could not create a user: " + error.message, "");
