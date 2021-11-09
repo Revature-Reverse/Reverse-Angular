@@ -30,11 +30,11 @@ export class UserService {
   constructor(private httpClient: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(<string>sessionStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
-   this.getGendersList().toPromise().then(resp =>{
+   this.getGendersList().subscribe(resp =>{
      this.genders=resp;
       console.log(this.genders);
     });
-   this.getBranchesList().toPromise().then(resp =>{
+   this.getBranchesList().subscribe(resp =>{
      this.branches=resp;
      console.log(this.branches);
    });;
