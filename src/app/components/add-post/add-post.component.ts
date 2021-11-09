@@ -5,6 +5,7 @@ import { Post } from '../../classes/Post';
 import { PostService } from '../../services/post.service';
 import POSTS from '../../POSTS';
 import { User } from '../../user';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-post',
@@ -19,8 +20,15 @@ export class AddPostComponent implements OnInit {
 
   constructor(
     private postService: PostService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder, 
+    private _toast: MatSnackBar
   ) {}
+
+    //the toaster
+    openToast(message: string, action: string)
+    {
+      this._toast.open(message, action, {duration: 2500, verticalPosition:'top', panelClass:['login-toast', 'register-toast']});
+    }
 
   ngAfterViewInit() {
     this.medium = new MediumEditor('.editable', {
@@ -64,7 +72,7 @@ export class AddPostComponent implements OnInit {
           console.log(res);
         },
         (error) => {
-          alert('Please fill out all required fields.');
+          this.openToast('Please fill out all required fields.', "");
         }
       );
     // .catch((err) => {
