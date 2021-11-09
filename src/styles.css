@@ -58,8 +58,17 @@ body {
   background: #555;
 }
 
-.login-toast
+.login-toast.mat-snack-bar-container
 {
   background: var(--orange) !important; 
   color: white; 
+  padding: 35px;
+  width: 100%;   
+  font-size: 78px !important; 
+  margin-top: 80px; 
+}
+
+.login-toast.mat-snack-bar-container span
+{
+  font-size: 27px; 
 }

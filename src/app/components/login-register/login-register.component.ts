@@ -12,42 +12,44 @@ import {Router, ActivatedRoute} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {User} from "../../user";
 import {MatTabGroup} from "@angular/material/tabs";
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { ViewEncapsulation } from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {ViewEncapsulation} from '@angular/core';
+import {passwordValidator} from "../../user-components/password-validator";
+
 
 @Component({
   selector: 'app-login-register',
   templateUrl: './login-register.component.html',
   styleUrls: ['./login-register.component.css']
 })
-export class LoginRegisterComponent implements OnInit,AfterContentChecked{
+export class LoginRegisterComponent implements OnInit, AfterContentChecked {
 
-  selectedIndex?:number;
-  imageSrc!:string;
+  selectedIndex?: number;
+  imageSrc!: string;
 
   loginForm = this.fb.group({
-    userName : ["", [Validators.required]],
-    password : ["", [Validators.required]],
+    userName: ["", [Validators.required]],
+    password: ["", [Validators.required]],
   })
 
   registrationForm = this.fb.group({
     //id = [],
-    firstName : [null, [Validators.required]],
-    lastName : [null, [Validators.required]],
-    email : ['', [Validators.minLength(5), Validators.maxLength(30), Validators.email]],
-    userName : [null, [Validators.required]],
-    password : [null, Validators.minLength(8)],
-    confirm_password : [null, Validators.minLength(8)],
+    firstName: [null, [Validators.required]],
+    lastName: [null, [Validators.required]],
+    email: ['', [Validators.minLength(5), Validators.maxLength(30), Validators.email]],
+    userName: [null, [Validators.required]],
+    password: [null, [Validators.minLength(8)]],
+    confirm_password: [null, [Validators.minLength(8)]],
     gender: [null, [Validators.required]],
     branch: [null, [Validators.required]],
     birthdate: [null, [Validators.required]]
     //profilepic: [null, [Validators.required]]
 
-  });
+  }, {validators: passwordValidator()});
 
   resetPasswordForm = this.fb.group({
-    userName : ["", [Validators.required]],
-    password : ["", Validators.minLength(8)],
+    userName: ["", [Validators.required]],
+    password: ["", Validators.minLength(8)],
   })
 
   user: User = {
@@ -58,25 +60,26 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
     userName: '',
     gender: 0,
     branch: 0,
-    birthdate: new Date(2000,0,1)
+    birthdate: new Date(2000, 0, 1)
   };
-
 
 
   constructor(private userService: UserService,
               private router: Router,
-              private fb: FormBuilder, 
-              private _toast: MatSnackBar){}
+              private fb: FormBuilder,
+              private _toast: MatSnackBar) {
+  }
 
   ngOnInit(): void {
-    if(this.router.url=="/register"){
-      this.selectedIndex=0;
-    } else{
-      this.selectedIndex=1;
+    if (this.router.url == "/register") {
+      this.selectedIndex = 0;
+    } else {
+      this.selectedIndex = 1;
     }
 
 
   }
+
   ngAfterContentChecked(): void {
 
 
@@ -85,53 +88,64 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
 
   logout() {
     this.userService.logout();
-    window.location.href="";
+    window.location.href = "";
   }
-  loginclick(event:any){
+
+  loginclick(event: any) {
     history.pushState({}, "Reverse Login", "login");
-    this.selectedIndex=1;
+    this.selectedIndex = 1;
 
   }
-  registerclick(event:any){
+
+  registerclick(event: any) {
     history.pushState({}, "Reverse Register", "register");
-    this.selectedIndex=0;
+    this.selectedIndex = 0;
   }
 
   //the toaster
-  openToast(message: string, action: string)
-  {
-    this._toast.open(message, action, {duration: 2500, verticalPosition:'top', panelClass:['login-toast', 'register-toast']}); 
+  openToast(message: string, action: string) {
+    this._toast.open(message, action, {
+      duration: 2500,
+      verticalPosition: 'top',
+      panelClass: ['login-toast', 'register-toast']
+    });
   }
 
-  public userLogin(){
-    this.userService.userLogin(this.loginForm.value).subscribe( data => {
-      console.log(data)
-      //alert("User logged in successfully.");
-      //window.location.href= "";
+  public userLogin() {
+    this.userService.userLogin(this.loginForm.value).subscribe(data => {
+        console.log(data)
+        //alert("User logged in successfully.");
+        //window.location.href= "";
         //this.router.navigate(['/home']);
-    }, error => {this.openToast("Login failed: " + error.message, "");}
+      }, error => {
+        this.openToast("Login failed: Wrong username or password", "");
+      }
     )
   }
 
-  get f() { return this.registrationForm.controls; }
+  get f() {
+    return this.registrationForm.controls;
+  }
 
-  public userRegistration(){
+  public userRegistration() {
     console.log(this.f.birthdate.value);
     //console.log(this.f.profilepic.value.files[0].name);
     //this.imageSrc= this.imageSrc.split(',')[1];
     //console.log(this.imageSrc);
 
 
-    this.user = { ...this.user, ...this.registrationForm.value };
+    this.user = {...this.user, ...this.registrationForm.value};
 
     this.userService.userRegistration(this.user)
-      .subscribe( (data) => {
+      .subscribe((data) => {
         this.openToast("User created successfully.", "");
         //this.router.navigate(['/login']);
-      }, error => { this.openToast("Could not create a user: " + error.message, "");
-  });
+      }, error => {
+        this.openToast("Could not create a user: " + error.message, "");
+      });
 
-}
+  }
+
   // public resetPassword(){
   //   this.userService.resetPassword(this.resetPasswordForm.value).subscribe( data => {
   //       alert("Password reset successful.");
@@ -142,7 +156,7 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
   onFileChange(event: any) {
     const reader = new FileReader();
 
-    if(event.target.files && event.target.files.length) {
+    if (event.target.files && event.target.files.length) {
       const [file] = event.target.files;
       reader.readAsDataURL(file);
 
@@ -157,7 +171,6 @@ export class LoginRegisterComponent implements OnInit,AfterContentChecked{
 
     }
   }
-
 
 
 }

@@ -59,10 +59,17 @@
           <mat-form-field appearance="fill">
             <mat-label>Password</mat-label>
             <input type="password" matInput formControlName="password">
+<!--            <div *ngIf="registrationForm.errors?.password_mismatch">-->
+<!--              Passwords do not match.-->
+<!--            </div>-->
+
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>Confirm Password</mat-label>
             <input type="password" matInput formControlName="confirm_password">
+            <span style="font-size: 8px; color: red" *ngIf="registrationForm.errors?.password_mismatch">
+              Passwords do not match.
+            </span>
           </mat-form-field>
           <div class="row">
             <mat-form-field appearance="fill">
