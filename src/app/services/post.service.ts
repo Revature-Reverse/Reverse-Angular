@@ -18,10 +18,10 @@ export class PostService {
   constructor(
     private httpClient : HttpClient
   ) {
-    this.getRecentPosts().toPromise().then(resp =>{
-      this.recentposts=resp;
-      console.log(this.recentposts);
-    });
+    //this.getRecentPosts().toPromise().then(resp =>{
+    //  this.recentposts=resp;
+     // console.log(this.recentposts);
+    //});
   }
 
   /***

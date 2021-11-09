@@ -17,7 +17,7 @@ export class HomepageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.postService.getRecentPosts().toPromise().then(dbPosts => this.posts = dbPosts);
+    //this.postService.getRecentPosts().toPromise().then(dbPosts => this.posts = dbPosts);
   }
 
 }
