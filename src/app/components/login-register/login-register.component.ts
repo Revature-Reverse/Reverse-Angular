@@ -15,6 +15,7 @@ import {MatTabGroup} from "@angular/material/tabs";
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ViewEncapsulation} from '@angular/core';
 import {passwordValidator} from "../../user-components/password-validator";
+import { NotificationService } from 'src/app/services/notification.service';
 
 
 @Component({
@@ -67,7 +68,7 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
   constructor(private userService: UserService,
               private router: Router,
               private fb: FormBuilder,
-              private _toast: MatSnackBar) {
+              private notify: NotificationService) {
   }
 
   ngOnInit(): void {
@@ -103,13 +104,13 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
   }
 
   //the toaster
-  openToast(message: string, action: string) {
-    this._toast.open(message, action, {
-      duration: 2500,
-      verticalPosition: 'top',
-      panelClass: ['login-toast', 'register-toast']
-    });
-  }
+  // openToast(message: string, action: string) {
+  //   this._toast.open(message, action, {
+  //     duration: 2500,
+  //     verticalPosition: 'top',
+  //     panelClass: ['login-toast', 'register-toast']
+  //   });
+  // }
 
   public userLogin() {
     this.userService.userLogin(this.loginForm.value).subscribe(data => {
@@ -118,7 +119,7 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
         //window.location.href= "";
         //this.router.navigate(['/home']);
       }, error => {
-        this.openToast("Login failed: Wrong username or password", "");
+        this.notify.openToast("Login failed: Wrong username or password", "");
       }
     )
   }
@@ -138,10 +139,10 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
 
     this.userService.userRegistration(this.user)
       .subscribe((data) => {
-        this.openToast("User created successfully.", "");
+        this.notify.openToast("User created successfully.", "");
         //this.router.navigate(['/login']);
       }, error => {
-        this.openToast("Could not create a user: " + error.message, "");
+        this.notify.openToast("Could not create a user: " + error.message, "");
       });
 
   }

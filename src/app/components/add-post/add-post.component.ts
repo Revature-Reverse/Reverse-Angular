@@ -6,6 +6,7 @@ import { PostService } from '../../services/post.service';
 import POSTS from '../../POSTS';
 import { User } from '../../user';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-add-post',
@@ -21,14 +22,14 @@ export class AddPostComponent implements OnInit {
   constructor(
     private postService: PostService,
     private formBuilder: FormBuilder, 
-    private _toast: MatSnackBar
+    private notify: NotificationService
   ) {}
 
     //the toaster
-    openToast(message: string, action: string)
-    {
-      this._toast.open(message, action, {duration: 2500, verticalPosition:'top', panelClass:['login-toast', 'register-toast']});
-    }
+    // openToast(message: string, action: string)
+    // {
+    //   this._toast.open(message, action, {duration: 2500, verticalPosition:'top', panelClass:['login-toast', 'register-toast']});
+    // }
 
   ngAfterViewInit() {
     this.medium = new MediumEditor('.editable', {
@@ -72,7 +73,7 @@ export class AddPostComponent implements OnInit {
           console.log(res);
         },
         (error) => {
-          this.openToast('Please fill out all required fields.', "");
+          this.notify.openToast('Please fill out all required fields.', "");
         }
       );
     // .catch((err) => {
