@@ -3,10 +3,7 @@ WORKDIR /build
 
 COPY ./ /build
 
-RUN npm install -g npm@8.1.3
-RUN npm install --loglevel verbose --no-audit
-RUN npm install -g @angular/cli --no-audit
-RUN npm run build
+RUN npm install -g npm@8.1.3 && npm install --loglevel verbose --no-audit && npm install -g @angular/cli --no-audit && npm run build && rm -rf node_modules/
 
 FROM nginx:latest
 
