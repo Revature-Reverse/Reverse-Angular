@@ -113,8 +113,10 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
   // }
 
   public userLogin() {
-    this.userService.userLogin(this.loginForm.value).toPromise().then(data => {
-        console.log(data)
+    this.userService.userLogin(this.loginForm.value).toPromise().then((data)  => {
+        console.log(data);
+        sessionStorage.setItem("token", data);
+
         //alert("User logged in successfully.");
         //window.location.href= "";
         //this.router.navigate(['/home']);
