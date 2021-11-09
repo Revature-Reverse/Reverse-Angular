@@ -6,7 +6,7 @@ export interface User {
     email?: string | undefined;
     userName: string | undefined;
     password?: string | undefined;
-    birthdate?: Date | undefined;
+    dateOfBirth?: Date | undefined;
     gender?: any;
     branch?: any;
   }
