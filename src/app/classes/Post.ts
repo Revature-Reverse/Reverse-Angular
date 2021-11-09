@@ -1,4 +1,4 @@
-import {User} from "../user";
+import {User} from "./user";
 import {PostImage} from "./PostImage";
 import {Comment} from "./Comment";
 

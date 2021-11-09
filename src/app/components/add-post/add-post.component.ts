@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Post } from '../../classes/Post';
 import { PostService } from '../../services/post.service';
 import POSTS from '../../POSTS';
-import { User } from '../../user';
+import { User } from '../../classes/user';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -20,7 +20,7 @@ export class AddPostComponent implements OnInit {
 
   constructor(
     private postService: PostService,
-    private formBuilder: FormBuilder, 
+    private formBuilder: FormBuilder,
     private _toast: MatSnackBar
   ) {}
 

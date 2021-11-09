@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { PostService } from './post.service';
 import {Post} from "../classes/Post";
-import {User} from "../user";
+import {User} from "../classes/user";
 import {HttpClientModule} from "@angular/common/http";
 
 describe('PostService', () => {
