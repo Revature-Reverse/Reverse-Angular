@@ -1,6 +1,9 @@
 # ReverseAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8. 
+
+Styling: 
+  Mainly CSS and some parts such as the loading page we used SCSS. We also used Materials. 
 
 ## Development server
 
