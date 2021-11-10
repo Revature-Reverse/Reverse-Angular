@@ -7,7 +7,7 @@
     <mat-icon>chat_bubble_outline</mat-icon>
     <span>Posts</span>
   </button>
-  <div *ngIf="!user">
+  <div *ngIf="user">
     <button mat-button class="users-button menu-button" routerLink="/users/{{user.id}}" routerLinkActive="active">
       <mat-icon>person</mat-icon>
       <span>My Profile</span>
