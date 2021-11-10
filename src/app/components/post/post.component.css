@@ -34,11 +34,11 @@ mat-grid-tile:nth-child(2){
 
 .postbody{
   font-family: "Futura Heavy" !important;
-  height: 200px;
   width: 90%;
   background-color: #F2F2F2;
-  padding: 40px 40px 120px 40px;
+  padding: 40px 40px 40px 40px;
   border-radius: 10px;
+  z-index: 2;
 }
 .posthtmlcontent{
 
@@ -49,10 +49,9 @@ mat-grid-tile:nth-child(2){
   background-color: #F9F9F9;
   padding: 40px;
   border-radius: 10px;
-  margin-top:-30px;
+  margin-top: -30px;
 }
 .postcomments p {
-  padding: 20px;
 }
 .commentername{
   font-family: "Futura Heavy";
@@ -68,7 +67,7 @@ mat-grid-tile:nth-child(2){
   text-decoration: underline 1px solid black;
 }
 .icons{
-  padding-top: 20px;
+  padding-top: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
