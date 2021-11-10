@@ -17,11 +17,11 @@
         <div class="posttitle" [innerHtml]="post.title"></div>
         <div class="posthtmlcontent" [innerHtml]="post.body"></div>
         <div class="icons">
-          <div>
-            <mat-icon>thumb_up_outline</mat-icon>
+          <div (click)="likepost()">
+            <mat-icon [ngClass]="{'liked': likedpost}">thumb_up_outline</mat-icon>
             <span>{{post.likes.length}}</span>
           </div>
-          <div>
+          <div (click)="togglecommentbox()">
             <mat-icon>chat_bubble_outline</mat-icon>
             <span>{{post.comments.length}}</span>
           </div><div>
@@ -35,6 +35,19 @@
       <div class="postcomments" *ngIf="post">
         <div class="commentheader">
           <p>{{post.comments.length}} Comments </p>
+          <div class="newcomment"(click)="togglecommentbox()">
+            <mat-icon>add</mat-icon>
+            <span>new comment</span>
+          </div>
+        </div>
+        <div class="commentsection" *ngIf="commentbox">
+          <form [formGroup]="commentform" >
+          <mat-form-field>
+            <mat-label>Textarea</mat-label>
+            <textarea matInput class="commentinputbox" formControlName="commentbody"></textarea>
+          </mat-form-field>
+          </form>
+          <button mat-raised-button (click)="submitcomment()" [disabled]="!commentform.valid">submit</button>
         </div>
         <div *ngFor="let item of post.comments" class="comment">
           <h2 class="touserprofile" routerLink="/users/{{item.commenter.id}}"><span class="commentername">{{item.commenter.firstName}} </span><span class="commentername">{{item.commenter.lastName}} </span><span class="commenterusername">@{{item.commenter.username}} </span></h2>

@@ -11,7 +11,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 export class PostService {
   baseUrl: string = `http://localhost:8000/`;
 
-  posts : Post[] = POSTS;
+  posts : Post[];
   userToken! : string | null;
   recentposts:any[];
   httpOptions = {
@@ -131,5 +131,9 @@ export class PostService {
 
   private getUserToken() : void {
     this.userToken = sessionStorage.getItem('token');
+  }
+
+  likePost(like:any):Observable<any>{
+    return this.httpClient.post<Post[]>(this.baseUrl+"posts/like",like,this.httpOptions);
   }
 }

@@ -33,9 +33,8 @@ export class UserComponent implements OnInit {
         this.user = user
         console.log("user services get user"+this.user)
         this.postService.getPostsByUser(this.user.id).toPromise().then(posts =>{
-          this.posts = posts
-
-          console.log("post services get posts by user"+this.posts)
+          this.posts = posts.sort((a, b) => (a.created < b.created) ? 1-1: -1)
+          console.log(posts)
 
         })
       });

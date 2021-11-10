@@ -6,7 +6,8 @@ import {Post} from "src/app/classes/Post";
 import {UserService} from "../../services/user.service";
 import {ActivatedRoute} from "@angular/router";
 import {User} from "../../classes/user";
-
+import {CommentService} from "../../services/comment.service";
+import {Comment} from "../../classes/Comment";
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -14,21 +15,35 @@ import {User} from "../../classes/user";
 })
 export class PostComponent implements OnInit {
 
-  date:string="";
   post?: any;
   user?: User;
   content?:any;
-
+  likedpost?:boolean;
+  commentbox:boolean=true;
+  commentform = this.fb.group({
+    commentbody: ["", [Validators.required]]
+  })
+  postId?:number;
   constructor(private activatedRoute:ActivatedRoute,
               private postService:PostService,
-              private userService:UserService) {
-    this.date = this.getDate();
+              private userService:UserService,
+              private commentService:CommentService,
+              private fb: FormBuilder,) {
   }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.postService.getPost(parseInt(params.id)).toPromise().then(post => {
         this.post = post
+        this.postId = post.id
+        console.log(post.likes)
+        post.likes.forEach((item:any)=>{
+          console.log(item)
+          if(item==this.userService.currentUserValue.id){
+            this.likedpost=true;
+            console.log("true");
+          }
+        });
         console.log(this.post)
         this.userService.getUserById(this.post?.poster.id).toPromise().then(user => this.user = user);
 
@@ -37,11 +52,40 @@ export class PostComponent implements OnInit {
       console.log(this.post);
     })
   }
-  getDate(){
-    let date1:Date = new Date();
-    return date1.toLocaleDateString('en', { year: 'numeric', month: 'short', day: '2-digit' });
 
+  get f() {
+    return this.commentform.controls;
   }
-
-
+  togglecommentbox(){
+    this.commentbox= !this.commentbox;
+  }
+  submitcomment(){
+    console.log(this.f.commentbody.value)
+    let comment:Comment = {
+      userId:this.userService.currentUserValue.id,
+      message:this.f.commentbody.value,
+      postId:this.post.id
+    }
+    console.log(comment)
+    this.commentService.createComment(comment).toPromise().then(
+      resp=>{
+        console.log(resp)
+      }
+    ),((error: any)=>console.log(error));
+  }
+  likepost(){
+    let like = {
+      likeId:
+        {
+          userId: this.userService.currentUserValue.id,
+          postId: this.postId
+        }
+    }
+    console.log(like)
+    this.postService.likePost(like).toPromise().then(
+      resp=>{
+        console.log(resp)
+      }
+    ),((error: any)=>console.log(error));
+  }
 }
