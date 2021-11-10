@@ -37,7 +37,7 @@ export class UserService {
    this.getBranchesList().toPromise().then(resp =>{
      this.branches=resp;
      console.log(this.branches);
-   });
+   });;
     this.getUserById(1).toPromise().then(resp =>{
       console.log("get user by id 1");
       console.log(resp);
@@ -68,7 +68,8 @@ export class UserService {
     //}
     //if (this.currentUserValue) {
     //  console.log("Logging in User.");
-
+    //  sessionStorage.setItem('currentUser', JSON.stringify(this.currentUserValue));
+    //  sessionStorage.setItem('token', "testtoken");
 //
     //  console.log(this.currentUser)
 //

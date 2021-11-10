@@ -58,6 +58,7 @@ body {
   background: #555;
 }
 
+/* Toaster styling */ 
 .login-toast.mat-snack-bar-container
 {
   background: var(--orange) !important; 

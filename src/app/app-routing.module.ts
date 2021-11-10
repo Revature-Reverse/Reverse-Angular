@@ -5,7 +5,7 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
 import { UserComponent } from './components/user/user.component';
 import { PostComponent } from './components/post/post.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
-import { HomepageComponent } from './components/homepage/homepage.component';
+import { HomepageComponent } from './components/homepage/homepage.component'; 
 import { UserProfileEditComponent } from './user-components/user-profile-edit/user-profile-edit.component';
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
