@@ -60,7 +60,7 @@ export class UserProfileEditComponent implements OnInit {
 
   saveUser() {
         this.user = { ...this.user, ...this.user_profile_edit_form.value };
-
+      console.log(this.user)
       this.userService.userUpdate(this.user)
         .toPromise().then( data => {
           alert("User updated successfully.");

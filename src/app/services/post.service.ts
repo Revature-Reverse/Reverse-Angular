@@ -114,7 +114,7 @@ export class PostService {
    */
   getPostsByUser(userId : number) : Observable<Post[]> {
 
-    return this.httpClient.get<Post[]>(this.baseUrl+'users/'+userId,this.httpOptions);
+    return this.httpClient.get<Post[]>(this.baseUrl+'posts/byUser'+userId,this.httpOptions);
   }
 
   /***
@@ -126,7 +126,7 @@ export class PostService {
    *
    */
   getRecentPosts() : Observable<Post[]> {
-    return this.httpClient.get<Post[]>(this.baseUrl+"posts",this.httpOptions);
+    return this.httpClient.get<Post[]>(this.baseUrl+"posts/recent/10",this.httpOptions);
   }
 
   private getUserToken() : void {

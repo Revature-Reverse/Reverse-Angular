@@ -82,8 +82,11 @@ export class UserService {
 
   userUpdate(user: User): Observable<User> {
     console.log(user)
-    //return this.httpClient.post<User>("localhost:8080/user-login", user);
-    return of (user);
+    let gindex = user.gender;
+    user.gender = this.genders[gindex-1];
+    let bindex = user.branch;
+    user.branch = this.branches[bindex-1];
+    return this.httpClient.patch<User>(this.baseUrl+"users/updateUser", user);
   }
 
   getUserById(userId : number) {

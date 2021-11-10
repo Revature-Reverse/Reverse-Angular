@@ -140,7 +140,7 @@
           </ng-template>
         </li>
         <li>
-          <div class="block_container" *ngIf="gender_selected != null; else theOtherBlock">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('gender').value != null; else theOtherBlock">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Gender</div>
           </div>
@@ -152,7 +152,7 @@
           </ng-template>
         </li>
         <li>
-          <div class="block_container" *ngIf="branch_selected != null; else notThatBlock">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('branch').value != null; else notThatBlock">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Branch</div>
           </div>
@@ -164,7 +164,7 @@
           </ng-template>
         </li>
         <li>
-          <div class="block_container" *ngIf="picker != null; else dateNotPicked">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('dateOfBirth').value != null; else dateNotPicked">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Birthdate</div>
           </div>
