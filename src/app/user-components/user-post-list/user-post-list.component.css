@@ -1,4 +1,11 @@
 
+.share a {
+  display: flex;
+  color: black;
+  text-decoration: none;
+  justify-self: start;
+  gap: .8em;
+}
 
 #post-tab-label
 {
