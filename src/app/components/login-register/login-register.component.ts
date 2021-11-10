@@ -15,7 +15,7 @@ import {MatTabGroup} from "@angular/material/tabs";
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ViewEncapsulation} from '@angular/core';
 import {passwordValidator} from "../../user-components/password-validator";
-import { NotificationService } from 'src/app/services/notification.service';
+import { NotificationService } from '../../services/notification.service';
 
 
 @Component({

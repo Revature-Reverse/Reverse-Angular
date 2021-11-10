@@ -71,3 +71,16 @@ mat-grid-tile:nth-child(2){
   border-right: 1px solid var(--lightgray);
 
 }
+
+.posts-loading-wheel 
+{
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+}
+
+#loading-post-text
+{
+  color: var(--orange); 
+  margin-left: 15px; 
+}
