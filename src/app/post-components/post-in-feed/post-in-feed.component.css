@@ -81,6 +81,14 @@
   gap: .8em;
 }
 
+.share a {
+  display: flex;
+  color: black;
+  text-decoration: none;
+  justify-self: start;
+  gap: .8em;
+}
+
 .full-open-and-share
 {
   display: flex;

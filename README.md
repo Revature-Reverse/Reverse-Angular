@@ -1,6 +1,6 @@
 # Reverse
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8. 
 
 ## Description 
 Reverse is an emergent social media application that helps Revature employees connect with their colleagues inside - and outside - of the workplace. Employees can create and customize their profiles, showcasing the professional achievements they'd like to celebrate with their peers via textual and visual posts. They can also encourage and advise their colleagues by "liking" and commenting on various posts as they appear in their curated Reverse news feeds.
@@ -16,7 +16,6 @@ Reverse is an emergent social media application that helps Revature employees co
  - Node.js
  - Dockerfile
  
-
 ## Components
 ### HomepageComponent 
 -> This component contains the home page: the first thing the user sees on the site
@@ -44,5 +43,3 @@ Reverse is an emergent social media application that helps Revature employees co
 - Create a new folder for Post-Service repo, move into this folder, and run `git clone https://github.com/Revature-Reverse/Post-Service.git`
 - Run `ng new project_name` to start a new project. 
 - Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-

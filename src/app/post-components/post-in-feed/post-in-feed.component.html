@@ -12,27 +12,31 @@
         <mat-icon class="icon like-icon">
           thumb_up
         </mat-icon>
-        <p>{{ like_count }}</p>
+        <p>{{ post.likes.length }}</p>
       </div>
       <div class="number-of-posts">
         <mat-icon class="icon chat-icon">
           chat_bubble_outline
         </mat-icon>
-        <p>{{ comment_count }}</p>
+        <p>{{ post.comments.length }}</p>
       </div>
     </div>
     <div class="full-open-and-share">
-      <div class="open-in-full-with-text">
+      <div class="open-in-full-with-text" routerLink="/posts/{{post.id}}">
         <mat-icon class="icon">
           open_in_full
         </mat-icon>
         <p>Full Post</p>
       </div>
       <div class="share">
-        <mat-icon class="icon">
-          share
-        </mat-icon>
-        <p>Share</p>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw">
+          <mat-icon class="icon">
+            share
+          </mat-icon>
+          <span>
+            Share
+          </span>
+        </a>
       </div>
     </div>
   </div>

@@ -7,7 +7,6 @@ import POSTS from '../../POSTS';
 import { User } from '../../classes/user';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NotificationService } from 'src/app/services/notification.service';
-import {FilterService} from "../../services/filter.service";
 import {UserService} from "../../services/user.service";
 
 @Component({
@@ -25,7 +24,6 @@ export class AddPostComponent implements OnInit {
     private userService: UserService,
 
     private postService: PostService,
-    private filterService: FilterService,
     private formBuilder: FormBuilder,
     private notify: NotificationService
   ) {}
@@ -65,24 +63,20 @@ export class AddPostComponent implements OnInit {
       posterId: user,
     };
 
-    if (this.filterService.checkForProfanity(this.post.body) || this.filterService.checkForProfanity(this.post.title)) {
-      this.notify.openToast("The post cannot contain profanity.", "");
-    } else {
-      this.postService
-      .savePost(this.post)
-      .toPromise()
-      .then(
-        (res: any) => {
-          console.log(res);
-        },
-        (error) => {
-          this.notify.openToast('Please fill out all required fields.', "");
-        }
-      );
-      // .catch((err) => {
-      //   console.log('Please fill out all required fields.');
-      // });
-    }
+    this.postService
+    .savePost(this.post)
+    .toPromise()
+    .then(
+      (res: any) => {
+        console.log(res);
+      },
+      (error) => {
+        this.notify.openToast('Please fill out all required fields.', "");
+      }
+    );
+    // .catch((err) => {
+    //   console.log('Please fill out all required fields.');
+    // });
   }
 
   ngOnChanges(change: any) {

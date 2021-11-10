@@ -6,11 +6,16 @@
     <div id="flex-container">
       <div class="feedheader">
         <h1>Feed</h1>
-        <button routerLink="/posts/add">
+        <button routerLink="/posts/add" *ngIf="userFromSession">
           <mat-icon>add</mat-icon> New Post
         </button>
       </div>
-      <app-feed [posts]="posts"></app-feed>
+      <div *ngIf="userFromSession else guestView">
+        <app-feed [posts]="posts"></app-feed>
+      </div>
+      <ng-template #guestView>
+        <p>You are not currently logged in. Please <a href="/login">log in</a> to view the home feed. </p>
+      </ng-template>
     </div>
   </mat-grid-tile>
   <mat-grid-tile>

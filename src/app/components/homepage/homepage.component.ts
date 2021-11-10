@@ -16,6 +16,10 @@ export class HomepageComponent implements OnInit {
     private postService : PostService
   ) { }
 
+  get userFromSession() {
+    return sessionStorage.getItem('currentUser');
+  }
+
   ngOnInit(): void {
     this.postService.getRecentPosts().toPromise().then(dbPosts => {
       this.posts = dbPosts
