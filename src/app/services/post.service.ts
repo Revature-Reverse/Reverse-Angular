@@ -114,7 +114,7 @@ export class PostService {
    */
   getPostsByUser(userId : number) : Observable<Post[]> {
 
-    return this.httpClient.get<Post[]>(this.baseUrl+'posts/byUser'+userId,this.httpOptions);
+    return this.httpClient.get<Post[]>(this.baseUrl+'posts/byUser/'+userId,this.httpOptions);
   }
 
   /***
