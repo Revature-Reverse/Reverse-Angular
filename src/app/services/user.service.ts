@@ -12,7 +12,7 @@ import USERS from "../USERS";
 })
 export class UserService {
   users?: User[];
-  baseUrl: string = `http://3.91.248.52/backend/`;
+  baseUrl: string = `/backend/`;
   branches:any[];
   genders:any[];
 
@@ -94,11 +94,11 @@ export class UserService {
 
   }
   getBranchesList() {
-    return this.httpClient.get<any>(this.baseUrl+"lists/genders", this.httpOptions);
+    return this.httpClient.get<any>(this.baseUrl+"lists/locations", this.httpOptions);
 
   }
   getGendersList() {
-    return this.httpClient.get<any>(this.baseUrl+"lists/locations", this.httpOptions);
+    return this.httpClient.get<any>(this.baseUrl+"lists/genders", this.httpOptions);
 
   }
   public get currentUserValue(): User {

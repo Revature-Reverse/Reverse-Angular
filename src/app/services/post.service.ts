@@ -9,7 +9,7 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class PostService {
-  baseUrl: string = `http://3.91.248.52/backend/`;
+  baseUrl: string = `/backend/`;
 
   posts : Post[] = POSTS;
   userToken! : string | null;
