@@ -43,7 +43,6 @@ export class PostService {
   savePost(post : Post) : Observable<Post> {
     console.log(post)
     this.getUserToken();
-    this.posts.push(post);
     console.log(this.userToken)
     return this.httpClient.post<Post>(this.baseUrl+'posts/create', post,this.httpOptions);
   }
@@ -59,7 +58,6 @@ export class PostService {
    *
    */
   deletePost(id : number) : Observable<Post[]> {
-    this.posts = this.posts.filter((post) => post.id !== id);
 
     return this.httpClient.delete<Post[]>(this.baseUrl+`posts/delete/`+id,this.httpOptions);
   }
@@ -91,13 +89,15 @@ export class PostService {
    */
   updatePost(updatedPost : any) : Observable<Post | undefined> {
     console.log(updatedPost)
-    this.posts = this.posts.map(post => {
-      if (post.id === updatedPost.id) {
-        return updatedPost;
-      } else {
-        return post;
-      }
-    });
+    /***
+    * this.posts = this.posts.map(post => {
+    *  if (post.id === updatedPost.id) {
+    *    return updatedPost;
+    *  } else {
+    *    return post;
+    *  }
+    *});
+    * */
 
     return this.httpClient.patch<Post>(this.baseUrl+"posts/edit", updatedPost,this.httpOptions);
   }
