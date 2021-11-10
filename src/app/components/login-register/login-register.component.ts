@@ -92,16 +92,16 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
     window.location.href = "";
   }
 
-  //loginclick(event: any) {
-  //  history.pushState({}, "Reverse Login", "login");
-  //  this.selectedIndex = 1;
-//
-  //}
-//
-  //registerclick(event: any) {
-  //  history.pushState({}, "Reverse Register", "register");
-  //  this.selectedIndex = 0;
-  //}
+  loginclick(event: any) {
+    history.pushState({}, "Reverse Login", "login");
+    this.selectedIndex = 1;
+
+  }
+
+  registerclick(event: any) {
+    history.pushState({}, "Reverse Register", "register");
+    this.selectedIndex = 0;
+  }
 
   //the toaster
   // openToast(message: string, action: string) {
