@@ -14,7 +14,8 @@
           </div>
         </div>
 
-        <div  class="posthtmlcontent" [innerHtml]="content"></div>
+        <div class="posttitle" [innerHtml]="post.title"></div>
+        <div class="posthtmlcontent" [innerHtml]="post.body"></div>
 
 
       </div>
@@ -22,9 +23,11 @@
         <div class="commentheader">
           <p>Comments</p>
         </div>
-        <p *ngFor="let item of post.comments">
-          {{item.message}}
-        </p>
+        <div *ngFor="let item of post.comments">
+          <h2><span class="commentername">{{item.commenter.firstName}} </span><span class="commentername">{{item.commenter.lastName}} </span><span class="commenterusername">@{{item.commenter.username}} </span></h2>
+          <p>{{item.message}}</p>
+
+        </div>
 
       </div>
     </div>

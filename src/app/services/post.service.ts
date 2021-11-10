@@ -113,7 +113,6 @@ export class PostService {
    *
    */
   getPostsByUser(userId : number) : Observable<Post[]> {
-    this.posts = this.posts.filter(post => post.poster.id === userId);
 
     return this.httpClient.get<Post[]>(this.baseUrl+'users/'+userId,this.httpOptions);
   }
@@ -127,7 +126,7 @@ export class PostService {
    *
    */
   getRecentPosts() : Observable<Post[]> {
-    return this.httpClient.get<Post[]>(this.baseUrl+"posts/recent",this.httpOptions);
+    return this.httpClient.get<Post[]>(this.baseUrl+"posts",this.httpOptions);
   }
 
   private getUserToken() : void {

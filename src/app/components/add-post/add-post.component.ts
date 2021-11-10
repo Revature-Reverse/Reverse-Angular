@@ -8,6 +8,7 @@ import { User } from '../../classes/user';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NotificationService } from 'src/app/services/notification.service';
 import {FilterService} from "../../services/filter.service";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-add-post',
@@ -21,6 +22,8 @@ export class AddPostComponent implements OnInit {
   title!: string;
 
   constructor(
+    private userService: UserService,
+
     private postService: PostService,
     private filterService: FilterService,
     private formBuilder: FormBuilder,
@@ -54,18 +57,12 @@ export class AddPostComponent implements OnInit {
   }
 
   onSubmit() {
-    let user: User = {
-      id: 1,
-      username: 'timothyharper',
-      firstName: 'Timothy',
-      lastName: 'Harper',
-    };
-
+    let user = this.userService.currentUserValue.id;
     this.post = {
-      id: POSTS.length + 1,
+
       title: this.title,
       body: this.medium.getContent(),
-      poster: user,
+      posterId: user,
     };
 
     if (this.filterService.checkForProfanity(this.post.body) || this.filterService.checkForProfanity(this.post.title)) {

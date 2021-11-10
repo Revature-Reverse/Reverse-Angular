@@ -27,12 +27,12 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      this.postService.getPost(parseInt(params.id)).toPromise().then(post => this.post = post);
-      console.log(this.post)
-      if (this.post){
-        this.userService.getUserById(this.post?.user_id).toPromise().then(user => this.user = user);
-        this.loadHtml();
-      }
+      this.postService.getPost(parseInt(params.id)).toPromise().then(post => {
+        this.post = post
+        console.log(this.post)
+        this.userService.getUserById(this.post?.poster.id).toPromise().then(user => this.user = user);
+
+      });
 
       console.log(this.post);
     })
@@ -43,8 +43,5 @@ export class PostComponent implements OnInit {
 
   }
 
-  loadHtml(){
-    this.content= this.post.content;
 
-  }
 }
