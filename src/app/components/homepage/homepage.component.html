@@ -14,7 +14,7 @@
         <app-feed [posts]="posts"></app-feed>
       </div>
       <ng-template #guestView>
-        <p>You are not currently logged in. Please <a [routerLink]="['login']">log in</a> to view the home feed. </p>
+        <p>You are not currently logged in. Please <a href="/login">log in</a> to view the home feed. </p>
       </ng-template>
     </div>
   </mat-grid-tile>
