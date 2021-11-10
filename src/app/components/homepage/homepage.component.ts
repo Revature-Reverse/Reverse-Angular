@@ -11,14 +11,13 @@ import {PostService} from "../../services/post.service";
 export class HomepageComponent implements OnInit {
 
   posts! : Post[];
-  postsSubscription! : Subscription;
 
   constructor(
     private postService : PostService
   ) { }
 
   ngOnInit(): void {
-    this.postsSubscription = this.postService.getRecentPosts().subscribe(dbPosts => this.posts = dbPosts);
+    //this.postService.getRecentPosts().toPromise().then(dbPosts => this.posts = dbPosts);
   }
 
 }

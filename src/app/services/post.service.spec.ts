@@ -2,12 +2,18 @@ import { TestBed } from '@angular/core/testing';
 
 import { PostService } from './post.service';
 import {Post} from "../classes/Post";
+import {User} from "../classes/user";
+import {HttpClientModule} from "@angular/common/http";
 
 describe('PostService', () => {
   let service: PostService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientModule
+      ]
+    });
     service = TestBed.inject(PostService);
   });
 
@@ -28,12 +34,22 @@ describe('PostService', () => {
    *
    */
   it("#savePost should save a post", () => {
+    let user : User = {
+      id: 1,
+      firstName: "Timothy",
+      lastName: "Harper",
+      email: "lee@leeharper.dev",
+      userName: "leeharper",
+      password: "passwordharper",
+      gender: 0,
+      branch: 1,
+      birthdate: new Date(2000,0,1)
+    };
     let post : Post = {
       id: 6,
       title: "test",
-      content: "<h3>I got it working!</h3><p>But now there are more issues.</p>",
-      user_id: 1,
-      time: new Date()
+      body: "<h3>I got it working!</h3><p>But now there are more issues.</p>",
+      poster: user
     }
     let newPost : Post | undefined;
 
@@ -81,13 +97,23 @@ describe('PostService', () => {
    *
    **/
   it("#updatePost should update a post in data storage", () => {
+    let user : User = {
+      id: 3,
+      firstName: "Julie",
+      lastName: "Harper",
+      email: "jharper@leeharper.dev",
+      userName: "juelieharper",
+      password: "passwordjulie",
+      gender: 1,
+      branch: 1,
+      birthdate: new Date(1994,4,23)
+    };
     let post : Post = {
       id: 2,
       title: "title",
-      content: "<h3>I'm not sure I see the advantage of Angular over AngularJS</h3><p>Is there any advantage? Angular" +
+      body: "<h3>I'm not sure I see the advantage of Angular over AngularJS</h3><p>Is there any advantage? Angular" +
         " seems like AngularJS with extra steps</p><p>EDIT: Sorry, my mistake. I confused AngularJS with JQuery. </p>",
-      user_id: 4,
-      time: new Date(1)
+      poster: user
     };
 
     let updatedPost : Post | undefined;

@@ -9,15 +9,19 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class PostService {
+  baseUrl: string = `/backend/`;
 
   posts : Post[] = POSTS;
   userToken! : string | null;
-
+  recentposts:any[];
 
   constructor(
     private httpClient : HttpClient
   ) {
-
+    //this.getRecentPosts().toPromise().then(resp =>{
+    //  this.recentposts=resp;
+     // console.log(this.recentposts);
+    //});
   }
 
   /***
@@ -35,8 +39,7 @@ export class PostService {
     this.getUserToken();
     this.posts.push(post);
     console.log(this.userToken)
-    // return this.httpClient.post<Post>("http://localhost:8080/backend/posts/create", post);
-    return of(post);
+    return this.httpClient.post<Post>(this.baseUrl+'posts/create', post);
   }
 
   /***
@@ -52,8 +55,7 @@ export class PostService {
   deletePost(id : number) : Observable<Post[]> {
     this.posts = this.posts.filter((post) => post.id !== id);
 
-    // return this.httpClient.delete<Post[]>(`http://localhost:8080/backend/posts/delete/${id}`);
-    return of(this.posts);
+    return this.httpClient.delete<Post[]>(this.baseUrl+`posts/delete/`+id);
   }
 
   /***
@@ -67,8 +69,7 @@ export class PostService {
    *
    */
   getPost(id : number) : Observable<Post | undefined> {
-    // return this.httpClient.get<Post>(`http://localhost:8080/backend/posts/${id}`);
-    return of(this.posts.find((post : Post) => post.id === id));
+    return this.httpClient.get<Post>(this.baseUrl+`posts/`+id);
   }
 
 
@@ -92,8 +93,7 @@ export class PostService {
       }
     });
 
-    // return this.httpClient.patch<Post>("http://localhost:8080/backend/posts/edit", updatedPost);
-    return of(this.posts.find((post : Post) => post.id === updatedPost.id));
+    return this.httpClient.patch<Post>(this.baseUrl+"posts/edit", updatedPost);
   }
 
   /***
@@ -107,10 +107,9 @@ export class PostService {
    *
    */
   getPostsByUser(userId : number) : Observable<Post[]> {
-    this.posts = this.posts.filter(post => post.user_id === userId);
+    this.posts = this.posts.filter(post => post.poster.id === userId);
 
-    // return this.httpClient.get<Post[]>(`http://localhost:8080/api/users/${userId}/posts`);
-    return of(this.posts);
+    return this.httpClient.get<Post[]>(this.baseUrl+'users/'+userId);
   }
 
   /***
@@ -122,8 +121,7 @@ export class PostService {
    *
    */
   getRecentPosts() : Observable<Post[]> {
-    // return this.httpClient.get<Post[]>("http://localhost:8080/backend/posts/recent");
-    return of(this.posts);
+    return this.httpClient.get<Post[]>(this.baseUrl+"posts/recent");
   }
 
   private getUserToken() : void {

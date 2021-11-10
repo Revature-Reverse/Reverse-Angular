@@ -13,7 +13,11 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { AngularMaterialModule } from './modules/angular-material/angular-material.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
+} from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { UserPostListComponent } from './user-components/user-post-list/user-post-list.component';
@@ -23,11 +27,12 @@ import { RelatedPostsComponent } from './post-components/related-posts/related-p
 import { PostInFeedComponent } from './post-components/post-in-feed/post-in-feed.component';
 import { FeedComponent } from './post-components/feed/feed.component';
 import { UserProfileEditComponent } from './user-components/user-profile-edit/user-profile-edit.component';
-import {TokenInterceptor} from "./interceptors/token.interceptor";
+import { TokenInterceptor } from './interceptors/token.interceptor';
 import { MatNativeDateModule } from '@angular/material/core';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
-
+import { EditPostComponent } from './components/edit-post/edit-post.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +53,8 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
     FeedComponent,
     UserProfileEditComponent,
     LoadingScreenComponent,
+    EditPostComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,14 +68,14 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
     HttpClientModule,
     MatInputModule,
     MatNativeDateModule,
-    MaterialFileInputModule
+    MaterialFileInputModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

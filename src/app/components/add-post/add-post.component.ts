@@ -4,6 +4,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Post } from '../../classes/Post';
 import { PostService } from '../../services/post.service';
 import POSTS from '../../POSTS';
+import { User } from '../../classes/user';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { NotificationService } from 'src/app/services/notification.service';
+import {FilterService} from "../../services/filter.service";
 
 @Component({
   selector: 'app-add-post',
@@ -14,12 +18,20 @@ export class AddPostComponent implements OnInit {
   medium: any;
   postform!: FormGroup;
   post!: Post;
-  title!: String;
+  title!: string;
 
   constructor(
     private postService: PostService,
-    private formBuilder: FormBuilder
+    private filterService: FilterService,
+    private formBuilder: FormBuilder,
+    private notify: NotificationService
   ) {}
+
+    //the toaster
+    // openToast(message: string, action: string)
+    // {
+    //   this._toast.open(message, action, {duration: 2500, verticalPosition:'top', panelClass:['login-toast', 'register-toast']});
+    // }
 
   ngAfterViewInit() {
     this.medium = new MediumEditor('.editable', {
@@ -42,13 +54,24 @@ export class AddPostComponent implements OnInit {
   }
 
   onSubmit() {
+    let user: User = {
+      id: 1,
+      userName: 'timothyharper',
+      firstName: 'Timothy',
+      lastName: 'Harper',
+    };
+
     this.post = {
       id: POSTS.length + 1,
       title: this.title,
-      content: this.medium.getContent(),
-      user_id: 1,
+      body: this.medium.getContent(),
+      poster: user,
     };
-    this.postService
+
+    if (this.filterService.checkForProfanity(this.post.body) || this.filterService.checkForProfanity(this.post.title)) {
+      this.notify.openToast("The post cannot contain profanity.", "");
+    } else {
+      this.postService
       .savePost(this.post)
       .toPromise()
       .then(
@@ -56,9 +79,13 @@ export class AddPostComponent implements OnInit {
           console.log(res);
         },
         (error) => {
-          alert('Please fill out all required fields.');
+          this.notify.openToast('Please fill out all required fields.', "");
         }
       );
+      // .catch((err) => {
+      //   console.log('Please fill out all required fields.');
+      // });
+    }
   }
 
   ngOnChanges(change: any) {

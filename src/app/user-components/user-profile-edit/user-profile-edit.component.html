@@ -8,8 +8,12 @@
       <form [formGroup]="user_profile_edit_form">
         <mat-card style="padding: 40px 70px 50px; width: 600px">
           <div class="row">
-            <img src="../assets/favicon/favicon-32x32.png">
-            <div class="col">
+            <div class="row">
+              <div class="profileimgcontainer">
+                <img [src]="imageSrc" *ngIf="imageSrc">
+              </div>
+            </div>
+            <div class="col full-name">
               <mat-form-field appearance="fill">
                 <mat-label>First Name</mat-label>
                 <input matInput formControlName ="firstName">
@@ -20,13 +24,13 @@
               </mat-form-field>
             </div>
           </div>
-          <mat-form-field class="mat-form-field">
-            <div class="row image-uploader">
-              <button mat-raised-button>+ Upload</button>
-              <input matInput [value]="" />
-              <input type="file" id="fileInput" name="fileInput"/>
-            </div>
-          </mat-form-field>
+          <!-- <div class="row">
+            <mat-form-field appearance="fill">
+              <mat-label>Profile Picture</mat-label>
+              <ngx-mat-file-input (change)="onFileChange($event)" formControlName="profilepic" placeholder="Profile Picture" ></ngx-mat-file-input>
+              <mat-icon matSuffix>image</mat-icon>
+            </mat-form-field>
+          </div> -->
           <div class="row">
             <mat-form-field appearance="fill">
               <mat-label>Email</mat-label>
@@ -45,6 +49,9 @@
             <mat-form-field appearance="fill">
               <mat-label>Confirm Password</mat-label>
               <input type="password" matInput formControlName="confirm_password">
+              <span style="font-size: 8px; color: red" *ngIf="user_profile_edit_form.errors?.password_mismatch">
+              Passwords do not match.
+            </span>
             </mat-form-field>
         </div>
           <div class="row">
@@ -76,7 +83,10 @@
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
           <br>
-          <button mat-raised-button (click)="saveUser()">Save</button>
+          <div class="flex-center">
+            <button mat-raised-button (click)="saveUser()">Save</button>
+          </div>
+
         </mat-card>
       </form>
     </div>
@@ -86,7 +96,7 @@
       <h2>Requirements</h2>
       <ul class="user_list">
         <li>
-          <div class="block_container" *ngIf="user_profile_edit_form.get('firstName').value != '' && user_profile_edit_form.get('lastName').value != ''; else elseBlock">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('firstName').value != null && user_profile_edit_form.get('lastName').value != null; else elseBlock">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">First & Last Names</div>
           </div>
@@ -98,13 +108,19 @@
           </ng-template>
         </li>
         <li>
-          <div class="block_container">
+          <div class="block_container" *ngIf="imageSrc; else noPic">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Profile Picture</div>
           </div>
+          <ng-template #noPic>
+            <div class="block_container">
+              <div class="block1"><mat-icon>clear</mat-icon></div>
+              <div class="block2">Profile Picture</div>
+            </div>
+          </ng-template>
         </li>
         <li>
-          <div class="block_container" *ngIf="user_profile_edit_form.get('userName').value != ''; else otherBlock">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('userName').value != null; else otherBlock">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Username</div>
           </div>
@@ -128,7 +144,7 @@
           </ng-template>
         </li>
         <li>
-          <div class="block_container" *ngIf="gender_selected != null; else theOtherBlock">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('gender').value != null; else theOtherBlock">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Gender</div>
           </div>
@@ -140,7 +156,7 @@
           </ng-template>
         </li>
         <li>
-          <div class="block_container" *ngIf="branch_selected != null; else notThatBlock">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('branch').value != null; else notThatBlock">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Branch</div>
           </div>
@@ -152,7 +168,7 @@
           </ng-template>
         </li>
         <li>
-          <div class="block_container" *ngIf="picker != null; else dateNotPicked">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('birthdate').value != null; else dateNotPicked">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Birthdate</div>
           </div>

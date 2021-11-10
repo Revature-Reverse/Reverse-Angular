@@ -5,7 +5,7 @@ import POSTS from 'src/app/POSTS';
 import {Post} from "src/app/classes/Post";
 import {UserService} from "../../services/user.service";
 import {ActivatedRoute} from "@angular/router";
-import {User} from "../../user";
+import {User} from "../../classes/user";
 
 @Component({
   selector: 'app-post',
@@ -27,9 +27,10 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      this.postService.getPost(parseInt(params.id)).subscribe(post => this.post = post);
+      this.postService.getPost(parseInt(params.id)).toPromise().then(post => this.post = post);
+      console.log(this.post)
       if (this.post){
-        this.userService.getUserById(this.post?.user_id).subscribe(user => this.user = user);
+        this.userService.getUserById(this.post?.user_id).toPromise().then(user => this.user = user);
         this.loadHtml();
       }
 

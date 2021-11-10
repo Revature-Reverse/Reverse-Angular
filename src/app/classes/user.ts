@@ -1,11 +1,12 @@
 export interface User {
+    profilePicture?: any;
     id?: number | undefined;
     firstName: string | undefined;
     lastName: string | undefined;
-    email: string | undefined;
+    email?: string | undefined;
     userName: string | undefined;
     password?: string | undefined;
-    gender: number | undefined;
-    branch: number | undefined;
-    birthdate: Date | undefined;
+    dateOfBirth?: Date | undefined;
+    gender?: any;
+    branch?: any;
   }
