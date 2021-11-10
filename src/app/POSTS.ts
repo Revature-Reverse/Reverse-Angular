@@ -6,7 +6,7 @@ export default [
       "<h3>How do I get Docker working?</h3><p>I can't seem to get Docker to run, any ideas?</p>",
     poster: {
       id: 1,
-      userName: "timothyharper",
+      username: "timothyharper",
       firstName: "Timothy",
       lastName: "Harper"
     },
@@ -19,7 +19,7 @@ export default [
           commenter:
             {
               user_id: 2,
-              userName: "paxtonplum",
+              username: "paxtonplum",
               firstName: "Paxton",
               lastName: "Plum"
             },
@@ -50,7 +50,7 @@ export default [
       ' seems like AngularJS with extra steps</p>',
     poster: {
       id: 4,
-      userName: "sarahsmith",
+      username: "sarahsmith",
       firstName: "Sarah",
       lastName: "Smith"
     },
@@ -64,7 +64,7 @@ export default [
       ' and React</p>',
     poster: {
       id: 3,
-      userName: "jerryzheng",
+      username: "jerryzheng",
       firstName: "Jerry",
       lastName: "Zheng",
     },
@@ -78,7 +78,7 @@ export default [
       '<code>Some code here...</code></p>',
     poster: {
       id: 3,
-      userName: "jerryzheng",
+      username: "jerryzheng",
       firstName: "Jerry",
       lastName: "Zheng",
     },
@@ -95,7 +95,7 @@ export default [
       'urpis. Etiam imperdiet vel risus sed rutrum. Donec ac viverra mi.</p>',
     poster: {
       user_id: 2,
-      userName: "paxtonplum",
+      username: "paxtonplum",
       firstName: "Paxton",
       lastName: "Plum"
     },

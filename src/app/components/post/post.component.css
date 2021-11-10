@@ -14,10 +14,13 @@ mat-grid-tile:nth-child(2){
   border-right: 1px solid var(--lightgray);
 
 }
+.posttitle{
+  font-size: 36px;
+  margin-bottom: 50px;
+}
 #flex-container
 {
-  height: 100%;
-  margin-top: 200px;
+  height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,16 +28,20 @@ mat-grid-tile:nth-child(2){
   padding: 25px;
   width: 100%;
   overflow-y: scroll;
+  overflow-x: hidden;
 
 }
 
 .postbody{
   font-family: "Futura Heavy" !important;
-  height: 200px;
   width: 90%;
   background-color: #F2F2F2;
-  padding: 40px;
+  padding: 40px 40px 40px 40px;
   border-radius: 10px;
+  z-index: 2;
+}
+.posthtmlcontent{
+
 }
 .postcomments{
   font-family: "Futura Heavy";
@@ -42,10 +49,51 @@ mat-grid-tile:nth-child(2){
   background-color: #F9F9F9;
   padding: 40px;
   border-radius: 10px;
-  margin-top:-30px;
-  z-index: -1;
+  margin-top: -30px;
 }
+.postcomments p {
+}
+.commentername{
+  font-family: "Futura Heavy";
 
+}
+.commenterusername{
+  font-family: "Futura Heavy";
+  font-size: 15px;
+  color: #474c55;
+}
+.touserprofile{
+  padding-left:10px;
+}
+.touserprofile:hover{
+  cursor: pointer;
+  text-decoration: underline 2px solid coral;
+}
+.commentbody{
+  padding: 0px 10px 10px 10px;
+}
+.icons{
+  padding-top: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #7f7f7f;
+}
+.icons div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s;
+}
+.icons div:hover{
+  cursor: pointer;
+  color: black;
+}
+.icons div mat-icon{
+  margin-right: 10px;
+}
 .postuserprofile{
   display: flex;
   flex-direction: row;
@@ -62,10 +110,16 @@ mat-grid-tile:nth-child(2){
 }
 
 .postusername{
-
+  transition: .4s;
 }
+.postusername:hover{
+  cursor: pointer;
+  text-decoration: underline 1px solid black;
+}
+
 .postusername p{
   line-height: 10px;
+
 }
 
 .postusername p:first-child{
@@ -76,4 +130,44 @@ mat-grid-tile:nth-child(2){
 }
 .commentheader{
   border-bottom: 1px solid black;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 5px;
+}
+.newcomment{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2px 8px 2px 2px;
+  border-radius: 5px;
+  transition: .4s;
+}
+.newcomment mat-icon{
+  font-size: 15px;
+  text-align: center;
+  line-height: 27px;
+}
+.newcomment:hover{
+  background-color: wheat;
+  cursor: pointer;
+}
+.commentsection, .commentinputbox{
+  width: 90%;
+}
+.commentsection{
+  padding: 20px;
+  border-radius: 10px;
+}
+.comment{
+  background-color: #F2F2F2;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid gray;
+  padding: 20px;
+}
+.liked{
+  color: var(--orange);
 }

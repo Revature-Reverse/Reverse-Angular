@@ -8,14 +8,14 @@ import {Observable} from "rxjs";
 })
 export class CommentService {
 
-  baseUrl: string = `http://3.91.248.52/backend/`;
+  baseUrl: string = `/backend/`;
 
   constructor(
     private httpClient : HttpClient
   ) { }
 
   public createComment(comment : Comment) : Observable<Comment> {
-    return this.httpClient.post<Comment>(`${this.baseUrl}posts/comments/add`, comment);
+    return this.httpClient.post<Comment>(`${this.baseUrl}comments/comment`, comment);
   }
 
   public getComment(commentId : number) : Observable<Comment> {

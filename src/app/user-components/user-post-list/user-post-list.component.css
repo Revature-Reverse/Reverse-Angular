@@ -10,21 +10,29 @@
     margin-bottom: -5px;
 
 }
+.left{
+  width: 70%;
 
+}
 .post-content
 {
   font-family: "Futura Book";
     margin: 10px;
     border-radius: 10px;
     padding: 15px;
-    width: 650px;
 }
 
 .container
 {
     background:#f7f7f7;
 }
+.title{
+  padding: 30px 20px 20px 20px;
+  font-family: Futura;
+  font-weight: bold;
 
+  font-size: 30px;
+}
 .time-post-container
 {
     background: #ecebeb;
@@ -32,9 +40,14 @@
     margin: 15px;
     border-radius: 10px;
     display: flex;
-
+    flex-direction: column;
+  width: 100%;
 }
-
+.time-post-content{
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 30px;
+}
 .dateTime
 {
   font-family: "Futura Book";

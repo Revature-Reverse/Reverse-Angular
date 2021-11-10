@@ -29,10 +29,16 @@ export class UserComponent implements OnInit {
       if(params.id == this.userService.currentUserValue.id){
         this.editable=true;
       }
-      this.postService.getPostsByUser(parseInt(params.id)).toPromise().then(post => this.posts = post);
-      this.userService.getUserById(parseInt(params.id)).toPromise().then(user => this.user = user);
-      console.log("user services get user"+this.user)
-      console.log("post services get posts by user"+this.posts)
+      this.userService.getUserById(parseInt(params.id)).toPromise().then(user => {
+        this.user = user
+        console.log("user services get user"+this.user)
+        this.postService.getPostsByUser(this.user.id).toPromise().then(posts =>{
+          this.posts = posts.sort((a, b) => (a.created < b.created) ? 1-1: -1)
+          console.log(posts)
+
+        })
+      });
+
 
     })
   }

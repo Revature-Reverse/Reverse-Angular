@@ -24,6 +24,7 @@
               </mat-form-field>
             </div>
           </div>
+          <!--
           <div class="row">
             <mat-form-field appearance="fill">
               <mat-label>Profile Picture</mat-label>
@@ -31,6 +32,7 @@
               <mat-icon matSuffix>image</mat-icon>
             </mat-form-field>
           </div>
+          -->
           <div class="row">
             <mat-form-field appearance="fill">
               <mat-label>Email</mat-label>
@@ -38,7 +40,7 @@
             </mat-form-field>
             <mat-form-field appearance="fill">
               <mat-label>Username</mat-label>
-              <input matInput formControlName="userName">
+              <input matInput formControlName="username">
             </mat-form-field>
           </div>
           <div class="row">
@@ -78,7 +80,7 @@
           </div>
           <mat-form-field appearance="fill">
             <mat-label>Select your birthdate</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="birthdate">
+            <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
@@ -96,7 +98,7 @@
       <h2>Requirements</h2>
       <ul class="user_list">
         <li>
-          <div class="block_container" *ngIf="user_profile_edit_form.get('firstName').value != '' && user_profile_edit_form.get('lastName').value != ''; else elseBlock">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('firstName').value != null && user_profile_edit_form.get('lastName').value != null; else elseBlock">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">First & Last Names</div>
           </div>
@@ -108,13 +110,19 @@
           </ng-template>
         </li>
         <li>
-          <div class="block_container">
+          <div class="block_container" *ngIf="imageSrc; else noPic">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Profile Picture</div>
           </div>
+          <ng-template #noPic>
+            <div class="block_container">
+              <div class="block1"><mat-icon>clear</mat-icon></div>
+              <div class="block2">Profile Picture</div>
+            </div>
+          </ng-template>
         </li>
         <li>
-          <div class="block_container" *ngIf="user_profile_edit_form.get('userName').value != ''; else otherBlock">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('username').value != ''; else otherBlock">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Username</div>
           </div>
@@ -138,7 +146,7 @@
           </ng-template>
         </li>
         <li>
-          <div class="block_container" *ngIf="gender_selected != null; else theOtherBlock">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('gender').value != null; else theOtherBlock">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Gender</div>
           </div>
@@ -150,7 +158,7 @@
           </ng-template>
         </li>
         <li>
-          <div class="block_container" *ngIf="branch_selected != null; else notThatBlock">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('branch').value != null; else notThatBlock">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Branch</div>
           </div>
@@ -162,7 +170,7 @@
           </ng-template>
         </li>
         <li>
-          <div class="block_container" *ngIf="picker != null; else dateNotPicked">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('dateOfBirth').value != null; else dateNotPicked">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Birthdate</div>
           </div>

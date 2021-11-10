@@ -7,10 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Reverse-Angular';
-  router: string; 
+  title = 'ReVerse';
+  router: string;
 
   constructor(private _router: Router){
-    this.router = _router.url; 
+    this.router = _router.url;
   }
 }
