@@ -13,12 +13,12 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const jwt = sessionStorage.getItem("token");
-
-    if (jwt) {
+    if (    sessionStorage.getItem("token")
+    ) {
+      const jwt = JSON.parse(sessionStorage.getItem("token"))['token'];
 
       const newRequest = request.clone({
-        headers: request.headers.set("Authorization", "Bearer "+jwt)
+        headers: request.headers.set("Authorization", 'Bearer "'+jwt+'"')
       });
 
       return next.handle(newRequest);

@@ -115,7 +115,7 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
   public userLogin() {
     this.userService.userLogin(this.loginForm.value).toPromise().then(data => {
         console.log(data)
-        this.notify.openToast("User created successfully.", "");
+        this.notify.openToast("User logged in successfully.", "");
         sessionStorage.setItem('token', JSON.stringify(data));
         this.userService.getUserByUsername(this.loginForm.value.username).toPromise()
           .then(data=>{
