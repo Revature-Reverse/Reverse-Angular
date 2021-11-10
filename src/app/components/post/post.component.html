@@ -24,17 +24,19 @@
           <div (click)="togglecommentbox()">
             <mat-icon>chat_bubble_outline</mat-icon>
             <span>{{post.comments.length}}</span>
-          </div><div>
-          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw">
-            <mat-icon class="icon">
-              share
-            </mat-icon>
-            <span>
-            Share
-          </span>
-          </a>
-        </div>
-
+          </div>
+          <div>
+            <div class="share">
+              <a href="https://twitter.com/share?ref_src=twsrc%5Etfw">
+                <mat-icon class="icon">
+                  share
+                </mat-icon>
+                <span>
+                  Share
+                </span>
+              </a>
+            </div>
+          </div>
         </div>
 
       </div>
