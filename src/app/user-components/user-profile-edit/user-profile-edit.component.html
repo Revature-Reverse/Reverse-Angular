@@ -98,7 +98,7 @@
       <h2>Requirements</h2>
       <ul class="user_list">
         <li>
-          <div class="block_container" *ngIf="user_profile_edit_form.get('firstName').value != null && user_profile_edit_form.get('lastName').value != null; else elseBlock">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('firstName').value != '' && user_profile_edit_form.get('lastName').value != ''; else elseBlock">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">First & Last Names</div>
           </div>
