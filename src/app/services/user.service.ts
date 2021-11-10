@@ -94,11 +94,11 @@ export class UserService {
 
   }
   getBranchesList() {
-    return this.httpClient.get<any>(this.baseUrl+"lists/genders", this.httpOptions);
+    return this.httpClient.get<any>(this.baseUrl+"lists/locations", this.httpOptions);
 
   }
   getGendersList() {
-    return this.httpClient.get<any>(this.baseUrl+"lists/locations", this.httpOptions);
+    return this.httpClient.get<any>(this.baseUrl+"lists/genders", this.httpOptions);
 
   }
   public get currentUserValue(): User {
