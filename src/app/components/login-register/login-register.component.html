@@ -36,7 +36,6 @@
           <div class="row">
             <div class="profileimgcontainer">
               <img [src]="imageSrc" *ngIf="imageSrc">
-
             </div>
           </div>
           <div class="row">
@@ -45,7 +44,6 @@
               <ngx-mat-file-input (change)="onFileChange($event)" formControlName="profilepic" placeholder="Profile Picture" ></ngx-mat-file-input>
               <mat-icon matSuffix>image</mat-icon>
             </mat-form-field>
-
           </div>
           -->
           <mat-form-field appearance="fill">
@@ -153,12 +151,10 @@
               <input matInput formControlName="userName">
             </mat-form-field>
           </div>
-
         </mat-card>
         <div class="button-flex-container">
           <img id="login-tab-header" class="submit-button" src="../assets/logIn.JPG">
         </div>
-
         <button mat-raised-button (click)="resetPassword()">Reset Password</button>
       </form>
       </mat-tab>-->
