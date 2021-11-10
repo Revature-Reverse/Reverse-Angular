@@ -10,9 +10,9 @@
           <mat-icon>add</mat-icon> New Post
         </button>
       </div>
-      <div class="posts-loading-wheel" *ngIf="posts == null">
+      <div class="posts-loading-wheel">
         <mat-spinner></mat-spinner>
-        <h2 id="loading-post-text">Loading verses...</h2>
+        <h2 id="loading-wheel-text">Loading verses...</h2>
       </div>
       <app-feed [posts]="posts"></app-feed>
     </div>
