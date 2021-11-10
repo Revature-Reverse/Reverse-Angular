@@ -15,6 +15,8 @@ import {Comment} from "../../classes/Comment";
 })
 export class PostComponent implements OnInit {
 
+  currentIndex: any = -1;
+  showFlag: any = false;
   post?: any;
   user?: User;
   content?:any;
@@ -23,6 +25,8 @@ export class PostComponent implements OnInit {
   commentform = this.fb.group({
     commentbody: ["", [Validators.required]]
   })
+  postimages?:any[];
+  imageObject: Array<any> = [];
   postId?:number;
   constructor(private activatedRoute:ActivatedRoute,
               private postService:PostService,
@@ -36,7 +40,16 @@ export class PostComponent implements OnInit {
       this.postService.getPost(parseInt(params.id)).toPromise().then(post => {
         this.post = post
         this.postId = post.id
+        this.postimages = post.images
         console.log(post.likes)
+        post.images.forEach((item:any)=>{
+          console.log(item)
+          let singleimageobject= {
+            image: item.url,
+            title: item.filename
+          }
+          this.imageObject.push(singleimageobject);
+        });
         post.likes.forEach((item:any)=>{
           console.log(item)
           if(item==this.userService.currentUserValue.id){
@@ -58,6 +71,15 @@ export class PostComponent implements OnInit {
   }
   togglecommentbox(){
     this.commentbox= !this.commentbox;
+  }
+  showLightbox(index: any) {
+    this.currentIndex = index;
+    this.showFlag = true;
+  }
+
+  closeEventHandler() {
+    this.showFlag = false;
+    this.currentIndex = -1;
   }
   submitcomment(){
     console.log(this.f.commentbody.value)

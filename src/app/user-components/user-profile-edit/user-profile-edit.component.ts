@@ -24,8 +24,8 @@ export class UserProfileEditComponent implements OnInit {
     lastName : [null, [Validators.required]],
     email : ['', [Validators.minLength(5), Validators.maxLength(30), Validators.email]],
     username : [null, [Validators.required]],
-    password : [null, Validators.minLength(8)],
-    confirm_password : [null, Validators.minLength(8)],
+    //password : [null, Validators.minLength(8)],
+    //confirm_password : [null, Validators.minLength(8)],
     gender: [null, [Validators.required]],
     branch: [null, [Validators.required]],
     dateOfBirth: [null, [Validators.required]]

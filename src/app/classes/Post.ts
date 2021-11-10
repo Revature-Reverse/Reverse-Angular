@@ -3,6 +3,7 @@ import {PostImage} from "./PostImage";
 import {Comment} from "./Comment";
 
 export interface Post {
+    images?: any[];
     id?: number,
     poster?: User|number,
     title: string,

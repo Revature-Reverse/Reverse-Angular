@@ -16,6 +16,17 @@
 
         <div class="posttitle" [innerHtml]="post.title"></div>
         <div class="posthtmlcontent" [innerHtml]="post.body"></div>
+        <div class="group">
+          <div>
+            <img *ngFor="let img of imageObject; let i = index" [src]="img.image" (click)="showLightbox(i)" />
+          </div>
+        </div>
+        <!-- ng-image-fullscreen-view  -->
+        <ng-image-fullscreen-view
+          [images]="imageObject"
+          [imageIndex]="currentIndex"
+          [show]="showFlag"
+          (close)="closeEventHandler()"></ng-image-fullscreen-view>
         <div class="icons">
           <div (click)="likepost()">
             <mat-icon [ngClass]="{'liked': likedpost}">thumb_up_outline</mat-icon>

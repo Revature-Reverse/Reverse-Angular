@@ -43,7 +43,6 @@ export class PostService {
   savePost(post : Post) : Observable<Post> {
     console.log(post)
     this.getUserToken();
-    this.posts.push(post);
     console.log(this.userToken)
     return this.httpClient.post<Post>(this.baseUrl+'posts/create', post,this.httpOptions);
   }
