@@ -62,9 +62,15 @@ mat-grid-tile:nth-child(2){
   font-size: 15px;
   color: #474c55;
 }
+.touserprofile{
+  padding-left:10px;
+}
 .touserprofile:hover{
   cursor: pointer;
-  text-decoration: underline 1px solid black;
+  text-decoration: underline 2px solid coral;
+}
+.commentbody{
+  padding: 0px 10px 10px 10px;
 }
 .icons{
   padding-top: 40px;
@@ -79,6 +85,11 @@ mat-grid-tile:nth-child(2){
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  transition: 0.4s;
+}
+.icons div:hover{
+  cursor: pointer;
+  color: black;
 }
 .icons div mat-icon{
   margin-right: 10px;
@@ -99,8 +110,13 @@ mat-grid-tile:nth-child(2){
 }
 
 .postusername{
-
+  transition: .4s;
 }
+.postusername:hover{
+  cursor: pointer;
+  text-decoration: underline 1px solid black;
+}
+
 .postusername p{
   line-height: 10px;
 
