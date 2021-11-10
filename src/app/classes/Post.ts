@@ -4,12 +4,13 @@ import {Comment} from "./Comment";
 
 export interface Post {
     id?: number,
-    poster: User,
+    poster?: User|number,
     title: string,
     body: string,
     created?: Date,
     lastEdited?: Date,
     likes?: User[],
     comments?: Comment[],
-    post_images?: PostImage[]
+    post_images?: PostImage[],
+    posterId?:number
 }

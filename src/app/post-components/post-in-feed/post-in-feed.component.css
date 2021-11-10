@@ -16,18 +16,19 @@
 
   margin: 10px;
   padding: 15px;
+  width: 70%;
 }
 
 .post-container
 {
   width: 100%;
-
   border-radius: 10px;
   background:#f7f7f7;
 }
 
 .time-post-container
 {
+
   background: #ecebeb;
   padding: 10px;
   margin: 15px;

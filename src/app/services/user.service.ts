@@ -59,7 +59,7 @@ export class UserService {
 
   //user-login must match in back-end
   userLogin(user: User) {
-    return this.httpClient.post<string>(this.baseUrl+"auth/login", user,this.httpOptions);
+    return this.httpClient.post<User>(this.baseUrl+"users/login", user,this.httpOptions);
 
     //console.log(user)
     //let finduser = this.users.find((dbUser) => dbUser.userName === user.userName && dbUser.password === user.password);
@@ -83,14 +83,23 @@ export class UserService {
 
   userUpdate(user: User): Observable<User> {
     console.log(user)
-    //return this.httpClient.post<User>("localhost:8080/user-login", user);
-    return of (user);
+    let gindex = user.gender;
+    user.gender = this.genders[gindex-1];
+    let bindex = user.branch;
+    user.branch = this.branches[bindex-1];
+    return this.httpClient.patch<User>(this.baseUrl+"users/updateUser", user);
   }
 
   getUserById(userId : number) {
     //let user : User | undefined = this.users.find((dbUser) => dbUser.id === userId);
 
     return this.httpClient.get<User>(this.baseUrl+"users/"+userId, this.httpOptions);
+
+  }
+  getUserByUsername(username : string) {
+    //let user : User | undefined = this.users.find((dbUser) => dbUser.id === userId);
+
+    return this.httpClient.get<User>(this.baseUrl+"users/user/"+username, this.httpOptions);
 
   }
   getBranchesList() {

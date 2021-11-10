@@ -3,7 +3,7 @@ import POSTS from '../POSTS';
 import { Observable } from "rxjs";
 import { of } from "rxjs"
 import {Post} from "../classes/Post";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +11,15 @@ import {HttpClient} from "@angular/common/http";
 export class PostService {
   baseUrl: string = `/backend/`;
 
-  posts : Post[] = POSTS;
+  posts : Post[];
   userToken! : string | null;
   recentposts:any[];
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    }),
+  };
 
   constructor(
     private httpClient : HttpClient
@@ -39,7 +45,7 @@ export class PostService {
     this.getUserToken();
     this.posts.push(post);
     console.log(this.userToken)
-    return this.httpClient.post<Post>(this.baseUrl+'posts/create', post);
+    return this.httpClient.post<Post>(this.baseUrl+'posts/create', post,this.httpOptions);
   }
 
   /***
@@ -55,7 +61,7 @@ export class PostService {
   deletePost(id : number) : Observable<Post[]> {
     this.posts = this.posts.filter((post) => post.id !== id);
 
-    return this.httpClient.delete<Post[]>(this.baseUrl+`posts/delete/`+id);
+    return this.httpClient.delete<Post[]>(this.baseUrl+`posts/delete/`+id,this.httpOptions);
   }
 
   /***
@@ -69,7 +75,7 @@ export class PostService {
    *
    */
   getPost(id : number) : Observable<Post | undefined> {
-    return this.httpClient.get<Post>(this.baseUrl+`posts/`+id);
+    return this.httpClient.get<Post>(this.baseUrl+`posts/`+id,this.httpOptions);
   }
 
 
@@ -93,7 +99,7 @@ export class PostService {
       }
     });
 
-    return this.httpClient.patch<Post>(this.baseUrl+"posts/edit", updatedPost);
+    return this.httpClient.patch<Post>(this.baseUrl+"posts/edit", updatedPost,this.httpOptions);
   }
 
   /***
@@ -107,9 +113,8 @@ export class PostService {
    *
    */
   getPostsByUser(userId : number) : Observable<Post[]> {
-    this.posts = this.posts.filter(post => post.poster.id === userId);
 
-    return this.httpClient.get<Post[]>(this.baseUrl+'users/'+userId);
+    return this.httpClient.get<Post[]>(this.baseUrl+'posts/byUser/'+userId,this.httpOptions);
   }
 
   /***
@@ -121,10 +126,14 @@ export class PostService {
    *
    */
   getRecentPosts() : Observable<Post[]> {
-    return this.httpClient.get<Post[]>(this.baseUrl+"posts/recent");
+    return this.httpClient.get<Post[]>(this.baseUrl+"posts/recent/10",this.httpOptions);
   }
 
   private getUserToken() : void {
     this.userToken = sessionStorage.getItem('token');
+  }
+
+  likePost(like:any):Observable<any>{
+    return this.httpClient.post<Post[]>(this.baseUrl+"posts/like",like,this.httpOptions);
   }
 }
