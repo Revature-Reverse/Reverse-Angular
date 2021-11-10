@@ -56,7 +56,7 @@ export class AddPostComponent implements OnInit {
   onSubmit() {
     let user: User = {
       id: 1,
-      userName: 'timothyharper',
+      username: 'timothyharper',
       firstName: 'Timothy',
       lastName: 'Harper',
     };

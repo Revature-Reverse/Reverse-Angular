@@ -12,7 +12,7 @@ import USERS from "../USERS";
 })
 export class UserService {
   users?: User[];
-  baseUrl: string = `http://3.91.248.52/backend/`;
+  baseUrl: string = `http://localhost:8081/`;
   branches:any[];
   genders:any[];
 
@@ -37,7 +37,7 @@ export class UserService {
    this.getBranchesList().toPromise().then(resp =>{
      this.branches=resp;
      console.log(this.branches);
-   });;
+   });
     this.getUserById(1).toPromise().then(resp =>{
       console.log("get user by id 1");
       console.log(resp);
@@ -59,7 +59,7 @@ export class UserService {
 
   //user-login must match in back-end
   userLogin(user: User) {
-    return this.httpClient.post<User>(this.baseUrl+"auth/login", user,this.httpOptions);
+    return this.httpClient.post<User>(this.baseUrl+"users/login", user,this.httpOptions);
 
     //console.log(user)
     //let finduser = this.users.find((dbUser) => dbUser.userName === user.userName && dbUser.password === user.password);
@@ -68,8 +68,7 @@ export class UserService {
     //}
     //if (this.currentUserValue) {
     //  console.log("Logging in User.");
-    //  sessionStorage.setItem('currentUser', JSON.stringify(this.currentUserValue));
-    //  sessionStorage.setItem('token', "testtoken");
+
 //
     //  console.log(this.currentUser)
 //
@@ -93,12 +92,18 @@ export class UserService {
     return this.httpClient.get<User>(this.baseUrl+"users/"+userId, this.httpOptions);
 
   }
+  getUserByUsername(username : string) {
+    //let user : User | undefined = this.users.find((dbUser) => dbUser.id === userId);
+
+    return this.httpClient.get<User>(this.baseUrl+"users/user/"+username, this.httpOptions);
+
+  }
   getBranchesList() {
-    return this.httpClient.get<any>(this.baseUrl+"lists/genders", this.httpOptions);
+    return this.httpClient.get<any>(this.baseUrl+"lists/locations", this.httpOptions);
 
   }
   getGendersList() {
-    return this.httpClient.get<any>(this.baseUrl+"lists/locations", this.httpOptions);
+    return this.httpClient.get<any>(this.baseUrl+"lists/genders", this.httpOptions);
 
   }
   public get currentUserValue(): User {
