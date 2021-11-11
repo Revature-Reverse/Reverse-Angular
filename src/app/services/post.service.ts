@@ -136,4 +136,8 @@ export class PostService {
   likePost(like:any):Observable<any>{
     return this.httpClient.post<Post[]>(this.baseUrl+"posts/like",like,this.httpOptions);
   }
+
+  unlikePost(postId:number,userId:number):Observable<any>{
+    return this.httpClient.delete<Post[]>(this.baseUrl+"posts/unlike/"+postId+"/"+userId,this.httpOptions);
+  }
 }

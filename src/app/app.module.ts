@@ -34,6 +34,7 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {LoadingScreenInterceptor} from "./interceptors/loading.interceptor";
+import {NgImageFullscreenViewModule} from "ng-image-fullscreen-view";
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import {LoadingScreenInterceptor} from "./interceptors/loading.interceptor";
     MatInputModule,
     MatNativeDateModule,
     MaterialFileInputModule,
+    NgImageFullscreenViewModule
   ],
   providers: [
     {

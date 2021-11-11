@@ -16,7 +16,6 @@ export class UserComponent implements OnInit {
   posts: Post[] = [];
   user?: User;
   editable?:Boolean;
-
   constructor(private activatedRoute:ActivatedRoute,
               private postService: PostService,
               private userService:UserService) { }
@@ -34,7 +33,8 @@ export class UserComponent implements OnInit {
         console.log("user services get user"+this.user)
         this.postService.getPostsByUser(this.user.id).toPromise().then(posts =>{
           this.posts = posts.sort((a, b) => (a.created < b.created) ? 1-1: -1)
-          console.log(posts)
+
+            console.log(posts)
 
         })
       });

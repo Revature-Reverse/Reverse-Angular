@@ -18,15 +18,8 @@ export class CommentService {
     return this.httpClient.post<Comment>(`${this.baseUrl}comments/comment`, comment);
   }
 
-  public getComment(commentId : number) : Observable<Comment> {
-    return this.httpClient.get<Comment>(`${this.baseUrl}posts/comments/${commentId}`);
-  }
-
-  public updateComment(comment : Comment) : Observable<Comment> {
-    return this.httpClient.patch<Comment>(`${this.baseUrl}backend/comments/edit`, comment);
-  }
 
   public deleteComment(commentId : number) : Observable<Comment> {
-    return this.httpClient.delete<Comment>(`${this.baseUrl}backend/posts/comments/${commentId}`);
+    return this.httpClient.delete<Comment>(`${this.baseUrl}comments/${commentId}`);
   }
 }

@@ -20,6 +20,10 @@
         <br />
         <label class="label">Body</label>
         <div class="add-post__textarea editable"></div>
+        <mat-form-field class="imgnamefield">
+          <ngx-mat-file-input [multiple]="true"  placeholder="click on folder icon to add images" (change)="onFileChange($event)"></ngx-mat-file-input>
+          <mat-icon matSuffix>folder</mat-icon>
+        </mat-form-field>
         <div class="submit-button">
           <button
             mat-raised-button
@@ -30,6 +34,7 @@
             Submit my Verse
           </button>
         </div>
+
         <!-- </div> -->
       </form>
     </div>
