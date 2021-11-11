@@ -50,7 +50,6 @@ export class AddPostComponent implements OnInit {
   ngOnInit(): void {
     this.postform = this.formBuilder.group({
       content: ['', [Validators.required]],
-      images: [null, [Validators.required]]
     });
   }
 
@@ -64,6 +63,7 @@ export class AddPostComponent implements OnInit {
       title: this.title,
       body: this.medium.getContent(),
       posterId: user,
+      images: this.images
     };
 
     if (this.filterService.checkForProfanity(this.post.body) || this.filterService.checkForProfanity(this.post.title)) {
@@ -116,16 +116,19 @@ export class AddPostComponent implements OnInit {
       imglist =values;
       console.log(imgfilenames);
 
-    });
-    for(let i = 0;i < files.length;i++){
-      this.images.push(
-        {
-          url:imglist[i],
-          filename:imgfilenames[i]
-        }
-      );
-    }
-    console.log(this.images)
+    }).then(()=>{
+      for(let i = 0;i < files.length;i++){
+        this.images.push(
+          {
+            bytes:imglist[i].split(',')[1],
+            imageTitle:imgfilenames[i].substring(0, imgfilenames[i].length - 4)
+          }
+        );
+      }
+      console.log(this.images)
+      }
+    );
+
     //if (event.target.files && event.target.files.length) {
     //  event.target.files.forEach((item:any)=>{
     //    reader.readAsDataURL(item);
