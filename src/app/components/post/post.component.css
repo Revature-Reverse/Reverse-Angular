@@ -1,3 +1,9 @@
+.share a {
+  display: flex;
+  color: black;
+  text-decoration: none;
+}
+
 mat-grid-tile
 {
   height: 100%;

@@ -9,7 +9,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
   providedIn: 'root'
 })
 export class PostService {
-  baseUrl: string = `http://localhost:8000/`;
+  baseUrl: string = `/backend/`;
 
   posts : Post[];
   userToken! : string | null;
@@ -58,7 +58,6 @@ export class PostService {
    *
    */
   deletePost(id : number) : Observable<Post[]> {
-    this.posts = this.posts.filter((post) => post.id !== id);
 
     return this.httpClient.delete<Post[]>(this.baseUrl+`posts/delete/`+id,this.httpOptions);
   }
@@ -90,13 +89,15 @@ export class PostService {
    */
   updatePost(updatedPost : any) : Observable<Post | undefined> {
     console.log(updatedPost)
-    this.posts = this.posts.map(post => {
-      if (post.id === updatedPost.id) {
-        return updatedPost;
-      } else {
-        return post;
-      }
-    });
+    /***
+    * this.posts = this.posts.map(post => {
+    *  if (post.id === updatedPost.id) {
+    *    return updatedPost;
+    *  } else {
+    *    return post;
+    *  }
+    *});
+    * */
 
     return this.httpClient.patch<Post>(this.baseUrl+"posts/edit", updatedPost,this.httpOptions);
   }
