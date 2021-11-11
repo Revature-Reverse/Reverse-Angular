@@ -35,6 +35,10 @@ Reverse is an emergent social media application that helps Revature employees co
 ### EditPostComponent
 -> This allows users to edit their posts in case they want to erase any profanity which their is a filter for.
 
+## Interceptors 
+### LoadingScreenInterceptor 
+-> Used to implement the loadding screen by intercepting Http requests and using the LoadingScreenService execute the loading screen when transitioning between component screens. 
+
 ## Getting Started
 - git clone https://github.com/Revature-Reverse/Reverse-Angular.git and move into its folder
 - If you are using a Windows terminal, consider running "Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass" to be to run scripts
