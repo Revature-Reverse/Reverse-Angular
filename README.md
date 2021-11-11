@@ -1,4 +1,4 @@
-# Reverse ![logo image](src/assets/favicon/favicon-32x32.png)
+![logo image](readme-pics/Reverse-Brand-LogoWithText.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8. 
 
@@ -20,10 +20,13 @@ Reverse is an emergent social media application that helps Revature employees co
 ### HomepageComponent 
 -> This component contains the home page: the first thing the user sees on the site
 
-![homepage](readme-pics/registration-form.JPG)
+![homepage](readme-pics/homepage-before-login.JPG)
+This is the home page before logging in. The user has to regiser and log in before using the service. 
 
 ### LoginRegisterComponent
 -> This component provides a double tabbed form for the user to register and log in in the html template. We styled in with a galaxy background-image with color overlay.Images were used in the clickable tabled with a Revature graphic.
+
+![registration](readme-pics/registration-form.JPG)
 
 ### UserComponent
 --> Displays to the logged-in user their posts and related users and the navigation sidebar to edit their profile or add posts or like posts
