@@ -20,7 +20,8 @@ export class AddPostComponent implements OnInit {
   postform!: FormGroup;
   post!: Post;
   title!: string;
-
+  imageSrc?:any;
+  images?:any[]=[];
   constructor(
     private userService: UserService,
 
@@ -49,6 +50,7 @@ export class AddPostComponent implements OnInit {
   ngOnInit(): void {
     this.postform = this.formBuilder.group({
       content: ['', [Validators.required]],
+      images: [null, [Validators.required]]
     });
   }
 
@@ -59,7 +61,6 @@ export class AddPostComponent implements OnInit {
   onSubmit() {
     let user = this.userService.currentUserValue.id;
     this.post = {
-
       title: this.title,
       body: this.medium.getContent(),
       posterId: user,
@@ -89,5 +90,69 @@ export class AddPostComponent implements OnInit {
     if (change.variable && change.variable.currentValue && this.medium) {
       this.medium.setContent(change.variable.currentValue);
     }
+  }
+  onFileChange(event: any) {
+    const reader = new FileReader();
+    let files = event.target.files;
+    let readers=[];
+    if(!files.length) return;
+    let imglist:any;
+    let imgfilenames:any[]=[];
+
+    // Store promises in array
+    for(let i = 0;i < files.length;i++){
+      readers.push(this.readFileAsText(files[i]));
+      imgfilenames.push(files[i].name);
+    }
+
+    // Trigger Promises
+    Promise.all(readers).then((values) => {
+      // Values will be an array that contains an item
+      // with the text of every selected file
+      // ["File1 Content", "File2 Content" ... "FileN Content"]
+      console.log(files);
+
+      console.log(values);
+      imglist =values;
+      console.log(imgfilenames);
+
+    });
+    for(let i = 0;i < files.length;i++){
+      this.images.push(
+        {
+          url:imglist[i],
+          filename:imgfilenames[i]
+        }
+      );
+    }
+    console.log(this.images)
+    //if (event.target.files && event.target.files.length) {
+    //  event.target.files.forEach((item:any)=>{
+    //    reader.readAsDataURL(item);
+    //    this.images.push(
+    //      {
+    //        url:reader.result as string,
+    //        filename:item.filename
+    //      }
+    //    );
+    //  })
+    //  console.log(this.images)
+//
+    //}
+  }
+   readFileAsText(file: any){
+    return new Promise(function(resolve,reject){
+      let fr = new FileReader();
+      fr.readAsDataURL(file);
+
+      fr.onload = function(){
+        resolve(fr.result as string);
+      };
+
+      fr.onerror = function(){
+        reject(fr);
+      };
+
+    });
   }
 }
