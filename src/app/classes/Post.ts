@@ -5,7 +5,7 @@ import {Comment} from "./Comment";
 export interface Post {
     images?: any[];
     id?: number,
-    poster?: User|number,
+    poster?: User|number|any,
     title: string,
     body: string,
     created?: Date,

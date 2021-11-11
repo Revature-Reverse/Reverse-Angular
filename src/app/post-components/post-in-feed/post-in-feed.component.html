@@ -1,4 +1,9 @@
 <div class="post-container">
+  <div class="postername" routerLink="/users/{{post.poster.id}}">
+    <mat-icon class="personicon">
+      person
+    </mat-icon>
+    <span class="posterfullname">{{post.poster.firstName}} {{post.poster.lastName}}    </span><span class="posterusername">@{{post.poster.username}}</span></div>
   <div class="postmain">
     <div class="postcontent">
       <h1 class="post-title" [innerHTML] = "post.title"></h1>

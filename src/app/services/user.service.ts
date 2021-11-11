@@ -12,7 +12,7 @@ import USERS from "../USERS";
 })
 export class UserService {
   users?: User[];
-  baseUrl: string = `/backend/`;
+  baseUrl: string = `http://localhost:8081/`;
   branches:any[];
   genders:any[];
 

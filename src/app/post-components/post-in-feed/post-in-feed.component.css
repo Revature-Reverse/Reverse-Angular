@@ -10,10 +10,42 @@
   margin-bottom: -5px;
 
 }
+.postername{
+  font-family: Futura;
+  font-weight: bold;
+  padding:20px 20px 20px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #767878;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: .4s;
 
+}
+.posterfullname,.personicon{
+  color: #F2f2f2;
+
+}
+.open-in-full-with-text:hover{
+  cursor: pointer;
+}
+.posterfullname{
+  margin-left: 10px;
+
+}
+.posterusername{
+  color: #D6d7d7;
+  margin-left: 10px;
+}
+.postername:hover{
+  cursor: pointer;
+  background-color: var(--darkgray);
+
+}
 .postcontent
 {
-
   margin: 10px;
   padding: 15px;
   width: 70%;
