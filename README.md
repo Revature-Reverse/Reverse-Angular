@@ -39,6 +39,9 @@ Reverse is an emergent social media application that helps Revature employees co
 ### LoadingScreenInterceptor 
 -> Used to implement the loadding screen by intercepting Http requests and using the LoadingScreenService execute the loading screen when transitioning between component screens. 
 
+### TokenInterceptor 
+-> Used to intercept the Http Request to grab the JWT token for authentication and maintaining a log-in session 
+
 ## Getting Started
 - git clone https://github.com/Revature-Reverse/Reverse-Angular.git and move into its folder
 - If you are using a Windows terminal, consider running "Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass" to be to run scripts
