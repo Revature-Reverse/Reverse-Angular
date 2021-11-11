@@ -20,8 +20,13 @@ Reverse is an emergent social media application that helps Revature employees co
 ### HomepageComponent 
 -> This component contains the home page: the first thing the user sees on the site
 
+![homepage](readme-pics/registration-form.JPG)
+
 ### LoginRegisterComponent
 -> This component provides a double tabbed form for the user to register and log in in the html template. We styled in with a galaxy background-image with color overlay.Images were used in the clickable tabled with a Revature graphic.
+
+### UserComponent
+--> Displays to the logged-in user their posts and related users and the navigation sidebar to edit their profile or add posts or like posts
 
 ### PostComponent & AddPostComponent
 -> This component gives the ability to create and submit verses (posts), to like verses, and to create comments for these posts. 
@@ -52,3 +57,4 @@ Reverse is an emergent social media application that helps Revature employees co
 - Create a new folder for Gateway repo, move into this folder, and run `git clone https://github.com/Revature-Reverse/Gateway.git`
 - Create a new folder for User-Service repo, move into this folder, and run `git clone https://github.com/Revature-Reverse/User-Service.git`
 - Create a new folder for Post-Service repo, move into this folder, and run `git clone https://github.com/Revature-Reverse/Post-Service.git`
+- Open your favored IDE and run the Discovery, GateWay, User-Service, and Post-Service (in this order)
