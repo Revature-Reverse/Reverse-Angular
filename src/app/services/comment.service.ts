@@ -15,7 +15,7 @@ export class CommentService {
   ) { }
 
   public createComment(comment : Comment) : Observable<Comment> {
-    return this.httpClient.post<Comment>(`${this.baseUrl}posts/comments/add`, comment);
+    return this.httpClient.post<Comment>(`${this.baseUrl}comments/comment`, comment);
   }
 
   public getComment(commentId : number) : Observable<Comment> {

@@ -29,7 +29,7 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
   imageSrc!: string;
 
   loginForm = this.fb.group({
-    userName: ["", [Validators.required]],
+    username: ["", [Validators.required]],
     password: ["", [Validators.required]],
   })
 
@@ -38,7 +38,7 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
     firstName: [null, [Validators.required]],
     lastName: [null, [Validators.required]],
     email: ['', [Validators.minLength(5), Validators.maxLength(30), Validators.email]],
-    userName: [null, [Validators.required]],
+    username: [null, [Validators.required]],
     password: [null, [Validators.minLength(8)]],
     confirm_password: [null, [Validators.minLength(8)]],
     gender: [null, [Validators.required]],
@@ -58,7 +58,7 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
     firstName: '',
     lastName: '',
     password: '',
-    userName: '',
+    username: '',
     gender: 0,
     branch: 0,
     dateOfBirth: new Date(2000, 0, 1)
@@ -113,13 +113,21 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
   // }
 
   public userLogin() {
-    this.userService.userLogin(this.loginForm.value).toPromise().then((data)  => {
-        console.log(data);
-        sessionStorage.setItem("token", data);
+    this.userService.userLogin(this.loginForm.value).toPromise().then(data => {
+        console.log(data)
+        this.notify.openToast("User logged in successfully.", "");
+        sessionStorage.setItem('token', JSON.stringify(data));
+        this.userService.getUserByUsername(this.loginForm.value.username).toPromise()
+          .then(data=>{
+            console.log(data)
+            sessionStorage.setItem('currentUser', JSON.stringify(data));
 
-        //alert("User logged in successfully.");
-        //window.location.href= "";
-        //this.router.navigate(['/home']);
+          })
+        setTimeout(() =>{
+          console.log("login redirect");
+          window.location.href= "home";
+        },1000);
+
       }, error => {
         this.notify.openToast("Login failed: Wrong username or password", "");
       }

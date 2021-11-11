@@ -1,8 +1,10 @@
 <div class="post-container">
-  <div class="post-content" [innerHTML] = "post.body"></div>
-  <div class="dateTime">
-    <p>{{post.created | date: 'longDate'}}</p>
-    <p>{{post.created | date: 'mediumTime'}}</p>
+  <div>
+    <div class="post-content" [innerHTML] = "post.body"></div>
+    <div class="dateTime">
+      <p>{{post.created | date: 'longDate'}}</p>
+      <p>{{post.created | date: 'mediumTime'}}</p>
+    </div>
   </div>
   <div class="icon-container">
     <div class="likes-and-posts-icons">
@@ -20,17 +22,23 @@
       </div>
     </div>
     <div class="full-open-and-share">
-      <div class="open-in-full-with-text">
+      <div class="open-in-full-with-text" routerLink="/posts/{{post.id}}">
         <mat-icon class="icon">
           open_in_full
         </mat-icon>
-        <p>Full Post</p>
+        <a href="/posts/{{ post.id }}">
+          Full Post
+        </a>
       </div>
       <div class="share">
-        <mat-icon class="icon">
-          share
-        </mat-icon>
-        <p>Share</p>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw">
+          <mat-icon class="icon">
+            share
+          </mat-icon>
+          <span>
+            Share
+          </span>
+        </a>
       </div>
     </div>
   </div>

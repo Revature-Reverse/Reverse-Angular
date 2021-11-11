@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import POSTS from '../../POSTS';
 import { User } from '../../classes/user';
 import { NotificationService } from "../../services/notification.service";
-import { FilterService } from "../../services/filter.service";
 
 @Component({
   selector: 'app-edit-post',
@@ -17,7 +16,6 @@ export class EditPostComponent implements OnInit {
   body!: string;
 
   constructor(
-    private filterService : FilterService,
     private notify : NotificationService
   ) {}
 
@@ -36,7 +34,7 @@ export class EditPostComponent implements OnInit {
   onSubmit() {
     let user: User = {
       id: 1,
-      userName: 'timothyharper',
+      username: 'timothyharper',
       firstName: 'Timothy',
       lastName: 'Harper',
     };
@@ -47,10 +45,7 @@ export class EditPostComponent implements OnInit {
       body: this.medium.getContent(),
       poster: user,
     };
-    if (this.filterService.checkForProfanity(this.post.body) || this.filterService.checkForProfanity(this.post.title)) {
-      this.notify.openToast("The post cannot contain profanity.", "");
-    } else {
-      console.log(this.post);
-    }
+
+    console.log(this.post);
   }
 }

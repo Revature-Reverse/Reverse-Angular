@@ -24,13 +24,15 @@
               </mat-form-field>
             </div>
           </div>
-          <!-- <div class="row">
+          <!--
+          <div class="row">
             <mat-form-field appearance="fill">
               <mat-label>Profile Picture</mat-label>
               <ngx-mat-file-input (change)="onFileChange($event)" formControlName="profilepic" placeholder="Profile Picture" ></ngx-mat-file-input>
               <mat-icon matSuffix>image</mat-icon>
             </mat-form-field>
-          </div> -->
+          </div>
+          -->
           <div class="row">
             <mat-form-field appearance="fill">
               <mat-label>Email</mat-label>
@@ -38,10 +40,10 @@
             </mat-form-field>
             <mat-form-field appearance="fill">
               <mat-label>Username</mat-label>
-              <input matInput formControlName="userName">
+              <input matInput formControlName="username">
             </mat-form-field>
           </div>
-          <div class="row">
+          <!--<div class="row">
             <mat-form-field appearance="fill">
               <mat-label>Password</mat-label>
               <input type="password" matInput formControlName="password">
@@ -53,7 +55,7 @@
               Passwords do not match.
             </span>
             </mat-form-field>
-        </div>
+        </div>-->
           <div class="row">
             <mat-form-field appearance="fill">
               <mat-label>Select your sex</mat-label>
@@ -78,7 +80,7 @@
           </div>
           <mat-form-field appearance="fill">
             <mat-label>Select your birthdate</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="birthdate">
+            <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
@@ -96,7 +98,7 @@
       <h2>Requirements</h2>
       <ul class="user_list">
         <li>
-          <div class="block_container" *ngIf="user_profile_edit_form.get('firstName').value != null && user_profile_edit_form.get('lastName').value != null; else elseBlock">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('firstName').value != '' && user_profile_edit_form.get('lastName').value != ''; else elseBlock">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">First & Last Names</div>
           </div>
@@ -107,7 +109,7 @@
             </div>
           </ng-template>
         </li>
-        <li>
+        <!--<li>
           <div class="block_container" *ngIf="imageSrc; else noPic">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Profile Picture</div>
@@ -118,9 +120,9 @@
               <div class="block2">Profile Picture</div>
             </div>
           </ng-template>
-        </li>
+        </li>-->
         <li>
-          <div class="block_container" *ngIf="user_profile_edit_form.get('userName').value != null; else otherBlock">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('username').value != ''; else otherBlock">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Username</div>
           </div>
@@ -168,7 +170,7 @@
           </ng-template>
         </li>
         <li>
-          <div class="block_container" *ngIf="user_profile_edit_form.get('birthdate').value != null; else dateNotPicked">
+          <div class="block_container" *ngIf="user_profile_edit_form.get('dateOfBirth').value != null; else dateNotPicked">
             <div class="block1"><mat-icon>check</mat-icon></div>
             <div class="block2">Birthdate</div>
           </div>

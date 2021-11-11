@@ -8,23 +8,60 @@
         <div *ngIf="user" class="postuserprofile">
           <div class="postuserimgcontainer">
           </div>
-          <div class="postusername">
+          <div class="postusername" routerLink="/users/{{user.id}}">
             <p>{{user.firstName+" "+user.lastName}} </p>
-            <p>@{{user.userName}}</p>
+            <p>@{{user.username}}</p>
           </div>
         </div>
 
-        <div  class="posthtmlcontent" [innerHtml]="content"></div>
-
+        <div class="posttitle" [innerHtml]="post.title"></div>
+        <div class="posthtmlcontent" [innerHtml]="post.body"></div>
+        <div class="icons">
+          <div (click)="likepost()">
+            <mat-icon [ngClass]="{'liked': likedpost}">thumb_up_outline</mat-icon>
+            <span>{{post.likes.length}}</span>
+          </div>
+          <div (click)="togglecommentbox()">
+            <mat-icon>chat_bubble_outline</mat-icon>
+            <span>{{post.comments.length}}</span>
+          </div>
+          <div>
+            <div class="share">
+              <a href="https://twitter.com/share?ref_src=twsrc%5Etfw">
+                <mat-icon class="icon">
+                  share
+                </mat-icon>
+                <span>
+                  Share
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
 
       </div>
       <div class="postcomments" *ngIf="post">
         <div class="commentheader">
-          <p>Comments</p>
+          <p>{{post.comments.length}} Comments </p>
+          <div class="newcomment"(click)="togglecommentbox()">
+            <mat-icon>add</mat-icon>
+            <span>new comment</span>
+          </div>
         </div>
-        <p *ngFor="let item of post.comments">
-          {{item.message}}
-        </p>
+        <div class="commentsection" *ngIf="commentbox">
+          <form [formGroup]="commentform" >
+          <mat-form-field>
+            <mat-label>Textarea</mat-label>
+            <textarea matInput class="commentinputbox" formControlName="commentbody"></textarea>
+          </mat-form-field>
+          </form>
+          <button mat-raised-button (click)="submitcomment()" [disabled]="!commentform.valid">submit</button>
+        </div>
+        <div *ngFor="let item of post.comments" class="comment">
+          <h2 class="touserprofile" routerLink="/users/{{item.commenter.id}}"><span class="commentername">{{item.commenter.firstName}} </span><span class="commentername">{{item.commenter.lastName}} </span><span class="commenterusername">@{{item.commenter.username}} </span></h2>
+          <p class="commentbody">{{item.message}}</p>
+
+        </div>
 
       </div>
     </div>

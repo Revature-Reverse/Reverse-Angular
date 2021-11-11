@@ -9,43 +9,40 @@
       <!-- temporary : need to design view format (table, cards?) -->
       <div *ngFor="let post of posts">
         <div class="time-post-container">
-          <div class="post-content" [innerHTML] = "post.body"></div>
-          <div class="dateTime">
-            <p>{{time | date: 'longDate'}}</p>
-            <p>{{time | date: 'mediumTime'}}</p>
+          <div class="time-post-content">
+            <div class="left">
+              <div class="title" [innerHTML] = "post.title"></div>
+              <div class="post-content" [innerHTML] = "post.body"></div>
+            </div>
+            <div class="dateTime">
+              <p>{{post.created | date: 'longDate'}}</p>
+              <p>{{post.created | date: 'mediumTime'}}</p>
+            </div>
+          </div>
+          <div class="icon-container">
+
+            <div class="full-open-and-share">
+              <div class="open-in-full-with-text" routerLink="/posts/{{post.id}}">
+                <mat-icon class="icon">
+                  open_in_full
+                </mat-icon>
+                <p>Full Post</p>
+              </div>
+              <div class="share">
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw">
+                  <mat-icon class="icon">
+                    share
+                  </mat-icon>
+                  <span>
+                    Share
+                  </span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="icon-container">
-        <div class="likes-and-posts-icons">
-          <div class="like-icon-with-count">
-            <mat-icon class="icon like-icon">
-              thumb_up
-            </mat-icon>
-            <p>{{like_count}}</p>
-          </div>
-          <div class="number-of-posts">
-            <mat-icon class="icon chat-icon">
-              chat_bubble_outline
-            </mat-icon>
-            <p>{{post_count}}</p>
-          </div>
-        </div>
-        <div class="full-open-and-share">
-          <div class="open-in-full-with-text">
-            <mat-icon class="icon">
-              open_in_full
-            </mat-icon>
-            <p>Full Post</p>
-          </div>
-          <div class="share">
-            <mat-icon class="icon">
-              share
-            </mat-icon>
-            <p>Share</p>
-          </div>
-        </div>
-      </div>
+
     </mat-tab>
     <mat-tab label="Comments"></mat-tab>
   </mat-tab-group>

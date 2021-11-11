@@ -33,6 +33,7 @@ import { LoadingScreenComponent } from './loading-screen/loading-screen.componen
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {LoadingScreenInterceptor} from "./interceptors/loading.interceptor";
 
 @NgModule({
   declarations: [
@@ -76,6 +77,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
       useClass: TokenInterceptor,
       multi: true,
     },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingScreenInterceptor,
+      multi: true,
+    }
   ],
   bootstrap: [AppComponent],
 })

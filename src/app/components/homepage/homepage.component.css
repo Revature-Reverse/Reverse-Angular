@@ -1,10 +1,11 @@
+
 :host::ng-deep .mat-grid-tile-content{
   align-items: flex-start;
 }
-
 #flex-container
 {
-  height: 95%;
+  width: 95%;
+  height: 80%;
   overflow-y: scroll;
   padding: 40px;
   margin-top: 100px;

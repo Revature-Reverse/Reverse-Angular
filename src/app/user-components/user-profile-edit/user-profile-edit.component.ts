@@ -23,12 +23,12 @@ export class UserProfileEditComponent implements OnInit {
     firstName : [null, [Validators.required]],
     lastName : [null, [Validators.required]],
     email : ['', [Validators.minLength(5), Validators.maxLength(30), Validators.email]],
-    userName : [null, [Validators.required]],
+    username : [null, [Validators.required]],
     password : [null, Validators.minLength(8)],
     confirm_password : [null, Validators.minLength(8)],
     gender: [null, [Validators.required]],
     branch: [null, [Validators.required]],
-    birthdate: [null, [Validators.required]]
+    dateOfBirth: [null, [Validators.required]]
   },
     {validators: passwordValidator()});
 
@@ -40,14 +40,27 @@ export class UserProfileEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-    this.userService.getUserById(parseInt(params.id)).toPromise().then(user => this.user = user);
-    this.user_profile_edit_form.patchValue(this.user);
-  }
+      this.userService.getUserById(parseInt(params.id)).toPromise().then(user => {
+      console.log(user)
+      this.user = user;
+      console.log(this.user);
+      this.user_profile_edit_form.patchValue(this.user);
+      this.user_profile_edit_form.patchValue({
+        password:'',
+        confirm_password:'',
+
+        branch:this.user.branch.id.toString(),
+        gender:this.user.gender.id.toString()
+
+
+      });
+      });
+   }
   )}
 
   saveUser() {
         this.user = { ...this.user, ...this.user_profile_edit_form.value };
-
+      console.log(this.user)
       this.userService.userUpdate(this.user)
         .toPromise().then( data => {
           alert("User updated successfully.");
