@@ -41,7 +41,7 @@ This is the home page after logging in.
 ### PostComponent & AddPostComponent
 -> This component gives the ability to create and submit verses (posts), to like verses, and to create comments for these posts. 
 ![fullpostcomponent](https://user-images.githubusercontent.com/8985349/141241490-2abf1bbc-94a2-4568-8dcc-bf3b62c31e79.png)
-This is the AddPostComponent
+This is the PostComponent
 
 ![newpostcomponent](https://user-images.githubusercontent.com/8985349/141241377-4c2c6e32-938a-4543-99aa-c92d345b705b.png)
 This is the AddPostComponent
