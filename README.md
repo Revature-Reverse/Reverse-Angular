@@ -1,4 +1,4 @@
-# Reverse
+# Reverse ![logo image](src/assets/favicon/favicon-32x32.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8. 
 
@@ -35,11 +35,17 @@ Reverse is an emergent social media application that helps Revature employees co
 ### EditPostComponent
 -> This allows users to edit their posts in case they want to erase any profanity which their is a filter for.
 
+## Interceptors 
+### LoadingScreenInterceptor 
+-> Used to implement the loadding screen by intercepting Http requests and using the LoadingScreenService execute the loading screen when transitioning between component screens. 
+
 ## Getting Started
-- git clone https://github.com/Revature-Reverse/Reverse-Angular.git
+- git clone https://github.com/Revature-Reverse/Reverse-Angular.git and move into its folder
+- If you are using a Windows terminal, consider running "Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass" to be to run scripts
+- Run `npm install` to install all dependencies. 
+- Run `ng new project_name` to start a new project. 
+- Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 - Create a new folder for the Discovery repo, move into this folder, and run `git clone https://github.com/Revature-Reverse/Discovery.git`
 - Create a new folder for Gateway repo, move into this folder, and run `git clone https://github.com/Revature-Reverse/Gateway.git`
 - Create a new folder for User-Service repo, move into this folder, and run `git clone https://github.com/Revature-Reverse/User-Service.git`
 - Create a new folder for Post-Service repo, move into this folder, and run `git clone https://github.com/Revature-Reverse/Post-Service.git`
-- Run `ng new project_name` to start a new project. 
-- Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
