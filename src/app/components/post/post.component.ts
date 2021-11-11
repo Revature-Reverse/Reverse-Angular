@@ -42,21 +42,23 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
     this.current=this.userService.currentUserValue;
     this.activatedRoute.params.subscribe(params => {
+      // get post from post service using url param
       this.postService.getPost(parseInt(params.id)).toPromise().then(post => {
         this.post = post
         this.post.comments = post.comments.sort(((a, b) => (a.created < b.created) ? 1 : -1))
-
         this.postId = post.id
         this.postimages = post.images
         console.log(post.likes)
         post.images.forEach((item:any)=>{
           console.log(item)
+          // imageobject used for displaying image list and full screen view of images
           let singleimageobject= {
             image: item.url,
             title: item.filename
           }
           this.imageObject.push(singleimageobject);
         });
+        // if user liked the post, update like button css color
         post.likes.forEach((item:any)=>{
           console.log(item)
           if(item==this.userService.currentUserValue.id){
@@ -65,6 +67,7 @@ export class PostComponent implements OnInit {
           }
         });
         console.log(this.post)
+        // get user object of the post author
         this.userService.getUserById(this.post?.poster.id).toPromise().then(user => this.user = user);
 
       });
@@ -76,9 +79,12 @@ export class PostComponent implements OnInit {
   get f() {
     return this.commentform.controls;
   }
+
+  // for ng image full view
   togglecommentbox(){
     this.commentbox= !this.commentbox;
   }
+
   showLightbox(index: any) {
     this.currentIndex = index;
     this.showFlag = true;
@@ -88,6 +94,8 @@ export class PostComponent implements OnInit {
     this.showFlag = false;
     this.currentIndex = -1;
   }
+
+  // send comment value to comment service
   submitcomment(){
     console.log(this.f.commentbody.value)
     let comment:Comment = {
@@ -99,6 +107,7 @@ export class PostComponent implements OnInit {
       console.log(comment)
     this.commentService.createComment(comment).toPromise().then(
       resp=>{
+        //if comment success, update post object with new comments
         this.postService.getPost(parseInt(this.post.id)).toPromise().then(post => {
           this.post = post
           this.post.comments = post.comments.sort(((a, b) => (a.created < b.created) ? 1 : -1))
@@ -106,6 +115,8 @@ export class PostComponent implements OnInit {
       }
     ),((error: any)=>console.log(error));
   }
+
+
   likepost(){
     let like = {
       likeId:

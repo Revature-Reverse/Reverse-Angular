@@ -57,18 +57,20 @@ export class AddPostComponent implements OnInit {
 
   onSubmit() {
     let user = this.userService.currentUserValue.id;
+    // new post object with post title, content, posterId, and list of images
     this.post = {
       title: this.title,
       body: this.medium.getContent(),
       posterId: user,
       images: this.images
     };
-
+    //send request to post service and process result
     this.postService
     .savePost(this.post)
     .toPromise()
     .then(
       (res: any) => {
+        // redirected back to home is post is saved successfully
         console.log(res);
         this.notify.openToast('Post successfully created.', "");
         setTimeout(() =>{
@@ -85,10 +87,12 @@ export class AddPostComponent implements OnInit {
   }
 
   ngOnChanges(change: any) {
+    // if post content change, update current content variable
     if (change.variable && change.variable.currentValue && this.medium) {
       this.medium.setContent(change.variable.currentValue);
     }
   }
+
   onFileChange(event: any) {
     const reader = new FileReader();
     let files = event.target.files;
@@ -115,6 +119,7 @@ export class AddPostComponent implements OnInit {
       console.log(imgfilenames);
 
     }).then(()=>{
+      //set up image dto array to send to backend
       for(let i = 0;i < files.length;i++){
         this.images.push(
           {
@@ -141,6 +146,7 @@ export class AddPostComponent implements OnInit {
 //
     //}
   }
+  // file reader for reading images as base64
    readFileAsText(file: any){
     return new Promise(function(resolve,reject){
       let fr = new FileReader();

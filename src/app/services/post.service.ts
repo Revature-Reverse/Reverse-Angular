@@ -133,10 +133,26 @@ export class PostService {
     this.userToken = sessionStorage.getItem('token');
   }
 
+  /***
+   *
+   * Function: PostService.likePost(like:any)
+   * Purpose: like a post in the db
+   * Precondition: pass a like object with postid and userid
+   * Postcondition: post is liked and user is added to the list of like activities of the post
+   *
+   */
   likePost(like:any):Observable<any>{
     return this.httpClient.post<Post[]>(this.baseUrl+"posts/like",like,this.httpOptions);
   }
 
+  /***
+   *
+   * Function: PostService.unlikePost(postId:number,userId:number)
+   * Purpose: unlike a post in the db
+   * Precondition: pass postid and userid
+   * Postcondition: post is unliked and user is removed to the list of like activities of the post
+   *
+   */
   unlikePost(postId:number,userId:number):Observable<any>{
     return this.httpClient.delete<Post[]>(this.baseUrl+"posts/unlike/"+postId+"/"+userId,this.httpOptions);
   }

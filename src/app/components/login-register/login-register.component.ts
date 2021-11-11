@@ -112,14 +112,16 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
   //   });
   // }
 
+  // userlogin sends login form value to userservice
   public userLogin() {
     this.userService.userLogin(this.loginForm.value).toPromise().then(data => {
-        console.log(data)
+        //console.log(data)
+        // return token when login is successful, token and userinfo saved in sessionstorage
         this.notify.openToast("User logged in successfully.", "");
         sessionStorage.setItem('token', JSON.stringify(data));
         this.userService.getUserByUsername(this.loginForm.value.username).toPromise()
           .then(data=>{
-            console.log(data)
+            //console.log(data)
             sessionStorage.setItem('currentUser', JSON.stringify(data));
 
           })
@@ -138,8 +140,10 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
     return this.registrationForm.controls;
   }
 
+  // userRegistration sends registration form value to userservice
+
   public userRegistration() {
-    console.log(this.f.dateOfBirth.value);
+    //console.log(this.f.dateOfBirth.value);
     //console.log(this.f.profilepic.value.files[0].name);
     //this.imageSrc= this.imageSrc.split(',')[1];
     //console.log(this.imageSrc);
@@ -149,6 +153,7 @@ export class LoginRegisterComponent implements OnInit, AfterContentChecked {
 
     this.userService.userRegistration(this.user)
       .toPromise().then((data) => {
+        // redirect user to login when registration is successful
         this.notify.openToast("User created successfully.", "");
         window.location.href="login"
       }, error => {
