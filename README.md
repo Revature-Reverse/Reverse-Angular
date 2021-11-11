@@ -70,6 +70,7 @@ This is the AddPostComponent
 ## Getting Started
 - git clone https://github.com/Revature-Reverse/Reverse-Angular.git and move into its folder
 - If you are using a Windows terminal, consider running "Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass" to be to run scripts
+- Run `npm install -g @angular/cli` to install the Angular CLI
 - Run `npm install` to install all dependencies. 
 - Run `ng new project_name` to start a new project. 
 - Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
