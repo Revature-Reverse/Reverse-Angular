@@ -1,4 +1,4 @@
-# Reverse ![logo image](src/assets/favicon/favicon-32x32.png)
+![logo image](readme-pics/Reverse-Brand-LogoWithText.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8. 
 
@@ -20,8 +20,16 @@ Reverse is an emergent social media application that helps Revature employees co
 ### HomepageComponent 
 -> This component contains the home page: the first thing the user sees on the site
 
+![homepage](readme-pics/homepage-before-login.JPG)
+This is the home page before logging in. The user has to regiser and log in before using the service. 
+
 ### LoginRegisterComponent
 -> This component provides a double tabbed form for the user to register and log in in the html template. We styled in with a galaxy background-image with color overlay.Images were used in the clickable tabled with a Revature graphic.
+
+![registration](readme-pics/registration-form.JPG)
+
+### UserComponent
+--> Displays to the logged-in user their posts and related users and the navigation sidebar to edit their profile or add posts or like posts
 
 ### PostComponent & AddPostComponent
 -> This component gives the ability to create and submit verses (posts), to like verses, and to create comments for these posts. 
@@ -39,6 +47,9 @@ Reverse is an emergent social media application that helps Revature employees co
 ### LoadingScreenInterceptor 
 -> Used to implement the loadding screen by intercepting Http requests and using the LoadingScreenService execute the loading screen when transitioning between component screens. 
 
+### TokenInterceptor 
+-> Used to intercept the Http Request to grab the JWT token for authentication and maintaining a log-in session 
+
 ## Getting Started
 - git clone https://github.com/Revature-Reverse/Reverse-Angular.git and move into its folder
 - If you are using a Windows terminal, consider running "Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass" to be to run scripts
@@ -49,3 +60,4 @@ Reverse is an emergent social media application that helps Revature employees co
 - Create a new folder for Gateway repo, move into this folder, and run `git clone https://github.com/Revature-Reverse/Gateway.git`
 - Create a new folder for User-Service repo, move into this folder, and run `git clone https://github.com/Revature-Reverse/User-Service.git`
 - Create a new folder for Post-Service repo, move into this folder, and run `git clone https://github.com/Revature-Reverse/Post-Service.git`
+- Open your favored IDE and run the Discovery, GateWay, User-Service, and Post-Service (in this order)
