@@ -159,7 +159,6 @@ mat-grid-tile:nth-child(2){
   cursor: pointer;
 }
 .commentsection, .commentinputbox{
-  width: 90%;
 }
 .commentsection{
   padding: 20px;
@@ -198,3 +197,12 @@ mat-grid-tile:nth-child(2){
   z-index: 9999;
 }
 
+.commentbuttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.commentfield{
+  width: 100%;
+}

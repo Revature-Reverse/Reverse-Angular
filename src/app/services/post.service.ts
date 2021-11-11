@@ -9,7 +9,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
   providedIn: 'root'
 })
 export class PostService {
-  baseUrl: string = `/backend/`;
+  baseUrl: string = `http://localhost:8000/`;
 
   posts : Post[];
   userToken! : string | null;
@@ -135,5 +135,9 @@ export class PostService {
 
   likePost(like:any):Observable<any>{
     return this.httpClient.post<Post[]>(this.baseUrl+"posts/like",like,this.httpOptions);
+  }
+
+  unlikePost(postId:number,userId:number):Observable<any>{
+    return this.httpClient.delete<Post[]>(this.baseUrl+"posts/unlike/"+postId+"/"+userId,this.httpOptions);
   }
 }

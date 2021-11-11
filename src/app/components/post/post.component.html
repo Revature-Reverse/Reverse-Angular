@@ -48,6 +48,14 @@
               </a>
             </div>
           </div>
+          <div (click)="editpost(post.id)" *ngIf="post.poster.id == current.id">
+            <mat-icon>edit</mat-icon>
+            <span>Edit</span>
+          </div>
+          <div (click)="deletepost(post.id)" *ngIf="post.poster.id == current.id">
+            <mat-icon>delete</mat-icon>
+            <span>Delete</span>
+          </div>
         </div>
 
       </div>
@@ -61,7 +69,7 @@
         </div>
         <div class="commentsection" *ngIf="commentbox">
           <form [formGroup]="commentform" >
-          <mat-form-field>
+          <mat-form-field class="commentfield">
             <mat-label>Textarea</mat-label>
             <textarea matInput class="commentinputbox" formControlName="commentbody"></textarea>
           </mat-form-field>
@@ -69,7 +77,15 @@
           <button mat-raised-button (click)="submitcomment()" [disabled]="!commentform.valid">submit</button>
         </div>
         <div *ngFor="let item of post.comments" class="comment">
-          <h2 class="touserprofile" routerLink="/users/{{item.commenter.id}}"><span class="commentername">{{item.commenter.firstName}} </span><span class="commentername">{{item.commenter.lastName}} </span><span class="commenterusername">@{{item.commenter.username}} </span></h2>
+          <div class="commentbuttons">
+            <h2 class="touserprofile" routerLink="/users/{{item.commenter.id}}"><span class="commentername">{{item.commenter.firstName}} </span><span class="commentername">{{item.commenter.lastName}} </span><span class="commenterusername">@{{item.commenter.username}} </span></h2>
+
+            <div *ngIf="item.commenter.id == current.id">
+              <button (click)="deletecomment(item.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
           <p class="commentbody">{{item.message}}</p>
 
         </div>

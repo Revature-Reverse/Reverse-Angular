@@ -10,7 +10,9 @@ textarea {
 .add-post__container {
   width: 90%;
 }
-
+.imgnamefield{
+  width: 100%;
+}
 .add-post__container h1 {
   font-family: "Futura";
   font-weight: bold;

@@ -11,7 +11,7 @@
 
 }
 
-.post-content
+.postcontent
 {
 
   margin: 10px;
@@ -24,6 +24,7 @@
   width: 100%;
   border-radius: 10px;
   background:#f7f7f7;
+  margin-bottom: 20px;
 }
 
 .time-post-container
@@ -36,7 +37,11 @@
   display: flex;
 
 }
-
+.postmain{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
 .dateTime
 {
   display: flex;
@@ -73,6 +78,8 @@
 {
   display: flex;
   justify-content: space-between;
+  padding: 20px;
+
 }
 
 .open-in-full-with-text, .share
@@ -106,3 +113,16 @@
 {
   color: var(--orange);
 }
+
+.post-title{
+  font-family: Futura;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.post-body,.dateTime,.icon-container a{
+  font-family: Futura;
+  font-weight: normal;
+}
+
+

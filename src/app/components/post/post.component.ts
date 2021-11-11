@@ -8,6 +8,7 @@ import {ActivatedRoute} from "@angular/router";
 import {User} from "../../classes/user";
 import {CommentService} from "../../services/comment.service";
 import {Comment} from "../../classes/Comment";
+import {NotificationService} from "../../services/notification.service";
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -19,6 +20,8 @@ export class PostComponent implements OnInit {
   showFlag: any = false;
   post?: any;
   user?: User;
+  current?: User;
+
   content?:any;
   likedpost?:boolean;
   commentbox:boolean=true;
@@ -32,13 +35,17 @@ export class PostComponent implements OnInit {
               private postService:PostService,
               private userService:UserService,
               private commentService:CommentService,
-              private fb: FormBuilder,) {
+              private fb: FormBuilder,
+              private notify: NotificationService) {
   }
 
   ngOnInit(): void {
+    this.current=this.userService.currentUserValue;
     this.activatedRoute.params.subscribe(params => {
       this.postService.getPost(parseInt(params.id)).toPromise().then(post => {
         this.post = post
+        this.post.comments = post.comments.sort(((a, b) => (a.created < b.created) ? 1 : -1))
+
         this.postId = post.id
         this.postimages = post.images
         console.log(post.likes)
@@ -88,10 +95,14 @@ export class PostComponent implements OnInit {
       message:this.f.commentbody.value,
       postId:this.post.id
     }
-    console.log(comment)
+
+      console.log(comment)
     this.commentService.createComment(comment).toPromise().then(
       resp=>{
-        console.log(resp)
+        this.postService.getPost(parseInt(this.post.id)).toPromise().then(post => {
+          this.post = post
+          this.post.comments = post.comments.sort(((a, b) => (a.created < b.created) ? 1 : -1))
+        });
       }
     ),((error: any)=>console.log(error));
   }
@@ -103,11 +114,52 @@ export class PostComponent implements OnInit {
           postId: this.postId
         }
     }
+
     console.log(like)
-    this.postService.likePost(like).toPromise().then(
+    if(!this.likedpost){
+      this.postService.likePost(like).toPromise().then(
+        resp=>{
+          this.postService.getPost(parseInt(this.post.id)).toPromise().then(post => {
+            this.post = post
+            this.likedpost= true
+          });
+        }
+      ),((error: any)=>console.log(error));
+    } else{
+      this.postService.unlikePost(this.postId,this.current.id).toPromise().then(
+        resp=>{
+          this.postService.getPost(parseInt(this.post.id)).toPromise().then(post => {
+            this.post = post
+            this.likedpost= false
+
+          });
+        }
+      ),((error: any)=>console.log(error));
+    }
+  }
+  deletecomment(id:number){
+    this.commentService.deleteComment(id).toPromise().then(
       resp=>{
-        console.log(resp)
+        this.notify.openToast("Successfully deleted comment" ,"")
+
+        this.postService.getPost(parseInt(this.post.id)).toPromise().then(post => {
+          this.post = post
+          this.post.comments = post.comments.sort(((a, b) => (a.created < b.created) ? 1 : -1))
+        });
       }
     ),((error: any)=>console.log(error));
+  }
+  deletepost(postid:number){
+    this.postService.deletePost(postid).toPromise().then(
+      resp=>{
+        this.notify.openToast("Post deleted successfully.", "");
+        setTimeout(() =>{
+          window.location.href="users/"+this.current.id;
+        },1000);
+      }
+    ),((error: any)=>console.log(error));
+  }
+  editpost(postid:number){
+    window.location.href="posts/"+postid+"/edit";
   }
 }

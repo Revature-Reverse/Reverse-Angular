@@ -70,6 +70,10 @@ export class AddPostComponent implements OnInit {
     .then(
       (res: any) => {
         console.log(res);
+        this.notify.openToast('Post successfully created.', "");
+        setTimeout(() =>{
+          window.location.href="home";
+        },1000);
       },
       (error) => {
         this.notify.openToast('Please fill out all required fields.', "");
