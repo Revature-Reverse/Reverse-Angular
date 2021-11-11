@@ -21,6 +21,7 @@ export class HomepageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // get recent posts from backend
     this.postService.getRecentPosts().toPromise().then(dbPosts => {
       this.posts = dbPosts
       console.log(dbPosts)
