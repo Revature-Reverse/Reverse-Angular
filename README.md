@@ -1,4 +1,4 @@
-# Reverse `![logo image](src/assets/favicon/favicon-32x32.png)`
+# Reverse ![logo image](src/assets/favicon/favicon-32x32.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8. 
 
