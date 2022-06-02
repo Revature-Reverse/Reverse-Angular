@@ -12,7 +12,7 @@ pipeline {
         }
         steps { 
             echo 'Install stage'
-            // sh 'npm install'
+            sh 'npm install'
         }
     }
     stage('Unit Testing') {
