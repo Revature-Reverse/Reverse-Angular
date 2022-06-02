@@ -56,8 +56,8 @@ pipeline {
         steps{
             script{
                 echo 'Docker Deliver to Artifact Registry stage'
-                 sh "docker tag project3 us-central1-docker.pkg.dev/devopssre-346918/project-3/project3"
-                 sh "docker push us-central1-docker.pkg.dev/devopssre-346918/project-3/project3"
+                 sh "sudo docker tag project3 us-central1-docker.pkg.dev/devopssre-346918/project-3/project3"
+                 sh "sudo docker push us-central1-docker.pkg.dev/devopssre-346918/project-3/project3"
                 //     dockerImage.push("latest")
                 }
         }
