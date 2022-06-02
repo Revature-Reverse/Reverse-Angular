@@ -6,15 +6,6 @@ pipeline {
   }
   agent any
   stages {
-    stage('Install') {
-        when {
-            anyOf {branch 'ft_*'; branch 'bg_*'; branch 'master'}
-        }
-        steps {
-            echo 'Install stage'
-            sh 'npm install'
-        }
-    }
     stage('Unit Testing') {
         when {
             anyOf {branch 'ft_*'; branch 'bg_*'}
