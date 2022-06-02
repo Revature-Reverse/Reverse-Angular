@@ -42,7 +42,7 @@ pipeline {
         steps{
             script {
                 echo 'Docker Image stage'
-                sh "docker build -t project3 ."
+                //sh "docker build -t project3 ."
                 // dockerImage = docker.build "$registry:$currentBuild.number"
             }
         }
