@@ -10,7 +10,7 @@ pipeline {
         when {
             anyOf {branch 'ft_*'; branch 'bg_*'; branch 'master'}
         }
-        steps { 
+        steps {
             echo 'Install stage'
             sh 'npm install'
         }
@@ -20,7 +20,7 @@ pipeline {
             anyOf {branch 'ft_*'; branch 'bg_*'}
         }
         steps {
-            echo 'Unit Testing stage' 
+            echo 'Unit Testing stage'
             // TO UPDATE - NOT MAVEN, TESTING?
             // withMaven {
             //     sh 'mvn test'
@@ -39,7 +39,7 @@ pipeline {
             // TO UPDATE - NOT MAVEN
             // withMaven {
             //     sh 'mvn package -DskipTests'
-            // }  
+            // }
         }
     }
     stage('Docker Image') {
@@ -51,7 +51,7 @@ pipeline {
         steps{
             script {
                 echo 'Docker Image stage'
-                // echo "$registry:$currentBuild.number"
+                sh "docker build -t project3 ."
                 // dockerImage = docker.build "$registry:$currentBuild.number"
             }
         }
@@ -65,8 +65,8 @@ pipeline {
         steps{
             script{
                 echo 'Docker Deliver to Artifact Registry stage'
-                // docker.withRegistry("", dockerHubCreds) {
-                //     dockerImage.push("$currentBuild.number")
+                 sh "docker tag project3 us-central1-docker.pkg.dev/devopssre-346918/project-3/project3"
+                 sh "docker push us-central1-docker.pkg.dev/devopssre-346918/project-3/project3"
                 //     dockerImage.push("latest")
                 }
         }
