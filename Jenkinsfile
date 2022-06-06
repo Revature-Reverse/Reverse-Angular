@@ -3,6 +3,10 @@ pipeline {
     registry = '' // TO UPDATE - Using Google Artifact Registry API
     dockerHubCreds = 'docker_hub' // TO CHANGE - Using Google Artifact Registry API
     dockerImage = '' // TO UPDATE - Using Google Artifact Registry API
+    REGISTRY_LOCATION = 'us-central1'
+    REPOSITORY = 'project-3'
+    PROJECT_ID = 'devopssre-346918'
+
   }
   agent any
   stages {
@@ -42,7 +46,7 @@ pipeline {
         steps{
             script {
                 echo 'Docker Image stage'
-                //sh "docker build -t project3 ."
+                sh "docker build -t reverse-angular ."
                 // dockerImage = docker.build "$registry:$currentBuild.number"
             }
         }
@@ -56,8 +60,10 @@ pipeline {
         steps{
             script{
                 echo 'Docker Deliver to Artifact Registry stage'
-                 sh "docker tag project3 us-central1-docker.pkg.dev/devopssre-346918/project-3/project3"
-                 sh "docker push us-central1-docker.pkg.dev/devopssre-346918/project-3/project3"
+                 sh "docker tag reverse-angular ${REGISTRY_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/reverse-angular"
+                 sh "docker push ${REGISTRY_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/reverse-angular"
+                 //sh "docker tag project3 us-central1-docker.pkg.dev/devopssre-346918/project-3/project3"
+                 //sh "docker push us-central1-docker.pkg.dev/devopssre-346918/project-3/project3"
                 //     dockerImage.push("latest")
                 }
         }
