@@ -62,7 +62,7 @@ This is the AddPostComponent
 
 ## Interceptors 
 ### LoadingScreenInterceptor 
--> Used to implement the loadding screen by intercepting Http requests and using the LoadingScreenService execute the loading screen when transitioning between component screens. 
+-> Used to implement the loading screen by intercepting Http requests and using the LoadingScreenService execute the loading screen when transitioning between component screens. 
 
 ### TokenInterceptor 
 -> Used to intercept the Http Request to grab the JWT token for authentication and maintaining a log-in session 
